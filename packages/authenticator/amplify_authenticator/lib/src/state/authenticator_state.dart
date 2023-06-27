@@ -6,7 +6,6 @@ import 'package:amplify_authenticator/amplify_authenticator.dart';
 import 'package:amplify_authenticator/src/blocs/auth/auth_bloc.dart';
 import 'package:amplify_authenticator/src/blocs/auth/auth_data.dart';
 import 'package:amplify_authenticator/src/state/auth_state.dart';
-import 'package:amplify_authenticator/src/utils/country_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -20,7 +19,7 @@ typedef BlocEventPredicate = bool Function(AuthState state);
 ///
 /// Intended to be used within custom UIs for the Amplify Authenticator.
 class AuthenticatorState extends ChangeNotifier {
-  AuthenticatorState(this._authBloc) {
+  AuthenticatorState(this._authBloc, {this.initialCountry = Country.us}) {
     // Listen to step changes to know when to clear the form. Calling `clean`
     // from the forms' dispose method is unreliable since it may be called after
     // the transitioning form's first build is called.
@@ -185,7 +184,9 @@ class AuthenticatorState extends ChangeNotifier {
     notifyListeners();
   }
 
-  Country _country = initialCountryCode;
+  // Country _country = initialCountryCode;
+  late Country _country = initialCountry;
+  Country initialCountry;
 
   final Map<CognitoUserAttributeKey, String> authAttributes = {};
 
