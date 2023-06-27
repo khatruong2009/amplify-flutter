@@ -489,8 +489,10 @@ class _AuthenticatorState extends State<Authenticator> {
       preferPrivateSession: widget.preferPrivateSession,
       initialStep: widget.initialStep,
     )..add(const AuthLoad());
-    _authenticatorState = AuthenticatorState(_stateMachineBloc,
-        initialCountry: widget.defaultDialCode);
+    _authenticatorState = AuthenticatorState(
+      _stateMachineBloc,
+      defaultDialCode: widget.defaultDialCode,
+    );
     _subscribeToExceptions();
     _subscribeToInfoMessages();
     _subscribeToSuccessEvents();
