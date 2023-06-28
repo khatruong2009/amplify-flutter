@@ -184,7 +184,6 @@ class AuthenticatorState extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Country _country = initialCountryCode;
   late Country _country = defaultDialCode;
   Country defaultDialCode;
 
