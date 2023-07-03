@@ -19,7 +19,7 @@ typedef BlocEventPredicate = bool Function(AuthState state);
 ///
 /// Intended to be used within custom UIs for the Amplify Authenticator.
 class AuthenticatorState extends ChangeNotifier {
-  AuthenticatorState(this._authBloc, {this.defaultDialCode = Country.us}) {
+  AuthenticatorState(this._authBloc, {this.defaultDialCode = CountryCode.us}) {
     // Listen to step changes to know when to clear the form. Calling `clean`
     // from the forms' dispose method is unreliable since it may be called after
     // the transitioning form's first build is called.
@@ -167,9 +167,9 @@ class AuthenticatorState extends ChangeNotifier {
   String _newPassword = '';
 
   /// The value for the country code portion of the phone number field
-  Country get country => _country;
+  CountryCode get country => _country;
 
-  set country(Country newCountry) {
+  set country(CountryCode newCountry) {
     final oldCountry = _country;
     final currentPhoneNumber =
         authAttributes[CognitoUserAttributeKey.phoneNumber];
@@ -184,8 +184,8 @@ class AuthenticatorState extends ChangeNotifier {
     notifyListeners();
   }
 
-  late Country _country = defaultDialCode;
-  Country defaultDialCode;
+  late CountryCode _country = defaultDialCode;
+  CountryCode defaultDialCode;
 
   final Map<CognitoUserAttributeKey, String> authAttributes = {};
 
