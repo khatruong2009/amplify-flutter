@@ -93,7 +93,6 @@ class _MyAppState extends State<MyApp> {
     // the user is signed in, the Authenticator will use your MaterialApp's
     // navigator to show the correct screen.
     return Authenticator(
-      defaultDialCode: Country.us,
       stringResolver: stringResolver,
       onException: (exception) {
         print('[ERROR]: $exception');
