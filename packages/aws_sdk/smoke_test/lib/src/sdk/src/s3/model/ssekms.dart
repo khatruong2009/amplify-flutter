@@ -24,24 +24,24 @@ abstract class Ssekms
 
   const Ssekms._();
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<_i2.SmithySerializer<Ssekms>> serializers = [
     SsekmsRestXmlSerializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(SsekmsBuilder b) {}
 
-  /// Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed key to use for encrypting inventory reports.
+  /// Specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key to use for encrypting inventory reports.
   String get keyId;
   @override
   List<Object?> get props => [keyId];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('Ssekms');
-    helper.add(
-      'keyId',
-      '***SENSITIVE***',
-    );
+    final helper = newBuiltValueToStringHelper('Ssekms')
+      ..add(
+        'keyId',
+        '***SENSITIVE***',
+      );
     return helper.toString();
   }
 }

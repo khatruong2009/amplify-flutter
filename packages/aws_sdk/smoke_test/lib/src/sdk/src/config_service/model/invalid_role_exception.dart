@@ -10,18 +10,18 @@ import 'package:smithy/smithy.dart' as _i2;
 
 part 'invalid_role_exception.g.dart';
 
-/// You have provided a null or empty role ARN.
+/// You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the configuration recorder.
 abstract class InvalidRoleException
     with _i1.AWSEquatable<InvalidRoleException>
     implements
         Built<InvalidRoleException, InvalidRoleExceptionBuilder>,
         _i2.SmithyHttpException {
-  /// You have provided a null or empty role ARN.
+  /// You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the configuration recorder.
   factory InvalidRoleException({String? message}) {
     return _$InvalidRoleException._(message: message);
   }
 
-  /// You have provided a null or empty role ARN.
+  /// You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the configuration recorder.
   factory InvalidRoleException.build(
           [void Function(InvalidRoleExceptionBuilder) updates]) =
       _$InvalidRoleException;
@@ -38,7 +38,7 @@ abstract class InvalidRoleException
         b.headers = response.headers;
       });
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<_i2.SmithySerializer<InvalidRoleException>> serializers = [
     InvalidRoleExceptionAwsJson11Serializer()
   ];
 
@@ -67,11 +67,11 @@ abstract class InvalidRoleException
   List<Object?> get props => [message];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('InvalidRoleException');
-    helper.add(
-      'message',
-      message,
-    );
+    final helper = newBuiltValueToStringHelper('InvalidRoleException')
+      ..add(
+        'message',
+        message,
+      );
     return helper.toString();
   }
 }

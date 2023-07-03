@@ -22,6 +22,8 @@ abstract class AggregateConformancePackComplianceCount
     int? compliantConformancePackCount,
     int? nonCompliantConformancePackCount,
   }) {
+    compliantConformancePackCount ??= 0;
+    nonCompliantConformancePackCount ??= 0;
     return _$AggregateConformancePackComplianceCount._(
       compliantConformancePackCount: compliantConformancePackCount,
       nonCompliantConformancePackCount: nonCompliantConformancePackCount,
@@ -35,18 +37,23 @@ abstract class AggregateConformancePackComplianceCount
 
   const AggregateConformancePackComplianceCount._();
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<
+          _i2.SmithySerializer<AggregateConformancePackComplianceCount>>
+      serializers = [
     AggregateConformancePackComplianceCountAwsJson11Serializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _init(AggregateConformancePackComplianceCountBuilder b) {}
+  static void _init(AggregateConformancePackComplianceCountBuilder b) {
+    b.compliantConformancePackCount = 0;
+    b.nonCompliantConformancePackCount = 0;
+  }
 
   /// Number of compliant conformance packs.
-  int? get compliantConformancePackCount;
+  int get compliantConformancePackCount;
 
   /// Number of noncompliant conformance packs.
-  int? get nonCompliantConformancePackCount;
+  int get nonCompliantConformancePackCount;
   @override
   List<Object?> get props => [
         compliantConformancePackCount,
@@ -55,15 +62,15 @@ abstract class AggregateConformancePackComplianceCount
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('AggregateConformancePackComplianceCount');
-    helper.add(
-      'compliantConformancePackCount',
-      compliantConformancePackCount,
-    );
-    helper.add(
-      'nonCompliantConformancePackCount',
-      nonCompliantConformancePackCount,
-    );
+        newBuiltValueToStringHelper('AggregateConformancePackComplianceCount')
+          ..add(
+            'compliantConformancePackCount',
+            compliantConformancePackCount,
+          )
+          ..add(
+            'nonCompliantConformancePackCount',
+            nonCompliantConformancePackCount,
+          );
     return helper.toString();
   }
 }
@@ -128,22 +135,18 @@ class AggregateConformancePackComplianceCountAwsJson11Serializer extends _i2
       :compliantConformancePackCount,
       :nonCompliantConformancePackCount
     ) = object;
-    if (compliantConformancePackCount != null) {
-      result$
-        ..add('CompliantConformancePackCount')
-        ..add(serializers.serialize(
-          compliantConformancePackCount,
-          specifiedType: const FullType(int),
-        ));
-    }
-    if (nonCompliantConformancePackCount != null) {
-      result$
-        ..add('NonCompliantConformancePackCount')
-        ..add(serializers.serialize(
-          nonCompliantConformancePackCount,
-          specifiedType: const FullType(int),
-        ));
-    }
+    result$.addAll([
+      'CompliantConformancePackCount',
+      serializers.serialize(
+        compliantConformancePackCount,
+        specifiedType: const FullType(int),
+      ),
+      'NonCompliantConformancePackCount',
+      serializers.serialize(
+        nonCompliantConformancePackCount,
+        specifiedType: const FullType(int),
+      ),
+    ]);
     return result$;
   }
 }

@@ -47,7 +47,9 @@ abstract class ReplicaGlobalSecondaryIndexAutoScalingDescription
 
   const ReplicaGlobalSecondaryIndexAutoScalingDescription._();
 
-  static const List<_i4.SmithySerializer> serializers = [
+  static const List<
+      _i4.SmithySerializer<
+          ReplicaGlobalSecondaryIndexAutoScalingDescription>> serializers = [
     ReplicaGlobalSecondaryIndexAutoScalingDescriptionAwsJson10Serializer()
   ];
 
@@ -62,7 +64,7 @@ abstract class ReplicaGlobalSecondaryIndexAutoScalingDescription
   ///
   /// *   `CREATING` \- The index is being created.
   ///
-  /// *   `UPDATING` \- The index is being updated.
+  /// *   `UPDATING` \- The table/index configuration is being updated. The table/index remains available for data operations when `UPDATING`
   ///
   /// *   `DELETING` \- The index is being deleted.
   ///
@@ -86,23 +88,23 @@ abstract class ReplicaGlobalSecondaryIndexAutoScalingDescription
   @override
   String toString() {
     final helper = newBuiltValueToStringHelper(
-        'ReplicaGlobalSecondaryIndexAutoScalingDescription');
-    helper.add(
-      'indexName',
-      indexName,
-    );
-    helper.add(
-      'indexStatus',
-      indexStatus,
-    );
-    helper.add(
-      'provisionedReadCapacityAutoScalingSettings',
-      provisionedReadCapacityAutoScalingSettings,
-    );
-    helper.add(
-      'provisionedWriteCapacityAutoScalingSettings',
-      provisionedWriteCapacityAutoScalingSettings,
-    );
+        'ReplicaGlobalSecondaryIndexAutoScalingDescription')
+      ..add(
+        'indexName',
+        indexName,
+      )
+      ..add(
+        'indexStatus',
+        indexStatus,
+      )
+      ..add(
+        'provisionedReadCapacityAutoScalingSettings',
+        provisionedReadCapacityAutoScalingSettings,
+      )
+      ..add(
+        'provisionedWriteCapacityAutoScalingSettings',
+        provisionedWriteCapacityAutoScalingSettings,
+      );
     return helper.toString();
   }
 }

@@ -45,7 +45,9 @@ abstract class OrganizationConformancePackDetailedStatus
 
   const OrganizationConformancePackDetailedStatus._();
 
-  static const List<_i3.SmithySerializer> serializers = [
+  static const List<
+          _i3.SmithySerializer<OrganizationConformancePackDetailedStatus>>
+      serializers = [
     OrganizationConformancePackDetailedStatusAwsJson11Serializer()
   ];
 
@@ -58,7 +60,7 @@ abstract class OrganizationConformancePackDetailedStatus
   /// The name of conformance pack deployed in the member account.
   String get conformancePackName;
 
-  /// Indicates deployment status for conformance pack in a member account. When master account calls `PutOrganizationConformancePack` action for the first time, conformance pack status is created in the member account. When master account calls `PutOrganizationConformancePack` action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes `OrganizationConformancePack` and disables service access for `config-multiaccountsetup.amazonaws.com`.
+  /// Indicates deployment status for conformance pack in a member account. When management account calls `PutOrganizationConformancePack` action for the first time, conformance pack status is created in the member account. When management account calls `PutOrganizationConformancePack` action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the management account deletes `OrganizationConformancePack` and disables service access for `config-multiaccountsetup.amazonaws.com`.
   ///
   /// Config sets the state of the conformance pack to:
   ///
@@ -100,32 +102,32 @@ abstract class OrganizationConformancePackDetailedStatus
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper(
-        'OrganizationConformancePackDetailedStatus');
-    helper.add(
-      'accountId',
-      accountId,
-    );
-    helper.add(
-      'conformancePackName',
-      conformancePackName,
-    );
-    helper.add(
-      'status',
-      status,
-    );
-    helper.add(
-      'errorCode',
-      errorCode,
-    );
-    helper.add(
-      'errorMessage',
-      errorMessage,
-    );
-    helper.add(
-      'lastUpdateTime',
-      lastUpdateTime,
-    );
+    final helper =
+        newBuiltValueToStringHelper('OrganizationConformancePackDetailedStatus')
+          ..add(
+            'accountId',
+            accountId,
+          )
+          ..add(
+            'conformancePackName',
+            conformancePackName,
+          )
+          ..add(
+            'status',
+            status,
+          )
+          ..add(
+            'errorCode',
+            errorCode,
+          )
+          ..add(
+            'errorMessage',
+            errorMessage,
+          )
+          ..add(
+            'lastUpdateTime',
+            lastUpdateTime,
+          );
     return helper.toString();
   }
 }

@@ -60,9 +60,8 @@ abstract class PutBucketMetricsConfigurationRequest
         }
       });
 
-  static const List<_i1.SmithySerializer> serializers = [
-    PutBucketMetricsConfigurationRequestRestXmlSerializer()
-  ];
+  static const List<_i1.SmithySerializer<_i2.MetricsConfiguration>>
+      serializers = [PutBucketMetricsConfigurationRequestRestXmlSerializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(PutBucketMetricsConfigurationRequestBuilder b) {}
@@ -70,7 +69,7 @@ abstract class PutBucketMetricsConfigurationRequest
   /// The name of the bucket for which the metrics configuration is set.
   String get bucket;
 
-  /// The ID used to identify the metrics configuration.
+  /// The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.
   String get id;
 
   /// Specifies the metrics configuration.
@@ -102,23 +101,23 @@ abstract class PutBucketMetricsConfigurationRequest
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('PutBucketMetricsConfigurationRequest');
-    helper.add(
-      'bucket',
-      bucket,
-    );
-    helper.add(
-      'id',
-      id,
-    );
-    helper.add(
-      'metricsConfiguration',
-      metricsConfiguration,
-    );
-    helper.add(
-      'expectedBucketOwner',
-      expectedBucketOwner,
-    );
+        newBuiltValueToStringHelper('PutBucketMetricsConfigurationRequest')
+          ..add(
+            'bucket',
+            bucket,
+          )
+          ..add(
+            'id',
+            id,
+          )
+          ..add(
+            'metricsConfiguration',
+            metricsConfiguration,
+          )
+          ..add(
+            'expectedBucketOwner',
+            expectedBucketOwner,
+          );
     return helper.toString();
   }
 }

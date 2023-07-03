@@ -1,4 +1,5 @@
 // Generated with smithy-dart 0.3.1. DO NOT MODIFY.
+// ignore_for_file: avoid_unused_constructor_parameters,deprecated_member_use_from_same_package,non_constant_identifier_names
 
 library amplify_auth_cognito_dart.cognito_identity_provider.operation.delete_user_operation; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
@@ -33,10 +34,14 @@ import 'package:aws_signature_v4/aws_signature_v4.dart' as _i3;
 import 'package:smithy/smithy.dart' as _i1;
 import 'package:smithy_aws/smithy_aws.dart' as _i4;
 
-/// Allows a user to delete himself or herself.
+/// Allows a user to delete their own user profile.
+///
+/// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
     _i2.DeleteUserRequest, _i1.Unit, _i1.Unit> {
-  /// Allows a user to delete himself or herself.
+  /// Allows a user to delete their own user profile.
+  ///
+  /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   DeleteUserOperation({
     required String region,
     Uri? baseUri,
@@ -111,7 +116,7 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
       payload;
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i8.ForbiddenException, _i8.ForbiddenException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ForbiddenException',
@@ -121,7 +126,7 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
           statusCode: 403,
           builder: _i8.ForbiddenException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.InternalErrorException, _i9.InternalErrorException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InternalErrorException',
@@ -130,7 +135,8 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
           _i9.InternalErrorException,
           builder: _i9.InternalErrorException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.InvalidParameterException,
+            _i10.InvalidParameterException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidParameterException',
@@ -140,7 +146,8 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
           statusCode: 400,
           builder: _i10.InvalidParameterException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i11.NotAuthorizedException,
+            _i11.NotAuthorizedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'NotAuthorizedException',
@@ -150,7 +157,8 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
           statusCode: 403,
           builder: _i11.NotAuthorizedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i12.PasswordResetRequiredException,
+            _i12.PasswordResetRequiredException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'PasswordResetRequiredException',
@@ -160,7 +168,8 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
           statusCode: 400,
           builder: _i12.PasswordResetRequiredException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i13.ResourceNotFoundException,
+            _i13.ResourceNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ResourceNotFoundException',
@@ -170,7 +179,8 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
           statusCode: 404,
           builder: _i13.ResourceNotFoundException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i14.TooManyRequestsException,
+            _i14.TooManyRequestsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'TooManyRequestsException',
@@ -180,7 +190,8 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
           statusCode: 429,
           builder: _i14.TooManyRequestsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i15.UserNotConfirmedException,
+            _i15.UserNotConfirmedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotConfirmedException',
@@ -190,7 +201,7 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
           statusCode: 400,
           builder: _i15.UserNotConfirmedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i16.UserNotFoundException, _i16.UserNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotFoundException',
@@ -223,7 +234,7 @@ class DeleteUserOperation extends _i1.HttpOperation<_i2.DeleteUserRequest,
       ),
       zoneValues: {
         ...?_awsEndpoint.credentialScope?.zoneValues,
-        ...{_i6.AWSHeaders.sdkInvocationId: _i6.uuid(secure: true)}
+        ...{_i6.AWSHeaders.sdkInvocationId: _i6.uuid(secure: true)},
       },
     );
   }

@@ -25,6 +25,7 @@ abstract class ImportRestApiRequest
     Map<String, String>? parameters,
     required _i2.Uint8List body,
   }) {
+    failOnWarnings ??= false;
     return _$ImportRestApiRequest._(
       failOnWarnings: failOnWarnings,
       parameters: parameters == null ? null : _i4.BuiltMap(parameters),
@@ -52,15 +53,17 @@ abstract class ImportRestApiRequest
         }
       });
 
-  static const List<_i1.SmithySerializer> serializers = [
+  static const List<_i1.SmithySerializer<_i2.Uint8List>> serializers = [
     ImportRestApiRequestRestJson1Serializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _init(ImportRestApiRequestBuilder b) {}
+  static void _init(ImportRestApiRequestBuilder b) {
+    b.failOnWarnings = false;
+  }
 
   /// A query parameter to indicate whether to rollback the API creation (`true`) or not (`false`) when a warning is encountered. The default value is `false`.
-  bool? get failOnWarnings;
+  bool get failOnWarnings;
 
   /// A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.
   ///
@@ -87,19 +90,19 @@ abstract class ImportRestApiRequest
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('ImportRestApiRequest');
-    helper.add(
-      'failOnWarnings',
-      failOnWarnings,
-    );
-    helper.add(
-      'parameters',
-      parameters,
-    );
-    helper.add(
-      'body',
-      body,
-    );
+    final helper = newBuiltValueToStringHelper('ImportRestApiRequest')
+      ..add(
+        'failOnWarnings',
+        failOnWarnings,
+      )
+      ..add(
+        'parameters',
+        parameters,
+      )
+      ..add(
+        'body',
+        body,
+      );
     return helper.toString();
   }
 }

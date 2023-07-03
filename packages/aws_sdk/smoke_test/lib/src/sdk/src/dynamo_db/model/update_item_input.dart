@@ -78,7 +78,7 @@ abstract class UpdateItemInput
   }) =>
       payload;
 
-  static const List<_i1.SmithySerializer> serializers = [
+  static const List<_i1.SmithySerializer<UpdateItemInput>> serializers = [
     UpdateItemInputAwsJson10Serializer()
   ];
 
@@ -102,7 +102,7 @@ abstract class UpdateItemInput
   /// This is a legacy parameter. Use `ConditionExpression` instead. For more information, see [ConditionalOperator](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html) in the _Amazon DynamoDB Developer Guide_.
   _i6.ConditionalOperator? get conditionalOperator;
 
-  /// Use `ReturnValues` if you want to get the item attributes as they appear before or after they are updated. For `UpdateItem`, the valid values are:
+  /// Use `ReturnValues` if you want to get the item attributes as they appear before or after they are successfully updated. For `UpdateItem`, the valid values are:
   ///
   /// *   `NONE` \- If `ReturnValues` is not specified, or if its value is `NONE`, then nothing is returned. (This setting is the default for `ReturnValues`.)
   ///
@@ -258,55 +258,55 @@ abstract class UpdateItemInput
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('UpdateItemInput');
-    helper.add(
-      'tableName',
-      tableName,
-    );
-    helper.add(
-      'key',
-      key,
-    );
-    helper.add(
-      'attributeUpdates',
-      attributeUpdates,
-    );
-    helper.add(
-      'expected',
-      expected,
-    );
-    helper.add(
-      'conditionalOperator',
-      conditionalOperator,
-    );
-    helper.add(
-      'returnValues',
-      returnValues,
-    );
-    helper.add(
-      'returnConsumedCapacity',
-      returnConsumedCapacity,
-    );
-    helper.add(
-      'returnItemCollectionMetrics',
-      returnItemCollectionMetrics,
-    );
-    helper.add(
-      'updateExpression',
-      updateExpression,
-    );
-    helper.add(
-      'conditionExpression',
-      conditionExpression,
-    );
-    helper.add(
-      'expressionAttributeNames',
-      expressionAttributeNames,
-    );
-    helper.add(
-      'expressionAttributeValues',
-      expressionAttributeValues,
-    );
+    final helper = newBuiltValueToStringHelper('UpdateItemInput')
+      ..add(
+        'tableName',
+        tableName,
+      )
+      ..add(
+        'key',
+        key,
+      )
+      ..add(
+        'attributeUpdates',
+        attributeUpdates,
+      )
+      ..add(
+        'expected',
+        expected,
+      )
+      ..add(
+        'conditionalOperator',
+        conditionalOperator,
+      )
+      ..add(
+        'returnValues',
+        returnValues,
+      )
+      ..add(
+        'returnConsumedCapacity',
+        returnConsumedCapacity,
+      )
+      ..add(
+        'returnItemCollectionMetrics',
+        returnItemCollectionMetrics,
+      )
+      ..add(
+        'updateExpression',
+        updateExpression,
+      )
+      ..add(
+        'conditionExpression',
+        conditionExpression,
+      )
+      ..add(
+        'expressionAttributeNames',
+        expressionAttributeNames,
+      )
+      ..add(
+        'expressionAttributeValues',
+        expressionAttributeValues,
+      );
     return helper.toString();
   }
 }

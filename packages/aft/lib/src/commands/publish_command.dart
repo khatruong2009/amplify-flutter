@@ -264,11 +264,16 @@ Future<void> runBuildRunner(
   PackageInfo package, {
   required AWSLogger logger,
   required bool verbose,
+  bool force = false,
 }) async {
-  if (!package.needsBuildRunner) {
+  if (!package.needsBuildRunner && !force) {
     return;
   }
-  logger.info('Running build_runner for ${package.name}...');
+  final dartTool = Directory(p.join(package.path, '.dart_tool'));
+  if (!dartTool.existsSync()) {
+    await runPub(package.flavor, ['get'], package);
+  }
+  logger.debug('Running build_runner for ${package.name}...');
   final buildRunnerCmd = await Process.start(
     package.flavor.entrypoint,
     [

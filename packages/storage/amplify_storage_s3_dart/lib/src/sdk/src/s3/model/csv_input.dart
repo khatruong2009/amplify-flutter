@@ -42,7 +42,7 @@ abstract class CsvInput
 
   const CsvInput._();
 
-  static const List<_i3.SmithySerializer> serializers = [
+  static const List<_i3.SmithySerializer<CsvInput>> serializers = [
     CsvInputRestXmlSerializer()
   ];
 
@@ -58,7 +58,9 @@ abstract class CsvInput
   /// *   `Use`: First line is a header, and you can use the header value to identify a column in an expression (`SELECT "name" FROM OBJECT`).
   _i2.FileHeaderInfo? get fileHeaderInfo;
 
-  /// A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.
+  /// A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line. The default character is `#`.
+  ///
+  /// Default: `#`
   String? get comments;
 
   /// A single character used for escaping the quotation mark character inside an already escaped value. For example, the value `""" a , b """` is parsed as `" a , b "`.
@@ -93,35 +95,35 @@ abstract class CsvInput
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('CsvInput');
-    helper.add(
-      'fileHeaderInfo',
-      fileHeaderInfo,
-    );
-    helper.add(
-      'comments',
-      comments,
-    );
-    helper.add(
-      'quoteEscapeCharacter',
-      quoteEscapeCharacter,
-    );
-    helper.add(
-      'recordDelimiter',
-      recordDelimiter,
-    );
-    helper.add(
-      'fieldDelimiter',
-      fieldDelimiter,
-    );
-    helper.add(
-      'quoteCharacter',
-      quoteCharacter,
-    );
-    helper.add(
-      'allowQuotedRecordDelimiter',
-      allowQuotedRecordDelimiter,
-    );
+    final helper = newBuiltValueToStringHelper('CsvInput')
+      ..add(
+        'fileHeaderInfo',
+        fileHeaderInfo,
+      )
+      ..add(
+        'comments',
+        comments,
+      )
+      ..add(
+        'quoteEscapeCharacter',
+        quoteEscapeCharacter,
+      )
+      ..add(
+        'recordDelimiter',
+        recordDelimiter,
+      )
+      ..add(
+        'fieldDelimiter',
+        fieldDelimiter,
+      )
+      ..add(
+        'quoteCharacter',
+        quoteCharacter,
+      )
+      ..add(
+        'allowQuotedRecordDelimiter',
+        allowQuotedRecordDelimiter,
+      );
     return helper.toString();
   }
 }

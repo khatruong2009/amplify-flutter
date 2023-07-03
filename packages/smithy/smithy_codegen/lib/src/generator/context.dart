@@ -1,6 +1,8 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
+import 'dart:async';
+
 import 'package:aws_common/aws_common.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:collection/collection.dart';
@@ -8,7 +10,11 @@ import 'package:pubspec_parse/pubspec_parse.dart';
 import 'package:smithy/ast.dart';
 import 'package:smithy/smithy.dart';
 import 'package:smithy_codegen/smithy_codegen.dart';
+import 'package:smithy_codegen/src/generator/types.dart';
 import 'package:smithy_codegen/src/generator/visitors/symbol_visitor.dart';
+
+/// The global [CodegenContext].
+CodegenContext get context => Zone.current[CodegenContext] as CodegenContext;
 
 /// The context for code generation.
 class CodegenContext {
@@ -23,13 +29,18 @@ class CodegenContext {
     this.pubspec,
     Iterable<ShapeId> additionalShapes = const {},
     this.generateServer = false,
+    Map<ShapeId, Reference>? symbolOverrides,
   })  : _shapes = shapes,
         _serviceName = serviceName,
         serviceShapeId = serviceShapeId ??
             shapes.entries.singleWhereOrNull((entry) {
               return entry.value is ServiceShape;
             })?.key,
-        _additionalShapes = additionalShapes.toSet() {
+        _additionalShapes = additionalShapes.toSet(),
+        symbolOverrides = {
+          Shape.unit: DartTypes.smithy.unit,
+          ...?symbolOverrides,
+        } {
     if (serviceShapeId == null && serviceName == null) {
       throw ArgumentError(
         'Either serviceShapeId or serviceName must be provided.',
@@ -96,6 +107,8 @@ class CodegenContext {
   /// The pubspec of the package being generated. If included, dependencies will
   /// be added as needed during code generation.
   final Pubspec? pubspec;
+
+  final Map<ShapeId, Reference> symbolOverrides;
 
   /// The service shape being generated.
   late final ServiceShape? service =
@@ -193,4 +206,8 @@ class CodegenContext {
     filename: serviceName,
     basePath: basePath,
   );
+
+  /// Runs [action] with the `this` as the global [CodegenContext].
+  R run<R>(R Function() action) =>
+      runZoned(action, zoneValues: {CodegenContext: this});
 }

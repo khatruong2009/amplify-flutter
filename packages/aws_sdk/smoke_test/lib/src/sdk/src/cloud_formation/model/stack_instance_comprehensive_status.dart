@@ -32,9 +32,8 @@ abstract class StackInstanceComprehensiveStatus
 
   const StackInstanceComprehensiveStatus._();
 
-  static const List<_i3.SmithySerializer> serializers = [
-    StackInstanceComprehensiveStatusAwsQuerySerializer()
-  ];
+  static const List<_i3.SmithySerializer<StackInstanceComprehensiveStatus>>
+      serializers = [StackInstanceComprehensiveStatusAwsQuerySerializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(StackInstanceComprehensiveStatusBuilder b) {}
@@ -49,6 +48,8 @@ abstract class StackInstanceComprehensiveStatus
   ///
   /// *   `RUNNING`: The operation in the specified account and Region is currently in progress.
   ///
+  /// *   `SKIPPED\_SUSPENDED\_ACCOUNT`: The operation in the specified account and Region has been skipped because the account was suspended at the time of the operation.
+  ///
   /// *   `SUCCEEDED`: The operation in the specified account and Region completed successfully.
   _i2.StackInstanceDetailedStatus? get detailedStatus;
   @override
@@ -56,11 +57,11 @@ abstract class StackInstanceComprehensiveStatus
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('StackInstanceComprehensiveStatus');
-    helper.add(
-      'detailedStatus',
-      detailedStatus,
-    );
+        newBuiltValueToStringHelper('StackInstanceComprehensiveStatus')
+          ..add(
+            'detailedStatus',
+            detailedStatus,
+          );
     return helper.toString();
   }
 }

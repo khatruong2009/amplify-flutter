@@ -22,6 +22,7 @@ abstract class GetObjectTorrentOutput
     _i3.Stream<List<int>>? body,
     _i4.RequestCharged? requestCharged,
   }) {
+    body ??= const _i3.Stream.empty();
     return _$GetObjectTorrentOutput._(
       body: body,
       requestCharged: requestCharged,
@@ -47,12 +48,13 @@ abstract class GetObjectTorrentOutput
         }
       });
 
-  static const List<_i2.SmithySerializer> serializers = [
-    GetObjectTorrentOutputRestXmlSerializer()
-  ];
+  static const List<_i2.SmithySerializer<_i3.Stream<List<int>>?>> serializers =
+      [GetObjectTorrentOutputRestXmlSerializer()];
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _init(GetObjectTorrentOutputBuilder b) {}
+  static void _init(GetObjectTorrentOutputBuilder b) {
+    b.body = const _i3.Stream.empty();
+  }
 
   /// A Bencoded dictionary as defined by the BitTorrent specification
   _i3.Stream<List<int>>? get body;
@@ -68,15 +70,15 @@ abstract class GetObjectTorrentOutput
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('GetObjectTorrentOutput');
-    helper.add(
-      'body',
-      body,
-    );
-    helper.add(
-      'requestCharged',
-      requestCharged,
-    );
+    final helper = newBuiltValueToStringHelper('GetObjectTorrentOutput')
+      ..add(
+        'body',
+        body,
+      )
+      ..add(
+        'requestCharged',
+        requestCharged,
+      );
     return helper.toString();
   }
 }

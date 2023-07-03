@@ -40,9 +40,8 @@ abstract class ConformancePackRuleCompliance
 
   const ConformancePackRuleCompliance._();
 
-  static const List<_i4.SmithySerializer> serializers = [
-    ConformancePackRuleComplianceAwsJson11Serializer()
-  ];
+  static const List<_i4.SmithySerializer<ConformancePackRuleCompliance>>
+      serializers = [ConformancePackRuleComplianceAwsJson11Serializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(ConformancePackRuleComplianceBuilder b) {}
@@ -51,8 +50,6 @@ abstract class ConformancePackRuleCompliance
   String? get configRuleName;
 
   /// Compliance of the Config rule.
-  ///
-  /// The allowed values are `COMPLIANT`, `NON_COMPLIANT`, and `INSUFFICIENT_DATA`.
   _i2.ConformancePackComplianceType? get complianceType;
 
   /// Controls for the conformance pack. A control is a process to prevent or detect problems while meeting objectives. A control can align with a specific compliance regime or map to internal controls defined by an organization.
@@ -65,19 +62,19 @@ abstract class ConformancePackRuleCompliance
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('ConformancePackRuleCompliance');
-    helper.add(
-      'configRuleName',
-      configRuleName,
-    );
-    helper.add(
-      'complianceType',
-      complianceType,
-    );
-    helper.add(
-      'controls',
-      controls,
-    );
+    final helper = newBuiltValueToStringHelper('ConformancePackRuleCompliance')
+      ..add(
+        'configRuleName',
+        configRuleName,
+      )
+      ..add(
+        'complianceType',
+        complianceType,
+      )
+      ..add(
+        'controls',
+        controls,
+      );
     return helper.toString();
   }
 }

@@ -68,9 +68,8 @@ abstract class PutBucketInventoryConfigurationRequest
         }
       });
 
-  static const List<_i1.SmithySerializer> serializers = [
-    PutBucketInventoryConfigurationRequestRestXmlSerializer()
-  ];
+  static const List<_i1.SmithySerializer<_i2.InventoryConfiguration>>
+      serializers = [PutBucketInventoryConfigurationRequestRestXmlSerializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(PutBucketInventoryConfigurationRequestBuilder b) {}
@@ -110,23 +109,23 @@ abstract class PutBucketInventoryConfigurationRequest
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('PutBucketInventoryConfigurationRequest');
-    helper.add(
-      'bucket',
-      bucket,
-    );
-    helper.add(
-      'id',
-      id,
-    );
-    helper.add(
-      'inventoryConfiguration',
-      inventoryConfiguration,
-    );
-    helper.add(
-      'expectedBucketOwner',
-      expectedBucketOwner,
-    );
+        newBuiltValueToStringHelper('PutBucketInventoryConfigurationRequest')
+          ..add(
+            'bucket',
+            bucket,
+          )
+          ..add(
+            'id',
+            id,
+          )
+          ..add(
+            'inventoryConfiguration',
+            inventoryConfiguration,
+          )
+          ..add(
+            'expectedBucketOwner',
+            expectedBucketOwner,
+          );
     return helper.toString();
   }
 }
@@ -238,12 +237,14 @@ class PutBucketInventoryConfigurationRequestRestXmlSerializer
         destination,
         specifiedType: const FullType(_i4.InventoryDestination),
       ));
-    result$
-      ..add(const _i1.XmlElementName('IsEnabled'))
-      ..add(serializers.serialize(
-        isEnabled,
-        specifiedType: const FullType.nullable(bool),
-      ));
+    if (isEnabled != null) {
+      result$
+        ..add(const _i1.XmlElementName('IsEnabled'))
+        ..add(serializers.serialize(
+          isEnabled,
+          specifiedType: const FullType.nullable(bool),
+        ));
+    }
     if (filter != null) {
       result$
         ..add(const _i1.XmlElementName('Filter'))

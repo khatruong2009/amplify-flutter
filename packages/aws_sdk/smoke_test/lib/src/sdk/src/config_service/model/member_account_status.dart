@@ -42,7 +42,7 @@ abstract class MemberAccountStatus
 
   const MemberAccountStatus._();
 
-  static const List<_i3.SmithySerializer> serializers = [
+  static const List<_i3.SmithySerializer<MemberAccountStatus>> serializers = [
     MemberAccountStatusAwsJson11Serializer()
   ];
 
@@ -55,7 +55,7 @@ abstract class MemberAccountStatus
   /// The name of Config rule deployed in the member account.
   String get configRuleName;
 
-  /// Indicates deployment status for Config rule in the member account. When master account calls `PutOrganizationConfigRule` action for the first time, Config rule status is created in the member account. When master account calls `PutOrganizationConfigRule` action for the second time, Config rule status is updated in the member account. Config rule status is deleted when the master account deletes `OrganizationConfigRule` and disables service access for `config-multiaccountsetup.amazonaws.com`.
+  /// Indicates deployment status for Config rule in the member account. When management account calls `PutOrganizationConfigRule` action for the first time, Config rule status is created in the member account. When management account calls `PutOrganizationConfigRule` action for the second time, Config rule status is updated in the member account. Config rule status is deleted when the management account deletes `OrganizationConfigRule` and disables service access for `config-multiaccountsetup.amazonaws.com`.
   ///
   /// Config sets the state of the rule to:
   ///
@@ -97,31 +97,31 @@ abstract class MemberAccountStatus
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('MemberAccountStatus');
-    helper.add(
-      'accountId',
-      accountId,
-    );
-    helper.add(
-      'configRuleName',
-      configRuleName,
-    );
-    helper.add(
-      'memberAccountRuleStatus',
-      memberAccountRuleStatus,
-    );
-    helper.add(
-      'errorCode',
-      errorCode,
-    );
-    helper.add(
-      'errorMessage',
-      errorMessage,
-    );
-    helper.add(
-      'lastUpdateTime',
-      lastUpdateTime,
-    );
+    final helper = newBuiltValueToStringHelper('MemberAccountStatus')
+      ..add(
+        'accountId',
+        accountId,
+      )
+      ..add(
+        'configRuleName',
+        configRuleName,
+      )
+      ..add(
+        'memberAccountRuleStatus',
+        memberAccountRuleStatus,
+      )
+      ..add(
+        'errorCode',
+        errorCode,
+      )
+      ..add(
+        'errorMessage',
+        errorMessage,
+      )
+      ..add(
+        'lastUpdateTime',
+        lastUpdateTime,
+      );
     return helper.toString();
   }
 }

@@ -34,7 +34,7 @@ abstract class StatusDetailFilters
 
   const StatusDetailFilters._();
 
-  static const List<_i3.SmithySerializer> serializers = [
+  static const List<_i3.SmithySerializer<StatusDetailFilters>> serializers = [
     StatusDetailFiltersAwsJson11Serializer()
   ];
 
@@ -44,7 +44,7 @@ abstract class StatusDetailFilters
   /// The 12-digit account ID of the member account within an organization.
   String? get accountId;
 
-  /// Indicates deployment status for Config rule in the member account. When master account calls `PutOrganizationConfigRule` action for the first time, Config rule status is created in the member account. When master account calls `PutOrganizationConfigRule` action for the second time, Config rule status is updated in the member account. Config rule status is deleted when the master account deletes `OrganizationConfigRule` and disables service access for `config-multiaccountsetup.amazonaws.com`.
+  /// Indicates deployment status for Config rule in the member account. When management account calls `PutOrganizationConfigRule` action for the first time, Config rule status is created in the member account. When management account calls `PutOrganizationConfigRule` action for the second time, Config rule status is updated in the member account. Config rule status is deleted when the management account deletes `OrganizationConfigRule` and disables service access for `config-multiaccountsetup.amazonaws.com`.
   ///
   /// Config sets the state of the rule to:
   ///
@@ -73,15 +73,15 @@ abstract class StatusDetailFilters
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('StatusDetailFilters');
-    helper.add(
-      'accountId',
-      accountId,
-    );
-    helper.add(
-      'memberAccountRuleStatus',
-      memberAccountRuleStatus,
-    );
+    final helper = newBuiltValueToStringHelper('StatusDetailFilters')
+      ..add(
+        'accountId',
+        accountId,
+      )
+      ..add(
+        'memberAccountRuleStatus',
+        memberAccountRuleStatus,
+      );
     return helper.toString();
   }
 }

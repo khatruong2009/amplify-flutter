@@ -32,14 +32,14 @@ abstract class Delete
 
   const Delete._();
 
-  static const List<_i4.SmithySerializer> serializers = [
+  static const List<_i4.SmithySerializer<Delete>> serializers = [
     DeleteRestXmlSerializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(DeleteBuilder b) {}
 
-  /// The objects to delete.
+  /// The object to delete.
   _i3.BuiltList<_i2.ObjectIdentifier> get objects;
 
   /// Element to enable quiet mode for the request. When you add this element, you must set its value to true.
@@ -51,15 +51,15 @@ abstract class Delete
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('Delete');
-    helper.add(
-      'objects',
-      objects,
-    );
-    helper.add(
-      'quiet',
-      quiet,
-    );
+    final helper = newBuiltValueToStringHelper('Delete')
+      ..add(
+        'objects',
+        objects,
+      )
+      ..add(
+        'quiet',
+        quiet,
+      );
     return helper.toString();
   }
 }

@@ -27,6 +27,8 @@ abstract class QueryOutput
     Map<String, _i2.AttributeValue>? lastEvaluatedKey,
     _i3.ConsumedCapacity? consumedCapacity,
   }) {
+    count ??= 0;
+    scannedCount ??= 0;
     return _$QueryOutput._(
       items: items == null
           ? null
@@ -52,12 +54,15 @@ abstract class QueryOutput
   ) =>
       payload;
 
-  static const List<_i5.SmithySerializer> serializers = [
+  static const List<_i5.SmithySerializer<QueryOutput>> serializers = [
     QueryOutputAwsJson10Serializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _init(QueryOutputBuilder b) {}
+  static void _init(QueryOutputBuilder b) {
+    b.count = 0;
+    b.scannedCount = 0;
+  }
 
   /// An array of item attributes that match the query criteria. Each element in this array consists of an attribute name and the value for that attribute.
   _i4.BuiltList<_i4.BuiltMap<String, _i2.AttributeValue>>? get items;
@@ -67,12 +72,12 @@ abstract class QueryOutput
   /// If you used a `QueryFilter` in the request, then `Count` is the number of items returned after the filter was applied, and `ScannedCount` is the number of matching items before the filter was applied.
   ///
   /// If you did not use a filter in the request, then `Count` and `ScannedCount` are the same.
-  int? get count;
+  int get count;
 
   /// The number of items evaluated, before any `QueryFilter` is applied. A high `ScannedCount` value with few, or no, `Count` results indicates an inefficient `Query` operation. For more information, see [Count and ScannedCount](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count) in the _Amazon DynamoDB Developer Guide_.
   ///
   /// If you did not use a filter in the request, then `ScannedCount` is the same as `Count`.
-  int? get scannedCount;
+  int get scannedCount;
 
   /// The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
   ///
@@ -93,27 +98,27 @@ abstract class QueryOutput
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('QueryOutput');
-    helper.add(
-      'items',
-      items,
-    );
-    helper.add(
-      'count',
-      count,
-    );
-    helper.add(
-      'scannedCount',
-      scannedCount,
-    );
-    helper.add(
-      'lastEvaluatedKey',
-      lastEvaluatedKey,
-    );
-    helper.add(
-      'consumedCapacity',
-      consumedCapacity,
-    );
+    final helper = newBuiltValueToStringHelper('QueryOutput')
+      ..add(
+        'items',
+        items,
+      )
+      ..add(
+        'count',
+        count,
+      )
+      ..add(
+        'scannedCount',
+        scannedCount,
+      )
+      ..add(
+        'lastEvaluatedKey',
+        lastEvaluatedKey,
+      )
+      ..add(
+        'consumedCapacity',
+        consumedCapacity,
+      );
     return helper.toString();
   }
 }
@@ -212,6 +217,18 @@ class QueryOutputAwsJson10Serializer
       :lastEvaluatedKey,
       :consumedCapacity
     ) = object;
+    result$.addAll([
+      'Count',
+      serializers.serialize(
+        count,
+        specifiedType: const FullType(int),
+      ),
+      'ScannedCount',
+      serializers.serialize(
+        scannedCount,
+        specifiedType: const FullType(int),
+      ),
+    ]);
     if (items != null) {
       result$
         ..add('Items')
@@ -229,22 +246,6 @@ class QueryOutputAwsJson10Serializer
               )
             ],
           ),
-        ));
-    }
-    if (count != null) {
-      result$
-        ..add('Count')
-        ..add(serializers.serialize(
-          count,
-          specifiedType: const FullType(int),
-        ));
-    }
-    if (scannedCount != null) {
-      result$
-        ..add('ScannedCount')
-        ..add(serializers.serialize(
-          scannedCount,
-          specifiedType: const FullType(int),
         ));
     }
     if (lastEvaluatedKey != null) {

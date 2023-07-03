@@ -23,6 +23,8 @@ import 'package:smoke_test/src/sdk/src/iam/model/unmodifiable_entity_exception.d
 
 /// Deletes the permissions boundary for the specified IAM role.
 ///
+/// You cannot set the boundary for a service-linked role.
+///
 /// Deleting the permissions boundary for a role might increase its permissions. For example, it might allow anyone who assumes the role to perform all the actions granted in its permissions policies.
 class DeleteRolePermissionsBoundaryOperation extends _i1.HttpOperation<
     _i2.DeleteRolePermissionsBoundaryRequest,
@@ -30,6 +32,8 @@ class DeleteRolePermissionsBoundaryOperation extends _i1.HttpOperation<
     _i1.Unit,
     _i1.Unit> {
   /// Deletes the permissions boundary for the specified IAM role.
+  ///
+  /// You cannot set the boundary for a service-linked role.
   ///
   /// Deleting the permissions boundary for a role might increase its permissions. For example, it might allow anyone who assumes the role to perform all the actions granted in its permissions policies.
   DeleteRolePermissionsBoundaryOperation({
@@ -124,7 +128,7 @@ class DeleteRolePermissionsBoundaryOperation extends _i1.HttpOperation<
       payload;
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i8.NoSuchEntityException, _i8.NoSuchEntityException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.iam',
             shape: 'NoSuchEntityException',
@@ -134,7 +138,8 @@ class DeleteRolePermissionsBoundaryOperation extends _i1.HttpOperation<
           statusCode: 404,
           builder: _i8.NoSuchEntityException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.ServiceFailureException,
+            _i9.ServiceFailureException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.iam',
             shape: 'ServiceFailureException',
@@ -144,7 +149,8 @@ class DeleteRolePermissionsBoundaryOperation extends _i1.HttpOperation<
           statusCode: 500,
           builder: _i9.ServiceFailureException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.UnmodifiableEntityException,
+            _i10.UnmodifiableEntityException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.iam',
             shape: 'UnmodifiableEntityException',

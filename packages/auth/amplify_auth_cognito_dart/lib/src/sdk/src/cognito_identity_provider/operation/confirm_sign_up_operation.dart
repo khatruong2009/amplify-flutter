@@ -1,4 +1,5 @@
 // Generated with smithy-dart 0.3.1. DO NOT MODIFY.
+// ignore_for_file: avoid_unused_constructor_parameters,deprecated_member_use_from_same_package,non_constant_identifier_names
 
 library amplify_auth_cognito_dart.cognito_identity_provider.operation.confirm_sign_up_operation; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
@@ -48,12 +49,16 @@ import 'package:smithy/smithy.dart' as _i1;
 import 'package:smithy_aws/smithy_aws.dart' as _i5;
 
 /// Confirms registration of a new user.
+///
+/// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 class ConfirmSignUpOperation extends _i1.HttpOperation<
     _i2.ConfirmSignUpRequest,
     _i2.ConfirmSignUpRequest,
     _i3.ConfirmSignUpResponse,
     _i3.ConfirmSignUpResponse> {
   /// Confirms registration of a new user.
+  ///
+  /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   ConfirmSignUpOperation({
     required String region,
     Uri? baseUri,
@@ -131,7 +136,7 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.AliasExistsException, _i9.AliasExistsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'AliasExistsException',
@@ -141,7 +146,7 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i9.AliasExistsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.CodeMismatchException, _i10.CodeMismatchException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'CodeMismatchException',
@@ -151,7 +156,7 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i10.CodeMismatchException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i11.ExpiredCodeException, _i11.ExpiredCodeException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ExpiredCodeException',
@@ -161,7 +166,7 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i11.ExpiredCodeException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i12.ForbiddenException, _i12.ForbiddenException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ForbiddenException',
@@ -171,7 +176,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 403,
           builder: _i12.ForbiddenException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i13.InternalErrorException,
+            _i13.InternalErrorException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InternalErrorException',
@@ -180,7 +186,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           _i13.InternalErrorException,
           builder: _i13.InternalErrorException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i14.InvalidLambdaResponseException,
+            _i14.InvalidLambdaResponseException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidLambdaResponseException',
@@ -190,7 +197,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i14.InvalidLambdaResponseException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i15.InvalidParameterException,
+            _i15.InvalidParameterException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidParameterException',
@@ -200,7 +208,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i15.InvalidParameterException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i16.LimitExceededException,
+            _i16.LimitExceededException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'LimitExceededException',
@@ -210,7 +219,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i16.LimitExceededException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i17.NotAuthorizedException,
+            _i17.NotAuthorizedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'NotAuthorizedException',
@@ -220,7 +230,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 403,
           builder: _i17.NotAuthorizedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i18.ResourceNotFoundException,
+            _i18.ResourceNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ResourceNotFoundException',
@@ -230,7 +241,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 404,
           builder: _i18.ResourceNotFoundException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i19.TooManyFailedAttemptsException,
+            _i19.TooManyFailedAttemptsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'TooManyFailedAttemptsException',
@@ -240,7 +252,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i19.TooManyFailedAttemptsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i20.TooManyRequestsException,
+            _i20.TooManyRequestsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'TooManyRequestsException',
@@ -250,7 +263,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 429,
           builder: _i20.TooManyRequestsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i21.UnexpectedLambdaException,
+            _i21.UnexpectedLambdaException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UnexpectedLambdaException',
@@ -260,7 +274,8 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i21.UnexpectedLambdaException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i22.UserLambdaValidationException,
+            _i22.UserLambdaValidationException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserLambdaValidationException',
@@ -270,7 +285,7 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i22.UserLambdaValidationException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i23.UserNotFoundException, _i23.UserNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotFoundException',
@@ -303,7 +318,7 @@ class ConfirmSignUpOperation extends _i1.HttpOperation<
       ),
       zoneValues: {
         ...?_awsEndpoint.credentialScope?.zoneValues,
-        ...{_i7.AWSHeaders.sdkInvocationId: _i7.uuid(secure: true)}
+        ...{_i7.AWSHeaders.sdkInvocationId: _i7.uuid(secure: true)},
       },
     );
   }

@@ -29,10 +29,6 @@ abstract class InAppMessageCampaign
     int? totalCap,
     String? treatmentId,
   }) {
-    dailyCap ??= 0;
-    priority ??= 0;
-    sessionCap ??= 0;
-    totalCap ??= 0;
     return _$InAppMessageCampaign._(
       campaignId: campaignId,
       dailyCap: dailyCap,
@@ -52,38 +48,33 @@ abstract class InAppMessageCampaign
 
   const InAppMessageCampaign._();
 
-  static const List<_i4.SmithySerializer> serializers = [
+  static const List<_i4.SmithySerializer<InAppMessageCampaign>> serializers = [
     InAppMessageCampaignRestJson1Serializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _init(InAppMessageCampaignBuilder b) {
-    b.dailyCap = 0;
-    b.priority = 0;
-    b.sessionCap = 0;
-    b.totalCap = 0;
-  }
+  static void _init(InAppMessageCampaignBuilder b) {}
 
   /// Campaign id of the corresponding campaign.
   String? get campaignId;
 
   /// Daily cap which controls the number of times any in-app messages can be shown to the endpoint during a day.
-  int get dailyCap;
+  int? get dailyCap;
 
   /// In-app message content with all fields required for rendering an in-app message.
   _i2.InAppMessage? get inAppMessage;
 
   /// Priority of the in-app message.
-  int get priority;
+  int? get priority;
 
   /// Schedule of the campaign.
   _i3.InAppCampaignSchedule? get schedule;
 
   /// Session cap which controls the number of times an in-app message can be shown to the endpoint during an application session.
-  int get sessionCap;
+  int? get sessionCap;
 
   /// Total cap which controls the number of times an in-app message can be shown to the endpoint.
-  int get totalCap;
+  int? get totalCap;
 
   /// Treatment id of the campaign.
   String? get treatmentId;
@@ -100,39 +91,39 @@ abstract class InAppMessageCampaign
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('InAppMessageCampaign');
-    helper.add(
-      'campaignId',
-      campaignId,
-    );
-    helper.add(
-      'dailyCap',
-      dailyCap,
-    );
-    helper.add(
-      'inAppMessage',
-      inAppMessage,
-    );
-    helper.add(
-      'priority',
-      priority,
-    );
-    helper.add(
-      'schedule',
-      schedule,
-    );
-    helper.add(
-      'sessionCap',
-      sessionCap,
-    );
-    helper.add(
-      'totalCap',
-      totalCap,
-    );
-    helper.add(
-      'treatmentId',
-      treatmentId,
-    );
+    final helper = newBuiltValueToStringHelper('InAppMessageCampaign')
+      ..add(
+        'campaignId',
+        campaignId,
+      )
+      ..add(
+        'dailyCap',
+        dailyCap,
+      )
+      ..add(
+        'inAppMessage',
+        inAppMessage,
+      )
+      ..add(
+        'priority',
+        priority,
+      )
+      ..add(
+        'schedule',
+        schedule,
+      )
+      ..add(
+        'sessionCap',
+        sessionCap,
+      )
+      ..add(
+        'totalCap',
+        totalCap,
+      )
+      ..add(
+        'treatmentId',
+        treatmentId,
+      );
     return helper.toString();
   }
 }
@@ -233,34 +224,20 @@ class InAppMessageCampaignRestJson1Serializer
       :totalCap,
       :treatmentId
     ) = object;
-    result$.addAll([
-      'DailyCap',
-      serializers.serialize(
-        dailyCap,
-        specifiedType: const FullType(int),
-      ),
-      'Priority',
-      serializers.serialize(
-        priority,
-        specifiedType: const FullType(int),
-      ),
-      'SessionCap',
-      serializers.serialize(
-        sessionCap,
-        specifiedType: const FullType(int),
-      ),
-      'TotalCap',
-      serializers.serialize(
-        totalCap,
-        specifiedType: const FullType(int),
-      ),
-    ]);
     if (campaignId != null) {
       result$
         ..add('CampaignId')
         ..add(serializers.serialize(
           campaignId,
           specifiedType: const FullType(String),
+        ));
+    }
+    if (dailyCap != null) {
+      result$
+        ..add('DailyCap')
+        ..add(serializers.serialize(
+          dailyCap,
+          specifiedType: const FullType(int),
         ));
     }
     if (inAppMessage != null) {
@@ -271,12 +248,36 @@ class InAppMessageCampaignRestJson1Serializer
           specifiedType: const FullType(_i2.InAppMessage),
         ));
     }
+    if (priority != null) {
+      result$
+        ..add('Priority')
+        ..add(serializers.serialize(
+          priority,
+          specifiedType: const FullType(int),
+        ));
+    }
     if (schedule != null) {
       result$
         ..add('Schedule')
         ..add(serializers.serialize(
           schedule,
           specifiedType: const FullType(_i3.InAppCampaignSchedule),
+        ));
+    }
+    if (sessionCap != null) {
+      result$
+        ..add('SessionCap')
+        ..add(serializers.serialize(
+          sessionCap,
+          specifiedType: const FullType(int),
+        ));
+    }
+    if (totalCap != null) {
+      result$
+        ..add('TotalCap')
+        ..add(serializers.serialize(
+          totalCap,
+          specifiedType: const FullType(int),
         ));
     }
     if (treatmentId != null) {

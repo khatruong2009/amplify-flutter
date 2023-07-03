@@ -47,7 +47,8 @@ abstract class DescribeComplianceByConfigRuleRequest
   }) =>
       payload;
 
-  static const List<_i1.SmithySerializer> serializers = [
+  static const List<_i1.SmithySerializer<DescribeComplianceByConfigRuleRequest>>
+      serializers = [
     DescribeComplianceByConfigRuleRequestAwsJson11Serializer()
   ];
 
@@ -58,8 +59,6 @@ abstract class DescribeComplianceByConfigRuleRequest
   _i4.BuiltList<String>? get configRuleNames;
 
   /// Filters the results by compliance.
-  ///
-  /// The allowed values are `COMPLIANT` and `NON_COMPLIANT`.
   _i4.BuiltList<_i3.ComplianceType>? get complianceTypes;
 
   /// The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
@@ -75,19 +74,19 @@ abstract class DescribeComplianceByConfigRuleRequest
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('DescribeComplianceByConfigRuleRequest');
-    helper.add(
-      'configRuleNames',
-      configRuleNames,
-    );
-    helper.add(
-      'complianceTypes',
-      complianceTypes,
-    );
-    helper.add(
-      'nextToken',
-      nextToken,
-    );
+        newBuiltValueToStringHelper('DescribeComplianceByConfigRuleRequest')
+          ..add(
+            'configRuleNames',
+            configRuleNames,
+          )
+          ..add(
+            'complianceTypes',
+            complianceTypes,
+          )
+          ..add(
+            'nextToken',
+            nextToken,
+          );
     return helper.toString();
   }
 }

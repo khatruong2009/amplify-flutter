@@ -1,4 +1,5 @@
 // Generated with smithy-dart 0.3.1. DO NOT MODIFY.
+// ignore_for_file: avoid_unused_constructor_parameters,deprecated_member_use_from_same_package,non_constant_identifier_names
 
 library amplify_integration_test.cognito_identity_provider.model.event_context_data_type; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
@@ -37,7 +38,7 @@ abstract class EventContextDataType
 
   const EventContextDataType._();
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<_i2.SmithySerializer<EventContextDataType>> serializers = [
     EventContextDataTypeAwsJson11Serializer()
   ];
 
@@ -68,27 +69,27 @@ abstract class EventContextDataType
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('EventContextDataType');
-    helper.add(
-      'ipAddress',
-      ipAddress,
-    );
-    helper.add(
-      'deviceName',
-      deviceName,
-    );
-    helper.add(
-      'timezone',
-      timezone,
-    );
-    helper.add(
-      'city',
-      city,
-    );
-    helper.add(
-      'country',
-      country,
-    );
+    final helper = newBuiltValueToStringHelper('EventContextDataType')
+      ..add(
+        'ipAddress',
+        ipAddress,
+      )
+      ..add(
+        'deviceName',
+        deviceName,
+      )
+      ..add(
+        'timezone',
+        timezone,
+      )
+      ..add(
+        'city',
+        city,
+      )
+      ..add(
+        'country',
+        country,
+      );
     return helper.toString();
   }
 }
@@ -122,47 +123,35 @@ class EventContextDataTypeAwsJson11Serializer
       final key = iterator.current as String;
       iterator.moveNext();
       final value = iterator.current;
+      if (value == null) {
+        continue;
+      }
       switch (key) {
         case 'IpAddress':
-          if (value != null) {
-            result.ipAddress = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(String),
-            ) as String);
-          }
-          break;
+          result.ipAddress = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String);
         case 'DeviceName':
-          if (value != null) {
-            result.deviceName = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(String),
-            ) as String);
-          }
-          break;
+          result.deviceName = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String);
         case 'Timezone':
-          if (value != null) {
-            result.timezone = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(String),
-            ) as String);
-          }
-          break;
+          result.timezone = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String);
         case 'City':
-          if (value != null) {
-            result.city = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(String),
-            ) as String);
-          }
-          break;
+          result.city = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String);
         case 'Country':
-          if (value != null) {
-            result.country = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(String),
-            ) as String);
-          }
-          break;
+          result.country = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String);
       }
     }
 
@@ -172,51 +161,57 @@ class EventContextDataTypeAwsJson11Serializer
   @override
   Iterable<Object?> serialize(
     Serializers serializers,
-    Object? object, {
+    EventContextDataType object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final payload = (object as EventContextDataType);
-    final result = <Object?>[];
-    if (payload.ipAddress != null) {
-      result
+    final result$ = <Object?>[];
+    final EventContextDataType(
+      :ipAddress,
+      :deviceName,
+      :timezone,
+      :city,
+      :country
+    ) = object;
+    if (ipAddress != null) {
+      result$
         ..add('IpAddress')
         ..add(serializers.serialize(
-          payload.ipAddress!,
+          ipAddress,
           specifiedType: const FullType(String),
         ));
     }
-    if (payload.deviceName != null) {
-      result
+    if (deviceName != null) {
+      result$
         ..add('DeviceName')
         ..add(serializers.serialize(
-          payload.deviceName!,
+          deviceName,
           specifiedType: const FullType(String),
         ));
     }
-    if (payload.timezone != null) {
-      result
+    if (timezone != null) {
+      result$
         ..add('Timezone')
         ..add(serializers.serialize(
-          payload.timezone!,
+          timezone,
           specifiedType: const FullType(String),
         ));
     }
-    if (payload.city != null) {
-      result
+    if (city != null) {
+      result$
         ..add('City')
         ..add(serializers.serialize(
-          payload.city!,
+          city,
           specifiedType: const FullType(String),
         ));
     }
-    if (payload.country != null) {
-      result
+    if (country != null) {
+      result$
         ..add('Country')
         ..add(serializers.serialize(
-          payload.country!,
+          country,
           specifiedType: const FullType(String),
         ));
     }
-    return result;
+    return result$;
   }
 }

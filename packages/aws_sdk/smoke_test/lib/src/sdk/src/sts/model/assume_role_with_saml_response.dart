@@ -56,9 +56,8 @@ abstract class AssumeRoleWithSamlResponse
   ) =>
       payload;
 
-  static const List<_i4.SmithySerializer> serializers = [
-    AssumeRoleWithSamlResponseAwsQuerySerializer()
-  ];
+  static const List<_i4.SmithySerializer<AssumeRoleWithSamlResponse>>
+      serializers = [AssumeRoleWithSamlResponseAwsQuerySerializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(AssumeRoleWithSamlResponseBuilder b) {}
@@ -97,7 +96,7 @@ abstract class AssumeRoleWithSamlResponse
   /// *   The friendly name (the last part of the ARN) of the SAML provider in IAM.
   ///
   ///
-  /// The combination of `NameQualifier` and `Subject` can be used to uniquely identify a federated user.
+  /// The combination of `NameQualifier` and `Subject` can be used to uniquely identify a user.
   ///
   /// The following pseudocode shows how the hash value is calculated:
   ///
@@ -124,43 +123,43 @@ abstract class AssumeRoleWithSamlResponse
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('AssumeRoleWithSamlResponse');
-    helper.add(
-      'credentials',
-      credentials,
-    );
-    helper.add(
-      'assumedRoleUser',
-      assumedRoleUser,
-    );
-    helper.add(
-      'packedPolicySize',
-      packedPolicySize,
-    );
-    helper.add(
-      'subject',
-      subject,
-    );
-    helper.add(
-      'subjectType',
-      subjectType,
-    );
-    helper.add(
-      'issuer',
-      issuer,
-    );
-    helper.add(
-      'audience',
-      audience,
-    );
-    helper.add(
-      'nameQualifier',
-      nameQualifier,
-    );
-    helper.add(
-      'sourceIdentity',
-      sourceIdentity,
-    );
+    final helper = newBuiltValueToStringHelper('AssumeRoleWithSamlResponse')
+      ..add(
+        'credentials',
+        credentials,
+      )
+      ..add(
+        'assumedRoleUser',
+        assumedRoleUser,
+      )
+      ..add(
+        'packedPolicySize',
+        packedPolicySize,
+      )
+      ..add(
+        'subject',
+        subject,
+      )
+      ..add(
+        'subjectType',
+        subjectType,
+      )
+      ..add(
+        'issuer',
+        issuer,
+      )
+      ..add(
+        'audience',
+        audience,
+      )
+      ..add(
+        'nameQualifier',
+        nameQualifier,
+      )
+      ..add(
+        'sourceIdentity',
+        sourceIdentity,
+      );
     return helper.toString();
   }
 }

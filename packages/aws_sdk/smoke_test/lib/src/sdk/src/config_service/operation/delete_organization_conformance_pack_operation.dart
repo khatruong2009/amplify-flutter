@@ -24,7 +24,7 @@ import 'package:smoke_test/src/sdk/src/config_service/model/resource_in_use_exce
 
 /// Deletes the specified organization conformance pack and all of the Config rules and remediation actions from all member accounts in that organization.
 ///
-/// Only a master account or a delegated administrator account can delete an organization conformance pack. When calling this API with a delegated administrator, you must ensure Organizations `ListDelegatedAdministrator` permissions are added.
+/// Only a management account or a delegated administrator account can delete an organization conformance pack. When calling this API with a delegated administrator, you must ensure Organizations `ListDelegatedAdministrator` permissions are added.
 ///
 /// Config sets the state of a conformance pack to DELETE\_IN\_PROGRESS until the deletion is complete. You cannot update a conformance pack while it is in this state.
 class DeleteOrganizationConformancePackOperation extends _i1.HttpOperation<
@@ -34,7 +34,7 @@ class DeleteOrganizationConformancePackOperation extends _i1.HttpOperation<
     _i1.Unit> {
   /// Deletes the specified organization conformance pack and all of the Config rules and remediation actions from all member accounts in that organization.
   ///
-  /// Only a master account or a delegated administrator account can delete an organization conformance pack. When calling this API with a delegated administrator, you must ensure Organizations `ListDelegatedAdministrator` permissions are added.
+  /// Only a management account or a delegated administrator account can delete an organization conformance pack. When calling this API with a delegated administrator, you must ensure Organizations `ListDelegatedAdministrator` permissions are added.
   ///
   /// Config sets the state of a conformance pack to DELETE\_IN\_PROGRESS until the deletion is complete. You cannot update a conformance pack while it is in this state.
   DeleteOrganizationConformancePackOperation({
@@ -114,7 +114,8 @@ class DeleteOrganizationConformancePackOperation extends _i1.HttpOperation<
       payload;
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i8.NoSuchOrganizationConformancePackException,
+            _i8.NoSuchOrganizationConformancePackException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.configservice',
             shape: 'NoSuchOrganizationConformancePackException',
@@ -123,7 +124,8 @@ class DeleteOrganizationConformancePackOperation extends _i1.HttpOperation<
           _i8.NoSuchOrganizationConformancePackException,
           builder: _i8.NoSuchOrganizationConformancePackException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.OrganizationAccessDeniedException,
+            _i9.OrganizationAccessDeniedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.configservice',
             shape: 'OrganizationAccessDeniedException',
@@ -132,7 +134,8 @@ class DeleteOrganizationConformancePackOperation extends _i1.HttpOperation<
           _i9.OrganizationAccessDeniedException,
           builder: _i9.OrganizationAccessDeniedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.ResourceInUseException,
+            _i10.ResourceInUseException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.configservice',
             shape: 'ResourceInUseException',

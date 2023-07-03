@@ -45,7 +45,7 @@ abstract class AccessDetail
 
   const AccessDetail._();
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<_i2.SmithySerializer<AccessDetail>> serializers = [
     AccessDetailAwsQuerySerializer()
   ];
 
@@ -62,20 +62,20 @@ abstract class AccessDetail
 
   /// The Region where the last service access attempt occurred.
   ///
-  /// This field is null if no principals in the reported Organizations entity attempted to access the service within the [reporting period](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
+  /// This field is null if no principals in the reported Organizations entity attempted to access the service within the [tracking period](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
   String? get region;
 
   /// The path of the Organizations entity (root, organizational unit, or account) from which an authenticated principal last attempted to access the service. Amazon Web Services does not report unauthenticated requests.
   ///
-  /// This field is null if no principals (IAM users, IAM roles, or root users) in the reported Organizations entity attempted to access the service within the [reporting period](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
+  /// This field is null if no principals (IAM users, IAM roles, or root user) in the reported Organizations entity attempted to access the service within the [tracking period](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
   String? get entityPath;
 
   /// The date and time, in [ISO 8601 date-time format](http://www.iso.org/iso/iso8601), when an authenticated principal most recently attempted to access the service. Amazon Web Services does not report unauthenticated requests.
   ///
-  /// This field is null if no principals in the reported Organizations entity attempted to access the service within the [reporting period](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
+  /// This field is null if no principals in the reported Organizations entity attempted to access the service within the [tracking period](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
   DateTime? get lastAuthenticatedTime;
 
-  /// The number of accounts with authenticated principals (root users, IAM users, and IAM roles) that attempted to access the service in the reporting period.
+  /// The number of accounts with authenticated principals (root user, IAM users, and IAM roles) that attempted to access the service in the tracking period.
   int? get totalAuthenticatedEntities;
   @override
   List<Object?> get props => [
@@ -88,31 +88,31 @@ abstract class AccessDetail
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('AccessDetail');
-    helper.add(
-      'serviceName',
-      serviceName,
-    );
-    helper.add(
-      'serviceNamespace',
-      serviceNamespace,
-    );
-    helper.add(
-      'region',
-      region,
-    );
-    helper.add(
-      'entityPath',
-      entityPath,
-    );
-    helper.add(
-      'lastAuthenticatedTime',
-      lastAuthenticatedTime,
-    );
-    helper.add(
-      'totalAuthenticatedEntities',
-      totalAuthenticatedEntities,
-    );
+    final helper = newBuiltValueToStringHelper('AccessDetail')
+      ..add(
+        'serviceName',
+        serviceName,
+      )
+      ..add(
+        'serviceNamespace',
+        serviceNamespace,
+      )
+      ..add(
+        'region',
+        region,
+      )
+      ..add(
+        'entityPath',
+        entityPath,
+      )
+      ..add(
+        'lastAuthenticatedTime',
+        lastAuthenticatedTime,
+      )
+      ..add(
+        'totalAuthenticatedEntities',
+        totalAuthenticatedEntities,
+      );
     return helper.toString();
   }
 }

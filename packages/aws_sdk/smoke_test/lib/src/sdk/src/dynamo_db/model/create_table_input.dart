@@ -47,6 +47,7 @@ abstract class CreateTableInput
     _i10.SseSpecification? sseSpecification,
     List<_i11.Tag>? tags,
     _i12.TableClass? tableClass,
+    bool? deletionProtectionEnabled,
   }) {
     return _$CreateTableInput._(
       attributeDefinitions: _i13.BuiltList(attributeDefinitions),
@@ -64,6 +65,7 @@ abstract class CreateTableInput
       sseSpecification: sseSpecification,
       tags: tags == null ? null : _i13.BuiltList(tags),
       tableClass: tableClass,
+      deletionProtectionEnabled: deletionProtectionEnabled,
     );
   }
 
@@ -80,7 +82,7 @@ abstract class CreateTableInput
   }) =>
       payload;
 
-  static const List<_i1.SmithySerializer> serializers = [
+  static const List<_i1.SmithySerializer<CreateTableInput>> serializers = [
     CreateTableInputAwsJson10Serializer()
   ];
 
@@ -196,6 +198,9 @@ abstract class CreateTableInput
 
   /// The table class of the new table. Valid values are `STANDARD` and `STANDARD\_INFREQUENT\_ACCESS`.
   _i12.TableClass? get tableClass;
+
+  /// Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.
+  bool? get deletionProtectionEnabled;
   @override
   CreateTableInput getPayload() => this;
   @override
@@ -211,54 +216,59 @@ abstract class CreateTableInput
         sseSpecification,
         tags,
         tableClass,
+        deletionProtectionEnabled,
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('CreateTableInput');
-    helper.add(
-      'attributeDefinitions',
-      attributeDefinitions,
-    );
-    helper.add(
-      'tableName',
-      tableName,
-    );
-    helper.add(
-      'keySchema',
-      keySchema,
-    );
-    helper.add(
-      'localSecondaryIndexes',
-      localSecondaryIndexes,
-    );
-    helper.add(
-      'globalSecondaryIndexes',
-      globalSecondaryIndexes,
-    );
-    helper.add(
-      'billingMode',
-      billingMode,
-    );
-    helper.add(
-      'provisionedThroughput',
-      provisionedThroughput,
-    );
-    helper.add(
-      'streamSpecification',
-      streamSpecification,
-    );
-    helper.add(
-      'sseSpecification',
-      sseSpecification,
-    );
-    helper.add(
-      'tags',
-      tags,
-    );
-    helper.add(
-      'tableClass',
-      tableClass,
-    );
+    final helper = newBuiltValueToStringHelper('CreateTableInput')
+      ..add(
+        'attributeDefinitions',
+        attributeDefinitions,
+      )
+      ..add(
+        'tableName',
+        tableName,
+      )
+      ..add(
+        'keySchema',
+        keySchema,
+      )
+      ..add(
+        'localSecondaryIndexes',
+        localSecondaryIndexes,
+      )
+      ..add(
+        'globalSecondaryIndexes',
+        globalSecondaryIndexes,
+      )
+      ..add(
+        'billingMode',
+        billingMode,
+      )
+      ..add(
+        'provisionedThroughput',
+        provisionedThroughput,
+      )
+      ..add(
+        'streamSpecification',
+        streamSpecification,
+      )
+      ..add(
+        'sseSpecification',
+        sseSpecification,
+      )
+      ..add(
+        'tags',
+        tags,
+      )
+      ..add(
+        'tableClass',
+        tableClass,
+      )
+      ..add(
+        'deletionProtectionEnabled',
+        deletionProtectionEnabled,
+      );
     return helper.toString();
   }
 }
@@ -365,6 +375,11 @@ class CreateTableInputAwsJson10Serializer
             value,
             specifiedType: const FullType(_i12.TableClass),
           ) as _i12.TableClass);
+        case 'DeletionProtectionEnabled':
+          result.deletionProtectionEnabled = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool);
       }
     }
 
@@ -389,7 +404,8 @@ class CreateTableInputAwsJson10Serializer
       :streamSpecification,
       :sseSpecification,
       :tags,
-      :tableClass
+      :tableClass,
+      :deletionProtectionEnabled
     ) = object;
     result$.addAll([
       'AttributeDefinitions',
@@ -485,6 +501,14 @@ class CreateTableInputAwsJson10Serializer
         ..add(serializers.serialize(
           tableClass,
           specifiedType: const FullType(_i12.TableClass),
+        ));
+    }
+    if (deletionProtectionEnabled != null) {
+      result$
+        ..add('DeletionProtectionEnabled')
+        ..add(serializers.serialize(
+          deletionProtectionEnabled,
+          specifiedType: const FullType(bool),
         ));
     }
     return result$;

@@ -21,10 +21,12 @@ abstract class EvaluationResultIdentifier
   factory EvaluationResultIdentifier({
     _i2.EvaluationResultQualifier? evaluationResultQualifier,
     DateTime? orderingTimestamp,
+    String? resourceEvaluationId,
   }) {
     return _$EvaluationResultIdentifier._(
       evaluationResultQualifier: evaluationResultQualifier,
       orderingTimestamp: orderingTimestamp,
+      resourceEvaluationId: resourceEvaluationId,
     );
   }
 
@@ -35,9 +37,8 @@ abstract class EvaluationResultIdentifier
 
   const EvaluationResultIdentifier._();
 
-  static const List<_i3.SmithySerializer> serializers = [
-    EvaluationResultIdentifierAwsJson11Serializer()
-  ];
+  static const List<_i3.SmithySerializer<EvaluationResultIdentifier>>
+      serializers = [EvaluationResultIdentifierAwsJson11Serializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(EvaluationResultIdentifierBuilder b) {}
@@ -47,22 +48,30 @@ abstract class EvaluationResultIdentifier
 
   /// The time of the event that triggered the evaluation of your Amazon Web Services resources. The time can indicate when Config delivered a configuration item change notification, or it can indicate when Config delivered the configuration snapshot, depending on which event triggered the evaluation.
   DateTime? get orderingTimestamp;
+
+  /// A Unique ID for an evaluation result.
+  String? get resourceEvaluationId;
   @override
   List<Object?> get props => [
         evaluationResultQualifier,
         orderingTimestamp,
+        resourceEvaluationId,
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('EvaluationResultIdentifier');
-    helper.add(
-      'evaluationResultQualifier',
-      evaluationResultQualifier,
-    );
-    helper.add(
-      'orderingTimestamp',
-      orderingTimestamp,
-    );
+    final helper = newBuiltValueToStringHelper('EvaluationResultIdentifier')
+      ..add(
+        'evaluationResultQualifier',
+        evaluationResultQualifier,
+      )
+      ..add(
+        'orderingTimestamp',
+        orderingTimestamp,
+      )
+      ..add(
+        'resourceEvaluationId',
+        resourceEvaluationId,
+      );
     return helper.toString();
   }
 }
@@ -110,6 +119,11 @@ class EvaluationResultIdentifierAwsJson11Serializer
             value,
             specifiedType: const FullType(DateTime),
           ) as DateTime);
+        case 'ResourceEvaluationId':
+          result.resourceEvaluationId = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String);
       }
     }
 
@@ -125,7 +139,8 @@ class EvaluationResultIdentifierAwsJson11Serializer
     final result$ = <Object?>[];
     final EvaluationResultIdentifier(
       :evaluationResultQualifier,
-      :orderingTimestamp
+      :orderingTimestamp,
+      :resourceEvaluationId
     ) = object;
     if (evaluationResultQualifier != null) {
       result$
@@ -141,6 +156,14 @@ class EvaluationResultIdentifierAwsJson11Serializer
         ..add(serializers.serialize(
           orderingTimestamp,
           specifiedType: const FullType(DateTime),
+        ));
+    }
+    if (resourceEvaluationId != null) {
+      result$
+        ..add('ResourceEvaluationId')
+        ..add(serializers.serialize(
+          resourceEvaluationId,
+          specifiedType: const FullType(String),
         ));
     }
     return result$;

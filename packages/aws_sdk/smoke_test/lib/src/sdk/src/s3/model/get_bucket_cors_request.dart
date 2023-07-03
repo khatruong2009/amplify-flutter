@@ -50,14 +50,17 @@ abstract class GetBucketCorsRequest
         }
       });
 
-  static const List<_i1.SmithySerializer> serializers = [
-    GetBucketCorsRequestRestXmlSerializer()
-  ];
+  static const List<_i1.SmithySerializer<GetBucketCorsRequestPayload>>
+      serializers = [GetBucketCorsRequestRestXmlSerializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(GetBucketCorsRequestBuilder b) {}
 
   /// The bucket name for which to get the cors configuration.
+  ///
+  /// To use this API operation against an access point, provide the alias of the access point in place of the bucket name.
+  ///
+  /// To use this API operation against an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code `InvalidAccessPointAliasError` is returned. For more information about `InvalidAccessPointAliasError`, see [List of Error Codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList).
   String get bucket;
 
   /// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code `403 Forbidden` (access denied).
@@ -83,15 +86,15 @@ abstract class GetBucketCorsRequest
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('GetBucketCorsRequest');
-    helper.add(
-      'bucket',
-      bucket,
-    );
-    helper.add(
-      'expectedBucketOwner',
-      expectedBucketOwner,
-    );
+    final helper = newBuiltValueToStringHelper('GetBucketCorsRequest')
+      ..add(
+        'bucket',
+        bucket,
+      )
+      ..add(
+        'expectedBucketOwner',
+        expectedBucketOwner,
+      );
     return helper.toString();
   }
 }

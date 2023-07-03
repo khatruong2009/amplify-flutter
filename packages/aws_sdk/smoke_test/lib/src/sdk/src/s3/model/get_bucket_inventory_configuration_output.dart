@@ -51,9 +51,8 @@ abstract class GetBucketInventoryConfigurationOutput
         }
       });
 
-  static const List<_i2.SmithySerializer> serializers = [
-    GetBucketInventoryConfigurationOutputRestXmlSerializer()
-  ];
+  static const List<_i2.SmithySerializer<_i3.InventoryConfiguration?>>
+      serializers = [GetBucketInventoryConfigurationOutputRestXmlSerializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(GetBucketInventoryConfigurationOutputBuilder b) {}
@@ -67,11 +66,11 @@ abstract class GetBucketInventoryConfigurationOutput
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('GetBucketInventoryConfigurationOutput');
-    helper.add(
-      'inventoryConfiguration',
-      inventoryConfiguration,
-    );
+        newBuiltValueToStringHelper('GetBucketInventoryConfigurationOutput')
+          ..add(
+            'inventoryConfiguration',
+            inventoryConfiguration,
+          );
     return helper.toString();
   }
 }
@@ -183,12 +182,14 @@ class GetBucketInventoryConfigurationOutputRestXmlSerializer
         destination,
         specifiedType: const FullType(_i4.InventoryDestination),
       ));
-    result$
-      ..add(const _i2.XmlElementName('IsEnabled'))
-      ..add(serializers.serialize(
-        isEnabled,
-        specifiedType: const FullType.nullable(bool),
-      ));
+    if (isEnabled != null) {
+      result$
+        ..add(const _i2.XmlElementName('IsEnabled'))
+        ..add(serializers.serialize(
+          isEnabled,
+          specifiedType: const FullType.nullable(bool),
+        ));
+    }
     if (filter != null) {
       result$
         ..add(const _i2.XmlElementName('Filter'))

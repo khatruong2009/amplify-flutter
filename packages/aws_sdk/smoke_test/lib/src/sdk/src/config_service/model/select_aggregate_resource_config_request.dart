@@ -24,6 +24,8 @@ abstract class SelectAggregateResourceConfigRequest
     int? maxResults,
     String? nextToken,
   }) {
+    limit ??= 0;
+    maxResults ??= 0;
     return _$SelectAggregateResourceConfigRequest._(
       expression: expression,
       configurationAggregatorName: configurationAggregatorName,
@@ -46,12 +48,14 @@ abstract class SelectAggregateResourceConfigRequest
   }) =>
       payload;
 
-  static const List<_i1.SmithySerializer> serializers = [
-    SelectAggregateResourceConfigRequestAwsJson11Serializer()
-  ];
+  static const List<_i1.SmithySerializer<SelectAggregateResourceConfigRequest>>
+      serializers = [SelectAggregateResourceConfigRequestAwsJson11Serializer()];
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _init(SelectAggregateResourceConfigRequestBuilder b) {}
+  static void _init(SelectAggregateResourceConfigRequestBuilder b) {
+    b.limit = 0;
+    b.maxResults = 0;
+  }
 
   /// The SQL query SELECT command.
   String get expression;
@@ -60,10 +64,10 @@ abstract class SelectAggregateResourceConfigRequest
   String get configurationAggregatorName;
 
   /// The maximum number of query results returned on each page.
-  int? get limit;
+  int get limit;
 
   /// The maximum number of query results returned on each page. Config also allows the Limit request parameter.
-  int? get maxResults;
+  int get maxResults;
 
   /// The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
   String? get nextToken;
@@ -80,27 +84,27 @@ abstract class SelectAggregateResourceConfigRequest
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('SelectAggregateResourceConfigRequest');
-    helper.add(
-      'expression',
-      expression,
-    );
-    helper.add(
-      'configurationAggregatorName',
-      configurationAggregatorName,
-    );
-    helper.add(
-      'limit',
-      limit,
-    );
-    helper.add(
-      'maxResults',
-      maxResults,
-    );
-    helper.add(
-      'nextToken',
-      nextToken,
-    );
+        newBuiltValueToStringHelper('SelectAggregateResourceConfigRequest')
+          ..add(
+            'expression',
+            expression,
+          )
+          ..add(
+            'configurationAggregatorName',
+            configurationAggregatorName,
+          )
+          ..add(
+            'limit',
+            limit,
+          )
+          ..add(
+            'maxResults',
+            maxResults,
+          )
+          ..add(
+            'nextToken',
+            nextToken,
+          );
     return helper.toString();
   }
 }
@@ -194,23 +198,17 @@ class SelectAggregateResourceConfigRequestAwsJson11Serializer extends _i1
         configurationAggregatorName,
         specifiedType: const FullType(String),
       ),
+      'Limit',
+      serializers.serialize(
+        limit,
+        specifiedType: const FullType(int),
+      ),
+      'MaxResults',
+      serializers.serialize(
+        maxResults,
+        specifiedType: const FullType(int),
+      ),
     ]);
-    if (limit != null) {
-      result$
-        ..add('Limit')
-        ..add(serializers.serialize(
-          limit,
-          specifiedType: const FullType(int),
-        ));
-    }
-    if (maxResults != null) {
-      result$
-        ..add('MaxResults')
-        ..add(serializers.serialize(
-          maxResults,
-          specifiedType: const FullType(int),
-        ));
-    }
     if (nextToken != null) {
       result$
         ..add('NextToken')

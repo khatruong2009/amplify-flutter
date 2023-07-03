@@ -19,6 +19,7 @@ abstract class MethodSnapshot
     String? authorizationType,
     bool? apiKeyRequired,
   }) {
+    apiKeyRequired ??= false;
     return _$MethodSnapshot._(
       authorizationType: authorizationType,
       apiKeyRequired: apiKeyRequired,
@@ -31,18 +32,20 @@ abstract class MethodSnapshot
 
   const MethodSnapshot._();
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<_i2.SmithySerializer<MethodSnapshot>> serializers = [
     MethodSnapshotRestJson1Serializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _init(MethodSnapshotBuilder b) {}
+  static void _init(MethodSnapshotBuilder b) {
+    b.apiKeyRequired = false;
+  }
 
   /// The method's authorization type. Valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, `CUSTOM` for using a custom authorizer, or `COGNITO\_USER\_POOLS` for using a Cognito user pool.
   String? get authorizationType;
 
   /// Specifies whether the method requires a valid ApiKey.
-  bool? get apiKeyRequired;
+  bool get apiKeyRequired;
   @override
   List<Object?> get props => [
         authorizationType,
@@ -50,15 +53,15 @@ abstract class MethodSnapshot
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('MethodSnapshot');
-    helper.add(
-      'authorizationType',
-      authorizationType,
-    );
-    helper.add(
-      'apiKeyRequired',
-      apiKeyRequired,
-    );
+    final helper = newBuiltValueToStringHelper('MethodSnapshot')
+      ..add(
+        'authorizationType',
+        authorizationType,
+      )
+      ..add(
+        'apiKeyRequired',
+        apiKeyRequired,
+      );
     return helper.toString();
   }
 }
@@ -119,14 +122,13 @@ class MethodSnapshotRestJson1Serializer
   }) {
     final result$ = <Object?>[];
     final MethodSnapshot(:apiKeyRequired, :authorizationType) = object;
-    if (apiKeyRequired != null) {
-      result$
-        ..add('apiKeyRequired')
-        ..add(serializers.serialize(
-          apiKeyRequired,
-          specifiedType: const FullType(bool),
-        ));
-    }
+    result$.addAll([
+      'apiKeyRequired',
+      serializers.serialize(
+        apiKeyRequired,
+        specifiedType: const FullType(bool),
+      ),
+    ]);
     if (authorizationType != null) {
       result$
         ..add('authorizationType')

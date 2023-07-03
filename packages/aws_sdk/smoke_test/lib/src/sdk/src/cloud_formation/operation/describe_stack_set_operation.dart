@@ -22,13 +22,13 @@ import 'package:smoke_test/src/sdk/src/cloud_formation/model/operation_not_found
 import 'package:smoke_test/src/sdk/src/cloud_formation/model/stack_set_not_found_exception.dart'
     as _i10;
 
-/// Returns the description of the specified stack set operation.
+/// Returns the description of the specified StackSet operation.
 class DescribeStackSetOperation extends _i1.HttpOperation<
     _i2.DescribeStackSetOperationInput,
     _i2.DescribeStackSetOperationInput,
     _i3.DescribeStackSetOperationOutput,
     _i3.DescribeStackSetOperationOutput> {
-  /// Returns the description of the specified stack set operation.
+  /// Returns the description of the specified StackSet operation.
   DescribeStackSetOperation({
     required String region,
     Uri? baseUri,
@@ -118,7 +118,8 @@ class DescribeStackSetOperation extends _i1.HttpOperation<
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.OperationNotFoundException,
+            _i9.OperationNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cloudformation',
             shape: 'OperationNotFoundException',
@@ -128,7 +129,8 @@ class DescribeStackSetOperation extends _i1.HttpOperation<
           statusCode: 404,
           builder: _i9.OperationNotFoundException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.StackSetNotFoundException,
+            _i10.StackSetNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cloudformation',
             shape: 'StackSetNotFoundException',

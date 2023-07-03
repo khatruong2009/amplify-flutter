@@ -26,10 +26,14 @@ import 'package:smoke_test/src/sdk/src/dynamo_db/model/resource_not_found_except
 
 /// Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.
 ///
+/// This operation only applies to [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) of global tables.
+///
 /// If you issue a `DescribeTable` request immediately after a `CreateTable` request, DynamoDB might return a `ResourceNotFoundException`. This is because `DescribeTable` uses an eventually consistent query, and the metadata for your table might not be available at that moment. Wait for a few seconds, and then try the `DescribeTable` request again.
 class DescribeTableOperation extends _i1.HttpOperation<_i2.DescribeTableInput,
     _i2.DescribeTableInput, _i3.DescribeTableOutput, _i3.DescribeTableOutput> {
   /// Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.
+  ///
+  /// This operation only applies to [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) of global tables.
   ///
   /// If you issue a `DescribeTable` request immediately after a `CreateTable` request, DynamoDB might return a `ResourceNotFoundException`. This is because `DescribeTable` uses an eventually consistent query, and the metadata for your table might not be available at that moment. Wait for a few seconds, and then try the `DescribeTable` request again.
   DescribeTableOperation({
@@ -108,7 +112,7 @@ class DescribeTableOperation extends _i1.HttpOperation<_i2.DescribeTableInput,
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.InternalServerError, _i9.InternalServerError>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.dynamodb',
             shape: 'InternalServerError',
@@ -117,7 +121,8 @@ class DescribeTableOperation extends _i1.HttpOperation<_i2.DescribeTableInput,
           _i9.InternalServerError,
           builder: _i9.InternalServerError.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.InvalidEndpointException,
+            _i10.InvalidEndpointException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.dynamodb',
             shape: 'InvalidEndpointException',
@@ -127,7 +132,8 @@ class DescribeTableOperation extends _i1.HttpOperation<_i2.DescribeTableInput,
           statusCode: 421,
           builder: _i10.InvalidEndpointException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i11.ResourceNotFoundException,
+            _i11.ResourceNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.dynamodb',
             shape: 'ResourceNotFoundException',

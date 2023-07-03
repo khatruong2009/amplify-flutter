@@ -30,24 +30,24 @@ abstract class ActivateTypeOutput
   ) =>
       payload;
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<_i2.SmithySerializer<ActivateTypeOutput>> serializers = [
     ActivateTypeOutputAwsQuerySerializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(ActivateTypeOutputBuilder b) {}
 
-  /// The Amazon Resource Name (ARN) of the activated extension, in this account and region.
+  /// The Amazon Resource Name (ARN) of the activated extension, in this account and Region.
   String? get arn;
   @override
   List<Object?> get props => [arn];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('ActivateTypeOutput');
-    helper.add(
-      'arn',
-      arn,
-    );
+    final helper = newBuiltValueToStringHelper('ActivateTypeOutput')
+      ..add(
+        'arn',
+        arn,
+      );
     return helper.toString();
   }
 }

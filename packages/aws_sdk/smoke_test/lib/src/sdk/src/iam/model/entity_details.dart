@@ -38,7 +38,7 @@ abstract class EntityDetails
 
   const EntityDetails._();
 
-  static const List<_i3.SmithySerializer> serializers = [
+  static const List<_i3.SmithySerializer<EntityDetails>> serializers = [
     EntityDetailsAwsQuerySerializer()
   ];
 
@@ -50,7 +50,7 @@ abstract class EntityDetails
 
   /// The date and time, in [ISO 8601 date-time format](http://www.iso.org/iso/iso8601), when the authenticated entity last attempted to access Amazon Web Services. Amazon Web Services does not report unauthenticated requests.
   ///
-  /// This field is null if no IAM entities attempted to access the service within the [reporting period](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
+  /// This field is null if no IAM entities attempted to access the service within the [tracking period](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
   DateTime? get lastAuthenticated;
   @override
   List<Object?> get props => [
@@ -59,15 +59,15 @@ abstract class EntityDetails
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('EntityDetails');
-    helper.add(
-      'entityInfo',
-      entityInfo,
-    );
-    helper.add(
-      'lastAuthenticated',
-      lastAuthenticated,
-    );
+    final helper = newBuiltValueToStringHelper('EntityDetails')
+      ..add(
+        'entityInfo',
+        entityInfo,
+      )
+      ..add(
+        'lastAuthenticated',
+        lastAuthenticated,
+      );
     return helper.toString();
   }
 }

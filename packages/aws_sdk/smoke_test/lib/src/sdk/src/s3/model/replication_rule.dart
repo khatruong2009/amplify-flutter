@@ -57,7 +57,7 @@ abstract class ReplicationRule
 
   const ReplicationRule._();
 
-  static const List<_i8.SmithySerializer> serializers = [
+  static const List<_i8.SmithySerializer<ReplicationRule>> serializers = [
     ReplicationRuleRestXmlSerializer()
   ];
 
@@ -88,6 +88,7 @@ abstract class ReplicationRule
   /// A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using a customer managed key stored in Amazon Web Services Key Management Service (SSE-KMS).
   _i4.SourceSelectionCriteria? get sourceSelectionCriteria;
 
+  /// Optional configuration to replicate existing source bucket objects. For more information, see [Replicating Existing Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-what-is-isnot-replicated.html#existing-object-replication) in the _Amazon S3 User Guide_.
   _i5.ExistingObjectReplication? get existingObjectReplication;
 
   /// A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
@@ -113,43 +114,43 @@ abstract class ReplicationRule
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('ReplicationRule');
-    helper.add(
-      'id',
-      id,
-    );
-    helper.add(
-      'priority',
-      priority,
-    );
-    helper.add(
-      'prefix',
-      prefix,
-    );
-    helper.add(
-      'filter',
-      filter,
-    );
-    helper.add(
-      'status',
-      status,
-    );
-    helper.add(
-      'sourceSelectionCriteria',
-      sourceSelectionCriteria,
-    );
-    helper.add(
-      'existingObjectReplication',
-      existingObjectReplication,
-    );
-    helper.add(
-      'destination',
-      destination,
-    );
-    helper.add(
-      'deleteMarkerReplication',
-      deleteMarkerReplication,
-    );
+    final helper = newBuiltValueToStringHelper('ReplicationRule')
+      ..add(
+        'id',
+        id,
+      )
+      ..add(
+        'priority',
+        priority,
+      )
+      ..add(
+        'prefix',
+        prefix,
+      )
+      ..add(
+        'filter',
+        filter,
+      )
+      ..add(
+        'status',
+        status,
+      )
+      ..add(
+        'sourceSelectionCriteria',
+        sourceSelectionCriteria,
+      )
+      ..add(
+        'existingObjectReplication',
+        existingObjectReplication,
+      )
+      ..add(
+        'destination',
+        destination,
+      )
+      ..add(
+        'deleteMarkerReplication',
+        deleteMarkerReplication,
+      );
     return helper.toString();
   }
 }

@@ -22,7 +22,7 @@ import 'package:smoke_test/src/sdk/src/cloud_formation/model/cfn_registry_except
 import 'package:smoke_test/src/sdk/src/cloud_formation/model/type_configuration_not_found_exception.dart'
     as _i10;
 
-/// Returns configuration data for the specified CloudFormation extensions, from the CloudFormation registry for the account and region.
+/// Returns configuration data for the specified CloudFormation extensions, from the CloudFormation registry for the account and Region.
 ///
 /// For more information, see [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration) in the _CloudFormation User Guide_.
 class BatchDescribeTypeConfigurationsOperation extends _i1.HttpOperation<
@@ -30,7 +30,7 @@ class BatchDescribeTypeConfigurationsOperation extends _i1.HttpOperation<
     _i2.BatchDescribeTypeConfigurationsInput,
     _i3.BatchDescribeTypeConfigurationsOutput,
     _i3.BatchDescribeTypeConfigurationsOutput> {
-  /// Returns configuration data for the specified CloudFormation extensions, from the CloudFormation registry for the account and region.
+  /// Returns configuration data for the specified CloudFormation extensions, from the CloudFormation registry for the account and Region.
   ///
   /// For more information, see [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration) in the _CloudFormation User Guide_.
   BatchDescribeTypeConfigurationsOperation({
@@ -123,7 +123,7 @@ class BatchDescribeTypeConfigurationsOperation extends _i1.HttpOperation<
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.CfnRegistryException, _i9.CfnRegistryException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cloudformation',
             shape: 'CFNRegistryException',
@@ -133,7 +133,8 @@ class BatchDescribeTypeConfigurationsOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i9.CfnRegistryException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.TypeConfigurationNotFoundException,
+            _i10.TypeConfigurationNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cloudformation',
             shape: 'TypeConfigurationNotFoundException',

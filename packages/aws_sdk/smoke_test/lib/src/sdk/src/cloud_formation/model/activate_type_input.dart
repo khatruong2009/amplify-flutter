@@ -58,7 +58,7 @@ abstract class ActivateTypeInput
   }) =>
       payload;
 
-  static const List<_i1.SmithySerializer> serializers = [
+  static const List<_i1.SmithySerializer<ActivateTypeInput>> serializers = [
     ActivateTypeInputAwsQuerySerializer()
   ];
 
@@ -85,12 +85,12 @@ abstract class ActivateTypeInput
   /// Conditional: You must specify `PublicTypeArn`, or `TypeName`, `Type`, and `PublisherId`.
   String? get typeName;
 
-  /// An alias to assign to the public extension, in this account and region. If you specify an alias for the extension, CloudFormation treats the alias as the extension type name within this account and region. You must use the alias to refer to the extension in your templates, API calls, and CloudFormation console.
+  /// An alias to assign to the public extension, in this account and Region. If you specify an alias for the extension, CloudFormation treats the alias as the extension type name within this account and Region. You must use the alias to refer to the extension in your templates, API calls, and CloudFormation console.
   ///
-  /// An extension alias must be unique within a given account and region. You can activate the same public resource multiple times in the same account and region, using different type name aliases.
+  /// An extension alias must be unique within a given account and Region. You can activate the same public resource multiple times in the same account and Region, using different type name aliases.
   String? get typeNameAlias;
 
-  /// Whether to automatically update the extension in this account and region when a new _minor_ version is published by the extension publisher. Major versions released by the publisher must be manually updated.
+  /// Whether to automatically update the extension in this account and Region when a new _minor_ version is published by the extension publisher. Major versions released by the publisher must be manually updated.
   ///
   /// The default is `true`.
   bool? get autoUpdate;
@@ -129,47 +129,47 @@ abstract class ActivateTypeInput
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('ActivateTypeInput');
-    helper.add(
-      'type',
-      type,
-    );
-    helper.add(
-      'publicTypeArn',
-      publicTypeArn,
-    );
-    helper.add(
-      'publisherId',
-      publisherId,
-    );
-    helper.add(
-      'typeName',
-      typeName,
-    );
-    helper.add(
-      'typeNameAlias',
-      typeNameAlias,
-    );
-    helper.add(
-      'autoUpdate',
-      autoUpdate,
-    );
-    helper.add(
-      'loggingConfig',
-      loggingConfig,
-    );
-    helper.add(
-      'executionRoleArn',
-      executionRoleArn,
-    );
-    helper.add(
-      'versionBump',
-      versionBump,
-    );
-    helper.add(
-      'majorVersion',
-      majorVersion,
-    );
+    final helper = newBuiltValueToStringHelper('ActivateTypeInput')
+      ..add(
+        'type',
+        type,
+      )
+      ..add(
+        'publicTypeArn',
+        publicTypeArn,
+      )
+      ..add(
+        'publisherId',
+        publisherId,
+      )
+      ..add(
+        'typeName',
+        typeName,
+      )
+      ..add(
+        'typeNameAlias',
+        typeNameAlias,
+      )
+      ..add(
+        'autoUpdate',
+        autoUpdate,
+      )
+      ..add(
+        'loggingConfig',
+        loggingConfig,
+      )
+      ..add(
+        'executionRoleArn',
+        executionRoleArn,
+      )
+      ..add(
+        'versionBump',
+        versionBump,
+      )
+      ..add(
+        'majorVersion',
+        majorVersion,
+      );
     return helper.toString();
   }
 }

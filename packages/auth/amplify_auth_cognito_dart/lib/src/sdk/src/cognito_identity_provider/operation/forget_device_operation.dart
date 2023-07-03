@@ -1,4 +1,5 @@
 // Generated with smithy-dart 0.3.1. DO NOT MODIFY.
+// ignore_for_file: avoid_unused_constructor_parameters,deprecated_member_use_from_same_package,non_constant_identifier_names
 
 library amplify_auth_cognito_dart.cognito_identity_provider.operation.forget_device_operation; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
@@ -36,9 +37,13 @@ import 'package:smithy/smithy.dart' as _i1;
 import 'package:smithy_aws/smithy_aws.dart' as _i4;
 
 /// Forgets the specified device.
+///
+/// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
     _i2.ForgetDeviceRequest, _i1.Unit, _i1.Unit> {
   /// Forgets the specified device.
+  ///
+  /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   ForgetDeviceOperation({
     required String region,
     Uri? baseUri,
@@ -113,7 +118,7 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
       payload;
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i8.ForbiddenException, _i8.ForbiddenException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ForbiddenException',
@@ -123,7 +128,7 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
           statusCode: 403,
           builder: _i8.ForbiddenException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.InternalErrorException, _i9.InternalErrorException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InternalErrorException',
@@ -132,7 +137,8 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
           _i9.InternalErrorException,
           builder: _i9.InternalErrorException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.InvalidParameterException,
+            _i10.InvalidParameterException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidParameterException',
@@ -142,7 +148,8 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
           statusCode: 400,
           builder: _i10.InvalidParameterException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i11.InvalidUserPoolConfigurationException,
+            _i11.InvalidUserPoolConfigurationException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidUserPoolConfigurationException',
@@ -152,7 +159,8 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
           statusCode: 400,
           builder: _i11.InvalidUserPoolConfigurationException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i12.NotAuthorizedException,
+            _i12.NotAuthorizedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'NotAuthorizedException',
@@ -162,7 +170,8 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
           statusCode: 403,
           builder: _i12.NotAuthorizedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i13.PasswordResetRequiredException,
+            _i13.PasswordResetRequiredException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'PasswordResetRequiredException',
@@ -172,7 +181,8 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
           statusCode: 400,
           builder: _i13.PasswordResetRequiredException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i14.ResourceNotFoundException,
+            _i14.ResourceNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ResourceNotFoundException',
@@ -182,7 +192,8 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
           statusCode: 404,
           builder: _i14.ResourceNotFoundException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i15.TooManyRequestsException,
+            _i15.TooManyRequestsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'TooManyRequestsException',
@@ -192,7 +203,8 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
           statusCode: 429,
           builder: _i15.TooManyRequestsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i16.UserNotConfirmedException,
+            _i16.UserNotConfirmedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotConfirmedException',
@@ -202,7 +214,7 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
           statusCode: 400,
           builder: _i16.UserNotConfirmedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i17.UserNotFoundException, _i17.UserNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotFoundException',
@@ -235,7 +247,7 @@ class ForgetDeviceOperation extends _i1.HttpOperation<_i2.ForgetDeviceRequest,
       ),
       zoneValues: {
         ...?_awsEndpoint.credentialScope?.zoneValues,
-        ...{_i6.AWSHeaders.sdkInvocationId: _i6.uuid(secure: true)}
+        ...{_i6.AWSHeaders.sdkInvocationId: _i6.uuid(secure: true)},
       },
     );
   }

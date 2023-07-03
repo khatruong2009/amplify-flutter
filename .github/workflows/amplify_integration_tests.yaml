@@ -47,13 +47,13 @@ jobs:
           - api-level: 33
             arch: x86_64
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # 3.1.0
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # 3.5.3
         with:
           persist-credentials: false
           submodules: true
 
       # Flutter requires Java 11 to build android apps with Gradle.
-      - uses: actions/setup-java@de1bb2b0c5634f0fc4438d7aa9944e68f9bf86cc # 3.6.0
+      - uses: actions/setup-java@5ffc13f4174014e2d4d4572b3d74c3fa61aeb2c2 # 3.6.0
         with:
           distribution: "corretto" # Amazon Corretto Build of OpenJDK
           java-version: "11"
@@ -100,7 +100,7 @@ jobs:
           - "amplify_storage_s3_example"
           - "amplify_db_common_example"
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # 3.1.0
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # 3.5.3
         with:
           persist-credentials: false
           submodules: true
@@ -144,7 +144,7 @@ jobs:
           - "amplify_storage_s3_example"
           - "amplify_db_common_example"
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # 3.1.0
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # 3.5.3
         with:
           persist-credentials: false
           submodules: true
@@ -163,7 +163,7 @@ jobs:
           scope: ${{ matrix.scope }}
           secret-identifier: ${{ secrets.AWS_SECRET_IDENTIFIER }}
 
-      - uses: nanasess/setup-chromedriver@7cbd35794f8ab317f778c3172fb86c1e9b2853f7 # 1.1.0
+      - uses: nanasess/setup-chromedriver@95301782a076fbe8c9ecf54395a4689f7b195285 # 2.0.0
 
       - name: Run integration tests
         timeout-minutes: 30
@@ -190,7 +190,7 @@ jobs:
   #         - "amplify_storage_s3_example"
   #         - "amplify_db_common_example"
   #   steps:
-  #     - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # 3.1.0
+  #     - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # 3.5.3
   #       with:
   #         persist-credentials: false
   #         submodules: true
@@ -232,7 +232,7 @@ jobs:
           - "amplify_storage_s3_example"
           - "amplify_db_common_example"
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # 3.1.0
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # 3.5.3
         with:
           persist-credentials: false
           submodules: true
@@ -274,7 +274,7 @@ jobs:
           - "amplify_storage_s3_example"
           - "amplify_db_common_example"
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # 3.1.0
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # 3.5.3
         with:
           persist-credentials: false
           submodules: true

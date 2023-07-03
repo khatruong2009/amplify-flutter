@@ -48,9 +48,8 @@ abstract class ContinueUpdateRollbackInput
   }) =>
       payload;
 
-  static const List<_i1.SmithySerializer> serializers = [
-    ContinueUpdateRollbackInputAwsQuerySerializer()
-  ];
+  static const List<_i1.SmithySerializer<ContinueUpdateRollbackInput>>
+      serializers = [ContinueUpdateRollbackInputAwsQuerySerializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(ContinueUpdateRollbackInputBuilder b) {}
@@ -76,7 +75,7 @@ abstract class ContinueUpdateRollbackInput
   /// Don't confuse a child stack's name with its corresponding logical ID defined in the parent stack. For an example of a continue update rollback operation with nested stacks, see [Using ResourcesToSkip to recover a nested stacks hierarchy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks).
   _i3.BuiltList<String>? get resourcesToSkip;
 
-  /// A unique identifier for this `ContinueUpdateRollback` request. Specify this token if you plan to retry requests so that CloudFormationknows that you're not attempting to continue the rollback to a stack with the same name. You might retry `ContinueUpdateRollback` requests to ensure that CloudFormation successfully received them.
+  /// A unique identifier for this `ContinueUpdateRollback` request. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to continue the rollback to a stack with the same name. You might retry `ContinueUpdateRollback` requests to ensure that CloudFormation successfully received them.
   String? get clientRequestToken;
   @override
   ContinueUpdateRollbackInput getPayload() => this;
@@ -89,23 +88,23 @@ abstract class ContinueUpdateRollbackInput
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('ContinueUpdateRollbackInput');
-    helper.add(
-      'stackName',
-      stackName,
-    );
-    helper.add(
-      'roleArn',
-      roleArn,
-    );
-    helper.add(
-      'resourcesToSkip',
-      resourcesToSkip,
-    );
-    helper.add(
-      'clientRequestToken',
-      clientRequestToken,
-    );
+    final helper = newBuiltValueToStringHelper('ContinueUpdateRollbackInput')
+      ..add(
+        'stackName',
+        stackName,
+      )
+      ..add(
+        'roleArn',
+        roleArn,
+      )
+      ..add(
+        'resourcesToSkip',
+        resourcesToSkip,
+      )
+      ..add(
+        'clientRequestToken',
+        clientRequestToken,
+      );
     return helper.toString();
   }
 }

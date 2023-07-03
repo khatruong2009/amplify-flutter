@@ -1,4 +1,5 @@
 // Generated with smithy-dart 0.3.1. DO NOT MODIFY.
+// ignore_for_file: avoid_unused_constructor_parameters,deprecated_member_use_from_same_package,non_constant_identifier_names
 
 library amplify_integration_test.cognito_identity_provider.model.event_risk_type; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
@@ -36,7 +37,7 @@ abstract class EventRiskType
 
   const EventRiskType._();
 
-  static const List<_i4.SmithySerializer> serializers = [
+  static const List<_i4.SmithySerializer<EventRiskType>> serializers = [
     EventRiskTypeAwsJson11Serializer()
   ];
 
@@ -59,19 +60,19 @@ abstract class EventRiskType
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('EventRiskType');
-    helper.add(
-      'riskDecision',
-      riskDecision,
-    );
-    helper.add(
-      'riskLevel',
-      riskLevel,
-    );
-    helper.add(
-      'compromisedCredentialsDetected',
-      compromisedCredentialsDetected,
-    );
+    final helper = newBuiltValueToStringHelper('EventRiskType')
+      ..add(
+        'riskDecision',
+        riskDecision,
+      )
+      ..add(
+        'riskLevel',
+        riskLevel,
+      )
+      ..add(
+        'compromisedCredentialsDetected',
+        compromisedCredentialsDetected,
+      );
     return helper.toString();
   }
 }
@@ -104,31 +105,25 @@ class EventRiskTypeAwsJson11Serializer
       final key = iterator.current as String;
       iterator.moveNext();
       final value = iterator.current;
+      if (value == null) {
+        continue;
+      }
       switch (key) {
         case 'RiskDecision':
-          if (value != null) {
-            result.riskDecision = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(_i2.RiskDecisionType),
-            ) as _i2.RiskDecisionType);
-          }
-          break;
+          result.riskDecision = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(_i2.RiskDecisionType),
+          ) as _i2.RiskDecisionType);
         case 'RiskLevel':
-          if (value != null) {
-            result.riskLevel = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(_i3.RiskLevelType),
-            ) as _i3.RiskLevelType);
-          }
-          break;
+          result.riskLevel = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(_i3.RiskLevelType),
+          ) as _i3.RiskLevelType);
         case 'CompromisedCredentialsDetected':
-          if (value != null) {
-            result.compromisedCredentialsDetected = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(bool),
-            ) as bool);
-          }
-          break;
+          result.compromisedCredentialsDetected = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool);
       }
     }
 
@@ -138,35 +133,39 @@ class EventRiskTypeAwsJson11Serializer
   @override
   Iterable<Object?> serialize(
     Serializers serializers,
-    Object? object, {
+    EventRiskType object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final payload = (object as EventRiskType);
-    final result = <Object?>[];
-    if (payload.riskDecision != null) {
-      result
+    final result$ = <Object?>[];
+    final EventRiskType(
+      :riskDecision,
+      :riskLevel,
+      :compromisedCredentialsDetected
+    ) = object;
+    if (riskDecision != null) {
+      result$
         ..add('RiskDecision')
         ..add(serializers.serialize(
-          payload.riskDecision!,
+          riskDecision,
           specifiedType: const FullType(_i2.RiskDecisionType),
         ));
     }
-    if (payload.riskLevel != null) {
-      result
+    if (riskLevel != null) {
+      result$
         ..add('RiskLevel')
         ..add(serializers.serialize(
-          payload.riskLevel!,
+          riskLevel,
           specifiedType: const FullType(_i3.RiskLevelType),
         ));
     }
-    if (payload.compromisedCredentialsDetected != null) {
-      result
+    if (compromisedCredentialsDetected != null) {
+      result$
         ..add('CompromisedCredentialsDetected')
         ..add(serializers.serialize(
-          payload.compromisedCredentialsDetected!,
+          compromisedCredentialsDetected,
           specifiedType: const FullType(bool),
         ));
     }
-    return result;
+    return result$;
   }
 }

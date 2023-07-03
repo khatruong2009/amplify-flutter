@@ -34,7 +34,7 @@ abstract class Error
 
   const Error._();
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<_i2.SmithySerializer<Error>> serializers = [
     ErrorRestXmlSerializer()
   ];
 
@@ -47,9 +47,7 @@ abstract class Error
   /// The version ID of the error.
   String? get versionId;
 
-  /// The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
-  ///
-  /// **Amazon S3 error codes**
+  /// The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type. The following is a list of Amazon S3 error codes. For more information, see [Error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).
   ///
   /// *   *   _Code:_ AccessDenied
   ///
@@ -693,7 +691,7 @@ abstract class Error
   ///
   /// *   *   _Code:_ ServiceUnavailable
   ///
-  ///     *   _Description:_ Reduce your request rate.
+  ///     *   _Description:_ Service is unable to handle request.
   ///
   ///     *   _HTTP Status Code:_ 503 Service Unavailable
   ///
@@ -767,23 +765,23 @@ abstract class Error
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('Error');
-    helper.add(
-      'key',
-      key,
-    );
-    helper.add(
-      'versionId',
-      versionId,
-    );
-    helper.add(
-      'code',
-      code,
-    );
-    helper.add(
-      'message',
-      message,
-    );
+    final helper = newBuiltValueToStringHelper('Error')
+      ..add(
+        'key',
+        key,
+      )
+      ..add(
+        'versionId',
+        versionId,
+      )
+      ..add(
+        'code',
+        code,
+      )
+      ..add(
+        'message',
+        message,
+      );
     return helper.toString();
   }
 }

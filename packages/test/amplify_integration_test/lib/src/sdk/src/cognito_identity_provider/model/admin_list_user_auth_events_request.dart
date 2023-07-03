@@ -1,4 +1,5 @@
 // Generated with smithy-dart 0.3.1. DO NOT MODIFY.
+// ignore_for_file: avoid_unused_constructor_parameters,deprecated_member_use_from_same_package,non_constant_identifier_names
 
 library amplify_integration_test.cognito_identity_provider.model.admin_list_user_auth_events_request; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
@@ -43,9 +44,8 @@ abstract class AdminListUserAuthEventsRequest
   }) =>
       payload;
 
-  static const List<_i1.SmithySerializer> serializers = [
-    AdminListUserAuthEventsRequestAwsJson11Serializer()
-  ];
+  static const List<_i1.SmithySerializer<AdminListUserAuthEventsRequest>>
+      serializers = [AdminListUserAuthEventsRequestAwsJson11Serializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(AdminListUserAuthEventsRequestBuilder b) {}
@@ -72,24 +72,23 @@ abstract class AdminListUserAuthEventsRequest
       ];
   @override
   String toString() {
-    final helper =
-        newBuiltValueToStringHelper('AdminListUserAuthEventsRequest');
-    helper.add(
-      'userPoolId',
-      userPoolId,
-    );
-    helper.add(
-      'username',
-      '***SENSITIVE***',
-    );
-    helper.add(
-      'maxResults',
-      maxResults,
-    );
-    helper.add(
-      'nextToken',
-      nextToken,
-    );
+    final helper = newBuiltValueToStringHelper('AdminListUserAuthEventsRequest')
+      ..add(
+        'userPoolId',
+        userPoolId,
+      )
+      ..add(
+        'username',
+        '***SENSITIVE***',
+      )
+      ..add(
+        'maxResults',
+        maxResults,
+      )
+      ..add(
+        'nextToken',
+        nextToken,
+      );
     return helper.toString();
   }
 }
@@ -123,35 +122,30 @@ class AdminListUserAuthEventsRequestAwsJson11Serializer
       final key = iterator.current as String;
       iterator.moveNext();
       final value = iterator.current;
+      if (value == null) {
+        continue;
+      }
       switch (key) {
         case 'UserPoolId':
           result.userPoolId = (serializers.deserialize(
-            value!,
+            value,
             specifiedType: const FullType(String),
           ) as String);
-          break;
         case 'Username':
           result.username = (serializers.deserialize(
-            value!,
+            value,
             specifiedType: const FullType(String),
           ) as String);
-          break;
         case 'MaxResults':
-          if (value != null) {
-            result.maxResults = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(int),
-            ) as int);
-          }
-          break;
+          result.maxResults = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int);
         case 'NextToken':
-          if (value != null) {
-            result.nextToken = (serializers.deserialize(
-              value,
-              specifiedType: const FullType(String),
-            ) as String);
-          }
-          break;
+          result.nextToken = (serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String);
       }
     }
 
@@ -161,38 +155,44 @@ class AdminListUserAuthEventsRequestAwsJson11Serializer
   @override
   Iterable<Object?> serialize(
     Serializers serializers,
-    Object? object, {
+    AdminListUserAuthEventsRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final payload = (object as AdminListUserAuthEventsRequest);
-    final result = <Object?>[
+    final result$ = <Object?>[];
+    final AdminListUserAuthEventsRequest(
+      :userPoolId,
+      :username,
+      :maxResults,
+      :nextToken
+    ) = object;
+    result$.addAll([
       'UserPoolId',
       serializers.serialize(
-        payload.userPoolId,
+        userPoolId,
         specifiedType: const FullType(String),
       ),
       'Username',
       serializers.serialize(
-        payload.username,
+        username,
         specifiedType: const FullType(String),
       ),
-    ];
-    if (payload.maxResults != null) {
-      result
+    ]);
+    if (maxResults != null) {
+      result$
         ..add('MaxResults')
         ..add(serializers.serialize(
-          payload.maxResults!,
+          maxResults,
           specifiedType: const FullType(int),
         ));
     }
-    if (payload.nextToken != null) {
-      result
+    if (nextToken != null) {
+      result$
         ..add('NextToken')
         ..add(serializers.serialize(
-          payload.nextToken!,
+          nextToken,
           specifiedType: const FullType(String),
         ));
     }
-    return result;
+    return result$;
   }
 }

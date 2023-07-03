@@ -41,14 +41,13 @@ abstract class PutConfigurationRecorderRequest
   }) =>
       payload;
 
-  static const List<_i1.SmithySerializer> serializers = [
-    PutConfigurationRecorderRequestAwsJson11Serializer()
-  ];
+  static const List<_i1.SmithySerializer<PutConfigurationRecorderRequest>>
+      serializers = [PutConfigurationRecorderRequestAwsJson11Serializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(PutConfigurationRecorderRequestBuilder b) {}
 
-  /// The configuration recorder object that records each configuration change made to the resources.
+  /// An object for the configuration recorder to record configuration changes for specified resource types.
   _i3.ConfigurationRecorder get configurationRecorder;
   @override
   PutConfigurationRecorderRequest getPayload() => this;
@@ -57,11 +56,11 @@ abstract class PutConfigurationRecorderRequest
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('PutConfigurationRecorderRequest');
-    helper.add(
-      'configurationRecorder',
-      configurationRecorder,
-    );
+        newBuiltValueToStringHelper('PutConfigurationRecorderRequest')
+          ..add(
+            'configurationRecorder',
+            configurationRecorder,
+          );
     return helper.toString();
   }
 }

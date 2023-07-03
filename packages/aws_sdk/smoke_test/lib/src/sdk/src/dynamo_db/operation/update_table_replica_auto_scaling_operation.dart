@@ -28,7 +28,7 @@ import 'package:smoke_test/src/sdk/src/dynamo_db/model/update_table_replica_auto
 
 /// Updates auto scaling settings on your global tables at once.
 ///
-/// This operation only applies to [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) of global tables.
+/// This operation only applies to [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) of global tables.
 class UpdateTableReplicaAutoScalingOperation extends _i1.HttpOperation<
     _i2.UpdateTableReplicaAutoScalingInput,
     _i2.UpdateTableReplicaAutoScalingInput,
@@ -36,7 +36,7 @@ class UpdateTableReplicaAutoScalingOperation extends _i1.HttpOperation<
     _i3.UpdateTableReplicaAutoScalingOutput> {
   /// Updates auto scaling settings on your global tables at once.
   ///
-  /// This operation only applies to [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) of global tables.
+  /// This operation only applies to [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) of global tables.
   UpdateTableReplicaAutoScalingOperation({
     required String region,
     Uri? baseUri,
@@ -116,7 +116,7 @@ class UpdateTableReplicaAutoScalingOperation extends _i1.HttpOperation<
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.InternalServerError, _i9.InternalServerError>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.dynamodb',
             shape: 'InternalServerError',
@@ -125,7 +125,8 @@ class UpdateTableReplicaAutoScalingOperation extends _i1.HttpOperation<
           _i9.InternalServerError,
           builder: _i9.InternalServerError.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.LimitExceededException,
+            _i10.LimitExceededException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.dynamodb',
             shape: 'LimitExceededException',
@@ -134,7 +135,8 @@ class UpdateTableReplicaAutoScalingOperation extends _i1.HttpOperation<
           _i10.LimitExceededException,
           builder: _i10.LimitExceededException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i11.ResourceInUseException,
+            _i11.ResourceInUseException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.dynamodb',
             shape: 'ResourceInUseException',
@@ -143,7 +145,8 @@ class UpdateTableReplicaAutoScalingOperation extends _i1.HttpOperation<
           _i11.ResourceInUseException,
           builder: _i11.ResourceInUseException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i12.ResourceNotFoundException,
+            _i12.ResourceNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.dynamodb',
             shape: 'ResourceNotFoundException',

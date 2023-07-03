@@ -1,4 +1,5 @@
 // Generated with smithy-dart 0.3.1. DO NOT MODIFY.
+// ignore_for_file: avoid_unused_constructor_parameters,deprecated_member_use_from_same_package,non_constant_identifier_names
 
 library amplify_auth_cognito_dart.cognito_identity_provider.operation.global_sign_out_operation; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
@@ -33,13 +34,21 @@ import 'package:aws_signature_v4/aws_signature_v4.dart' as _i4;
 import 'package:smithy/smithy.dart' as _i1;
 import 'package:smithy_aws/smithy_aws.dart' as _i5;
 
-/// Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the 1-hour cookie validity period.
+/// Signs out a user from all devices. `GlobalSignOut` invalidates all identity, access and refresh tokens that Amazon Cognito has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the 1-hour cookie validity period.
+///
+/// Your app isn't aware that a user's access token is revoked unless it attempts to authorize a user pools API request with an access token that contains the scope `aws.cognito.signin.user.admin`. Your app might otherwise accept access tokens until they expire.
+///
+/// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 class GlobalSignOutOperation extends _i1.HttpOperation<
     _i2.GlobalSignOutRequest,
     _i2.GlobalSignOutRequest,
     _i3.GlobalSignOutResponse,
     _i3.GlobalSignOutResponse> {
-  /// Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the 1-hour cookie validity period.
+  /// Signs out a user from all devices. `GlobalSignOut` invalidates all identity, access and refresh tokens that Amazon Cognito has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the 1-hour cookie validity period.
+  ///
+  /// Your app isn't aware that a user's access token is revoked unless it attempts to authorize a user pools API request with an access token that contains the scope `aws.cognito.signin.user.admin`. Your app might otherwise accept access tokens until they expire.
+  ///
+  /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   GlobalSignOutOperation({
     required String region,
     Uri? baseUri,
@@ -117,7 +126,7 @@ class GlobalSignOutOperation extends _i1.HttpOperation<
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.ForbiddenException, _i9.ForbiddenException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ForbiddenException',
@@ -127,7 +136,8 @@ class GlobalSignOutOperation extends _i1.HttpOperation<
           statusCode: 403,
           builder: _i9.ForbiddenException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.InternalErrorException,
+            _i10.InternalErrorException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InternalErrorException',
@@ -136,7 +146,8 @@ class GlobalSignOutOperation extends _i1.HttpOperation<
           _i10.InternalErrorException,
           builder: _i10.InternalErrorException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i11.InvalidParameterException,
+            _i11.InvalidParameterException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidParameterException',
@@ -146,7 +157,8 @@ class GlobalSignOutOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i11.InvalidParameterException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i12.NotAuthorizedException,
+            _i12.NotAuthorizedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'NotAuthorizedException',
@@ -156,7 +168,8 @@ class GlobalSignOutOperation extends _i1.HttpOperation<
           statusCode: 403,
           builder: _i12.NotAuthorizedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i13.PasswordResetRequiredException,
+            _i13.PasswordResetRequiredException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'PasswordResetRequiredException',
@@ -166,7 +179,8 @@ class GlobalSignOutOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i13.PasswordResetRequiredException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i14.ResourceNotFoundException,
+            _i14.ResourceNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ResourceNotFoundException',
@@ -176,7 +190,8 @@ class GlobalSignOutOperation extends _i1.HttpOperation<
           statusCode: 404,
           builder: _i14.ResourceNotFoundException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i15.TooManyRequestsException,
+            _i15.TooManyRequestsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'TooManyRequestsException',
@@ -186,7 +201,8 @@ class GlobalSignOutOperation extends _i1.HttpOperation<
           statusCode: 429,
           builder: _i15.TooManyRequestsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i16.UserNotConfirmedException,
+            _i16.UserNotConfirmedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotConfirmedException',
@@ -219,7 +235,7 @@ class GlobalSignOutOperation extends _i1.HttpOperation<
       ),
       zoneValues: {
         ...?_awsEndpoint.credentialScope?.zoneValues,
-        ...{_i7.AWSHeaders.sdkInvocationId: _i7.uuid(secure: true)}
+        ...{_i7.AWSHeaders.sdkInvocationId: _i7.uuid(secure: true)},
       },
     );
   }

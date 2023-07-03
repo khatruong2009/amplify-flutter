@@ -10,6 +10,7 @@ import 'package:smithy/ast.dart';
 import 'package:smithy/smithy.dart';
 import 'package:smithy_codegen/smithy_codegen.dart';
 import 'package:smithy_codegen/src/core/reserved_words.dart';
+import 'package:smithy_codegen/src/generator/enum_generator.dart';
 import 'package:smithy_codegen/src/generator/serialization/protocol_traits.dart';
 import 'package:smithy_codegen/src/generator/types.dart';
 import 'package:smithy_codegen/src/generator/visitors/symbol_visitor.dart';
@@ -113,6 +114,26 @@ extension MemberShapeUtils on MemberShape {
 }
 
 extension ShapeUtils on Shape {
+  /// Whether the shape is a primitive value (more specifically, a bool or number)
+  /// in an S3 service closure.
+  ///
+  /// S3 models incorrectly label these values as boxed and until this is fixed,
+  /// we must work around this by explicitly unboxing them.
+  // TOOD(dnys1): Remove when S3 models are fixed.
+  bool isS3Primitive(CodegenContext context) {
+    final isS3 = context.serviceShapeId?.namespace == 'com.amazonaws.s3';
+    const primitiveTypes = [
+      ShapeType.boolean,
+      ShapeType.integer,
+      ShapeType.long
+    ];
+    final targetShape = switch (this) {
+      final MemberShape member => context.shapeFor(member.target),
+      _ => this,
+    };
+    return isS3 && primitiveTypes.contains(targetShape.getType());
+  }
+
   bool isNullable(CodegenContext context, [Shape? parent]) {
     final isMemberShape = parent != null;
     if (!isMemberShape) {
@@ -144,7 +165,8 @@ extension ShapeUtils on Shape {
             ? context.shapeFor((this as MemberShape).target)
             : this;
         final isBoxed = targetShape.isBoxed;
-        return isNotRequired && (targetShape.hasDefaultValue ? isBoxed : true);
+        return isS3Primitive(context) ||
+            isNotRequired && (targetShape.hasDefaultValue ? isBoxed : true);
 
       // All but one value in a union is non-null. We represent all values
       // with nullable getters, though.
@@ -243,28 +265,57 @@ extension ShapeUtils on Shape {
     if (isBoxed) {
       return null;
     }
+    if (isS3Primitive(context)) {
+      return null;
+    }
     final targetShape = this is MemberShape
         ? context.shapeFor((this as MemberShape).target)
         : this;
     final defaultTrait =
         getTrait<DefaultTrait>() ?? targetShape.getTrait<DefaultTrait>();
     final defaultValue = defaultTrait?.value;
-    switch (targetShape.getType()) {
-      case ShapeType.byte:
-      case ShapeType.short:
-      case ShapeType.integer:
-      case ShapeType.float:
-      case ShapeType.double:
+    switch (targetShape) {
+      case StringShape _:
+        assert(
+          defaultValue is String?,
+          'String shapes should only accept string values',
+        );
+        if (defaultValue is String) {
+          return literalString(defaultValue, raw: true);
+        }
+        return null;
+      case final StringEnumShape targetShape:
+        assert(
+          defaultValue is String?,
+          'Enum values should be strings in the Smithy IDL',
+        );
+        if (defaultValue is String) {
+          final enumValue = targetShape.enumValues.singleWhere(
+            (val) => val.expectTrait<EnumValueTrait>().value == defaultValue,
+            orElse: () => throw StateError(
+              'No ${targetShape.shapeId.shape} enum value found for $defaultValue',
+            ),
+          );
+          return context
+              .symbolFor(targetShape.shapeId)
+              .property(enumValue.enumVariantName);
+        }
+        return null;
+      case ByteShape _ || PrimitiveByteShape _:
+      case ShortShape _ || PrimitiveShortShape _:
+      case IntegerShape _ || PrimitiveIntegerShape _:
+      case FloatShape _ || PrimitiveFloatShape _:
+      case DoubleShape _ || PrimitiveDoubleShape _:
         return literalNum(defaultValue as num? ?? 0);
-      case ShapeType.long:
+      case LongShape _ || PrimitiveLongShape _:
         return defaultValue == null || defaultValue == 0
             ? DartTypes.fixNum.int64.property('ZERO')
             : DartTypes.fixNum.int64.newInstance([
                 literalNum(defaultValue as int),
               ]);
-      case ShapeType.boolean:
+      case BooleanShape _ || PrimitiveBooleanShape _:
         return literalBool(defaultValue as bool? ?? false);
-      case ShapeType.blob:
+      case BlobShape _:
         if (defaultValue is! String) {
           return null;
         }
@@ -344,6 +395,20 @@ extension ShapeUtils on Shape {
         ..itemsPath = trait.items
         ..pageSizePath = trait.pageSize,
     );
+  }
+
+  /// Whether the type generates a built_value builder.
+  bool get hasNestedBuilder {
+    if (context.symbolOverrides.containsKey(shapeId)) {
+      // We can't assume these types are built_value types.
+      return false;
+    }
+    return const [
+      ShapeType.map,
+      ShapeType.list,
+      ShapeType.set,
+      ShapeType.structure,
+    ].contains(getType());
   }
 }
 
@@ -737,12 +802,16 @@ extension StructureShapeUtil on StructureShape {
     return builder.build();
   }
 
-  HttpErrorTraits? httpErrorTraits(CodegenContext context) {
+  HttpErrorTraits? httpErrorTraits(
+    CodegenContext context, [
+    Reference? payloadSymbol,
+  ]) {
     if (!isError) {
       return null;
     }
     final builder = HttpErrorTraitsBuilder()
       ..symbol = context.symbolFor(shapeId)
+      ..payloadSymbol = payloadSymbol
       ..shapeId = shapeId;
     final errorTrait = expectTrait<ErrorTrait>();
     builder.kind = errorTrait.type;
@@ -825,8 +894,11 @@ extension StructureShapeUtil on StructureShape {
       return true;
     }
     return (isInputShape || isOutputShape || isError) &&
-        (metadataMembers(context).isNotEmpty ||
-            members.values.any((shape) => shape.hasTrait<HttpPayloadTrait>()));
+        (members.values.any(
+          (shape) =>
+              shape.hasTrait<HttpPayloadTrait>() ||
+              metadataMembers(context).isNotEmpty,
+        ));
   }
 
   /// Whether the structure needs a payload struct.

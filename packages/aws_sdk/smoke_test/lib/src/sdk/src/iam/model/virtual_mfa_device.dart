@@ -44,7 +44,7 @@ abstract class VirtualMfaDevice
 
   const VirtualMfaDevice._();
 
-  static const List<_i6.SmithySerializer> serializers = [
+  static const List<_i6.SmithySerializer<VirtualMfaDevice>> serializers = [
     VirtualMfaDeviceAwsQuerySerializer()
   ];
 
@@ -54,7 +54,7 @@ abstract class VirtualMfaDevice
   /// The serial number associated with `VirtualMFADevice`.
   String get serialNumber;
 
-  /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `Base32StringSeed` is base64-encoded.
+  /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `Base32StringSeed` is base32-encoded.
   _i2.Uint8List? get base32StringSeed;
 
   /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID otherwise), and `Base32String` is the seed in base32 format. The `Base32String` value is base64-encoded.
@@ -79,31 +79,31 @@ abstract class VirtualMfaDevice
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('VirtualMfaDevice');
-    helper.add(
-      'serialNumber',
-      serialNumber,
-    );
-    helper.add(
-      'base32StringSeed',
-      '***SENSITIVE***',
-    );
-    helper.add(
-      'qrCodePng',
-      '***SENSITIVE***',
-    );
-    helper.add(
-      'user',
-      user,
-    );
-    helper.add(
-      'enableDate',
-      enableDate,
-    );
-    helper.add(
-      'tags',
-      tags,
-    );
+    final helper = newBuiltValueToStringHelper('VirtualMfaDevice')
+      ..add(
+        'serialNumber',
+        serialNumber,
+      )
+      ..add(
+        'base32StringSeed',
+        '***SENSITIVE***',
+      )
+      ..add(
+        'qrCodePng',
+        '***SENSITIVE***',
+      )
+      ..add(
+        'user',
+        user,
+      )
+      ..add(
+        'enableDate',
+        enableDate,
+      )
+      ..add(
+        'tags',
+        tags,
+      );
     return helper.toString();
   }
 }

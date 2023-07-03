@@ -1,4 +1,5 @@
 // Generated with smithy-dart 0.3.1. DO NOT MODIFY.
+// ignore_for_file: avoid_unused_constructor_parameters,deprecated_member_use_from_same_package,non_constant_identifier_names
 
 library amplify_auth_cognito_dart.cognito_identity_provider.operation.confirm_forgot_password_operation; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
@@ -50,12 +51,16 @@ import 'package:smithy/smithy.dart' as _i1;
 import 'package:smithy_aws/smithy_aws.dart' as _i5;
 
 /// Allows a user to enter a confirmation code to reset a forgotten password.
+///
+/// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
     _i2.ConfirmForgotPasswordRequest,
     _i2.ConfirmForgotPasswordRequest,
     _i3.ConfirmForgotPasswordResponse,
     _i3.ConfirmForgotPasswordResponse> {
   /// Allows a user to enter a confirmation code to reset a forgotten password.
+  ///
+  /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   ConfirmForgotPasswordOperation({
     required String region,
     Uri? baseUri,
@@ -136,7 +141,7 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.CodeMismatchException, _i9.CodeMismatchException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'CodeMismatchException',
@@ -146,7 +151,7 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i9.CodeMismatchException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.ExpiredCodeException, _i10.ExpiredCodeException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ExpiredCodeException',
@@ -156,7 +161,7 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i10.ExpiredCodeException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i11.ForbiddenException, _i11.ForbiddenException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ForbiddenException',
@@ -166,7 +171,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 403,
           builder: _i11.ForbiddenException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i12.InternalErrorException,
+            _i12.InternalErrorException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InternalErrorException',
@@ -175,7 +181,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           _i12.InternalErrorException,
           builder: _i12.InternalErrorException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i13.InvalidLambdaResponseException,
+            _i13.InvalidLambdaResponseException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidLambdaResponseException',
@@ -185,7 +192,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i13.InvalidLambdaResponseException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i14.InvalidParameterException,
+            _i14.InvalidParameterException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidParameterException',
@@ -195,7 +203,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i14.InvalidParameterException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i15.InvalidPasswordException,
+            _i15.InvalidPasswordException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidPasswordException',
@@ -205,7 +214,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i15.InvalidPasswordException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i16.LimitExceededException,
+            _i16.LimitExceededException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'LimitExceededException',
@@ -215,7 +225,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i16.LimitExceededException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i17.NotAuthorizedException,
+            _i17.NotAuthorizedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'NotAuthorizedException',
@@ -225,7 +236,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 403,
           builder: _i17.NotAuthorizedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i18.ResourceNotFoundException,
+            _i18.ResourceNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ResourceNotFoundException',
@@ -235,7 +247,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 404,
           builder: _i18.ResourceNotFoundException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i19.TooManyFailedAttemptsException,
+            _i19.TooManyFailedAttemptsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'TooManyFailedAttemptsException',
@@ -245,7 +258,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i19.TooManyFailedAttemptsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i20.TooManyRequestsException,
+            _i20.TooManyRequestsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'TooManyRequestsException',
@@ -255,7 +269,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 429,
           builder: _i20.TooManyRequestsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i21.UnexpectedLambdaException,
+            _i21.UnexpectedLambdaException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UnexpectedLambdaException',
@@ -265,7 +280,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i21.UnexpectedLambdaException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i22.UserLambdaValidationException,
+            _i22.UserLambdaValidationException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserLambdaValidationException',
@@ -275,7 +291,8 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i22.UserLambdaValidationException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i23.UserNotConfirmedException,
+            _i23.UserNotConfirmedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotConfirmedException',
@@ -285,7 +302,7 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i23.UserNotConfirmedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i24.UserNotFoundException, _i24.UserNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotFoundException',
@@ -318,7 +335,7 @@ class ConfirmForgotPasswordOperation extends _i1.HttpOperation<
       ),
       zoneValues: {
         ...?_awsEndpoint.credentialScope?.zoneValues,
-        ...{_i7.AWSHeaders.sdkInvocationId: _i7.uuid(secure: true)}
+        ...{_i7.AWSHeaders.sdkInvocationId: _i7.uuid(secure: true)},
       },
     );
   }

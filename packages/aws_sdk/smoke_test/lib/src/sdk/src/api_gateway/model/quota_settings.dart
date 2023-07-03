@@ -22,6 +22,8 @@ abstract class QuotaSettings
     int? offset,
     _i2.QuotaPeriodType? period,
   }) {
+    limit ??= 0;
+    offset ??= 0;
     return _$QuotaSettings._(
       limit: limit,
       offset: offset,
@@ -35,18 +37,21 @@ abstract class QuotaSettings
 
   const QuotaSettings._();
 
-  static const List<_i3.SmithySerializer> serializers = [
+  static const List<_i3.SmithySerializer<QuotaSettings>> serializers = [
     QuotaSettingsRestJson1Serializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _init(QuotaSettingsBuilder b) {}
+  static void _init(QuotaSettingsBuilder b) {
+    b.limit = 0;
+    b.offset = 0;
+  }
 
   /// The target maximum number of requests that can be made in a given time period.
-  int? get limit;
+  int get limit;
 
   /// The number of requests subtracted from the given limit in the initial time period.
-  int? get offset;
+  int get offset;
 
   /// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
   _i2.QuotaPeriodType? get period;
@@ -58,19 +63,19 @@ abstract class QuotaSettings
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('QuotaSettings');
-    helper.add(
-      'limit',
-      limit,
-    );
-    helper.add(
-      'offset',
-      offset,
-    );
-    helper.add(
-      'period',
-      period,
-    );
+    final helper = newBuiltValueToStringHelper('QuotaSettings')
+      ..add(
+        'limit',
+        limit,
+      )
+      ..add(
+        'offset',
+        offset,
+      )
+      ..add(
+        'period',
+        period,
+      );
     return helper.toString();
   }
 }
@@ -136,22 +141,18 @@ class QuotaSettingsRestJson1Serializer
   }) {
     final result$ = <Object?>[];
     final QuotaSettings(:limit, :offset, :period) = object;
-    if (limit != null) {
-      result$
-        ..add('limit')
-        ..add(serializers.serialize(
-          limit,
-          specifiedType: const FullType(int),
-        ));
-    }
-    if (offset != null) {
-      result$
-        ..add('offset')
-        ..add(serializers.serialize(
-          offset,
-          specifiedType: const FullType(int),
-        ));
-    }
+    result$.addAll([
+      'limit',
+      serializers.serialize(
+        limit,
+        specifiedType: const FullType(int),
+      ),
+      'offset',
+      serializers.serialize(
+        offset,
+        specifiedType: const FullType(int),
+      ),
+    ]);
     if (period != null) {
       result$
         ..add('period')

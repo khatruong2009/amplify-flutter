@@ -22,13 +22,13 @@ import 'package:smoke_test/src/sdk/src/dynamo_db/model/internal_server_error.dar
 import 'package:smoke_test/src/sdk/src/dynamo_db/model/resource_not_found_exception.dart'
     as _i10;
 
-/// Returns information about contributor insights, for a given table or global secondary index.
+/// Returns information about contributor insights for a given table or global secondary index.
 class DescribeContributorInsightsOperation extends _i1.HttpOperation<
     _i2.DescribeContributorInsightsInput,
     _i2.DescribeContributorInsightsInput,
     _i3.DescribeContributorInsightsOutput,
     _i3.DescribeContributorInsightsOutput> {
-  /// Returns information about contributor insights, for a given table or global secondary index.
+  /// Returns information about contributor insights for a given table or global secondary index.
   DescribeContributorInsightsOperation({
     required String region,
     Uri? baseUri,
@@ -108,7 +108,7 @@ class DescribeContributorInsightsOperation extends _i1.HttpOperation<
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.InternalServerError, _i9.InternalServerError>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.dynamodb',
             shape: 'InternalServerError',
@@ -117,7 +117,8 @@ class DescribeContributorInsightsOperation extends _i1.HttpOperation<
           _i9.InternalServerError,
           builder: _i9.InternalServerError.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.ResourceNotFoundException,
+            _i10.ResourceNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.dynamodb',
             shape: 'ResourceNotFoundException',

@@ -1,4 +1,5 @@
 // Generated with smithy-dart 0.3.1. DO NOT MODIFY.
+// ignore_for_file: avoid_unused_constructor_parameters,deprecated_member_use_from_same_package,non_constant_identifier_names
 
 library amplify_auth_cognito_dart.cognito_identity_provider.operation.verify_user_attribute_operation; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
@@ -46,6 +47,8 @@ import 'package:smithy_aws/smithy_aws.dart' as _i5;
 /// Verifies the specified user attributes in the user pool.
 ///
 /// If your user pool requires verification before Amazon Cognito updates the attribute value, VerifyUserAttribute updates the affected attribute to its pending value. For more information, see [UserAttributeUpdateSettingsType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html).
+///
+/// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 class VerifyUserAttributeOperation extends _i1.HttpOperation<
     _i2.VerifyUserAttributeRequest,
     _i2.VerifyUserAttributeRequest,
@@ -54,6 +57,8 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
   /// Verifies the specified user attributes in the user pool.
   ///
   /// If your user pool requires verification before Amazon Cognito updates the attribute value, VerifyUserAttribute updates the affected attribute to its pending value. For more information, see [UserAttributeUpdateSettingsType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html).
+  ///
+  /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests to this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   VerifyUserAttributeOperation({
     required String region,
     Uri? baseUri,
@@ -134,7 +139,7 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.AliasExistsException, _i9.AliasExistsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'AliasExistsException',
@@ -144,7 +149,7 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i9.AliasExistsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.CodeMismatchException, _i10.CodeMismatchException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'CodeMismatchException',
@@ -154,7 +159,7 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i10.CodeMismatchException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i11.ExpiredCodeException, _i11.ExpiredCodeException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ExpiredCodeException',
@@ -164,7 +169,7 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i11.ExpiredCodeException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i12.ForbiddenException, _i12.ForbiddenException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ForbiddenException',
@@ -174,7 +179,8 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 403,
           builder: _i12.ForbiddenException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i13.InternalErrorException,
+            _i13.InternalErrorException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InternalErrorException',
@@ -183,7 +189,8 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           _i13.InternalErrorException,
           builder: _i13.InternalErrorException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i14.InvalidParameterException,
+            _i14.InvalidParameterException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'InvalidParameterException',
@@ -193,7 +200,8 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i14.InvalidParameterException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i15.LimitExceededException,
+            _i15.LimitExceededException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'LimitExceededException',
@@ -203,7 +211,8 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i15.LimitExceededException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i16.NotAuthorizedException,
+            _i16.NotAuthorizedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'NotAuthorizedException',
@@ -213,7 +222,8 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 403,
           builder: _i16.NotAuthorizedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i17.PasswordResetRequiredException,
+            _i17.PasswordResetRequiredException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'PasswordResetRequiredException',
@@ -223,7 +233,8 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i17.PasswordResetRequiredException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i18.ResourceNotFoundException,
+            _i18.ResourceNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'ResourceNotFoundException',
@@ -233,7 +244,8 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 404,
           builder: _i18.ResourceNotFoundException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i19.TooManyRequestsException,
+            _i19.TooManyRequestsException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'TooManyRequestsException',
@@ -243,7 +255,8 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 429,
           builder: _i19.TooManyRequestsException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i20.UserNotConfirmedException,
+            _i20.UserNotConfirmedException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotConfirmedException',
@@ -253,7 +266,7 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i20.UserNotConfirmedException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i21.UserNotFoundException, _i21.UserNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cognitoidentityprovider',
             shape: 'UserNotFoundException',
@@ -286,7 +299,7 @@ class VerifyUserAttributeOperation extends _i1.HttpOperation<
       ),
       zoneValues: {
         ...?_awsEndpoint.credentialScope?.zoneValues,
-        ...{_i7.AWSHeaders.sdkInvocationId: _i7.uuid(secure: true)}
+        ...{_i7.AWSHeaders.sdkInvocationId: _i7.uuid(secure: true)},
       },
     );
   }

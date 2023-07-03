@@ -30,7 +30,7 @@ abstract class RegisterTypeOutput
   ) =>
       payload;
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<_i2.SmithySerializer<RegisterTypeOutput>> serializers = [
     RegisterTypeOutputAwsQuerySerializer()
   ];
 
@@ -39,17 +39,17 @@ abstract class RegisterTypeOutput
 
   /// The identifier for this registration request.
   ///
-  /// Use this registration token when calling `DescribeTypeRegistration` , which returns information about the status and IDs of the extension registration.
+  /// Use this registration token when calling DescribeTypeRegistration, which returns information about the status and IDs of the extension registration.
   String? get registrationToken;
   @override
   List<Object?> get props => [registrationToken];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('RegisterTypeOutput');
-    helper.add(
-      'registrationToken',
-      registrationToken,
-    );
+    final helper = newBuiltValueToStringHelper('RegisterTypeOutput')
+      ..add(
+        'registrationToken',
+        registrationToken,
+      );
     return helper.toString();
   }
 }

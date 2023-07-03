@@ -25,6 +25,7 @@ abstract class DescribeConformancePackComplianceRequest
     int? limit,
     String? nextToken,
   }) {
+    limit ??= 0;
     return _$DescribeConformancePackComplianceRequest._(
       conformancePackName: conformancePackName,
       filters: filters,
@@ -46,12 +47,16 @@ abstract class DescribeConformancePackComplianceRequest
   }) =>
       payload;
 
-  static const List<_i1.SmithySerializer> serializers = [
+  static const List<
+          _i1.SmithySerializer<DescribeConformancePackComplianceRequest>>
+      serializers = [
     DescribeConformancePackComplianceRequestAwsJson11Serializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _init(DescribeConformancePackComplianceRequestBuilder b) {}
+  static void _init(DescribeConformancePackComplianceRequestBuilder b) {
+    b.limit = 0;
+  }
 
   /// Name of the conformance pack.
   String get conformancePackName;
@@ -60,7 +65,7 @@ abstract class DescribeConformancePackComplianceRequest
   _i3.ConformancePackComplianceFilters? get filters;
 
   /// The maximum number of Config rules within a conformance pack are returned on each page.
-  int? get limit;
+  int get limit;
 
   /// The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
   String? get nextToken;
@@ -76,23 +81,23 @@ abstract class DescribeConformancePackComplianceRequest
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('DescribeConformancePackComplianceRequest');
-    helper.add(
-      'conformancePackName',
-      conformancePackName,
-    );
-    helper.add(
-      'filters',
-      filters,
-    );
-    helper.add(
-      'limit',
-      limit,
-    );
-    helper.add(
-      'nextToken',
-      nextToken,
-    );
+        newBuiltValueToStringHelper('DescribeConformancePackComplianceRequest')
+          ..add(
+            'conformancePackName',
+            conformancePackName,
+          )
+          ..add(
+            'filters',
+            filters,
+          )
+          ..add(
+            'limit',
+            limit,
+          )
+          ..add(
+            'nextToken',
+            nextToken,
+          );
     return helper.toString();
   }
 }
@@ -175,6 +180,11 @@ class DescribeConformancePackComplianceRequestAwsJson11Serializer extends _i1
         conformancePackName,
         specifiedType: const FullType(String),
       ),
+      'Limit',
+      serializers.serialize(
+        limit,
+        specifiedType: const FullType(int),
+      ),
     ]);
     if (filters != null) {
       result$
@@ -182,14 +192,6 @@ class DescribeConformancePackComplianceRequestAwsJson11Serializer extends _i1
         ..add(serializers.serialize(
           filters,
           specifiedType: const FullType(_i3.ConformancePackComplianceFilters),
-        ));
-    }
-    if (limit != null) {
-      result$
-        ..add('Limit')
-        ..add(serializers.serialize(
-          limit,
-          specifiedType: const FullType(int),
         ));
     }
     if (nextToken != null) {

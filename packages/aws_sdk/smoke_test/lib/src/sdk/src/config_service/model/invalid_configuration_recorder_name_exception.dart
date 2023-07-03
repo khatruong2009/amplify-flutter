@@ -10,7 +10,7 @@ import 'package:smithy/smithy.dart' as _i2;
 
 part 'invalid_configuration_recorder_name_exception.g.dart';
 
-/// You have provided a configuration recorder name that is not valid.
+/// You have provided a name for the configuration recorder that is not valid.
 abstract class InvalidConfigurationRecorderNameException
     with
         _i1.AWSEquatable<InvalidConfigurationRecorderNameException>
@@ -18,12 +18,12 @@ abstract class InvalidConfigurationRecorderNameException
         Built<InvalidConfigurationRecorderNameException,
             InvalidConfigurationRecorderNameExceptionBuilder>,
         _i2.SmithyHttpException {
-  /// You have provided a configuration recorder name that is not valid.
+  /// You have provided a name for the configuration recorder that is not valid.
   factory InvalidConfigurationRecorderNameException({String? message}) {
     return _$InvalidConfigurationRecorderNameException._(message: message);
   }
 
-  /// You have provided a configuration recorder name that is not valid.
+  /// You have provided a name for the configuration recorder that is not valid.
   factory InvalidConfigurationRecorderNameException.build(
       [void Function(InvalidConfigurationRecorderNameExceptionBuilder)
           updates]) = _$InvalidConfigurationRecorderNameException;
@@ -40,7 +40,9 @@ abstract class InvalidConfigurationRecorderNameException
         b.headers = response.headers;
       });
 
-  static const List<_i2.SmithySerializer> serializers = [
+  static const List<
+          _i2.SmithySerializer<InvalidConfigurationRecorderNameException>>
+      serializers = [
     InvalidConfigurationRecorderNameExceptionAwsJson11Serializer()
   ];
 
@@ -69,12 +71,12 @@ abstract class InvalidConfigurationRecorderNameException
   List<Object?> get props => [message];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper(
-        'InvalidConfigurationRecorderNameException');
-    helper.add(
-      'message',
-      message,
-    );
+    final helper =
+        newBuiltValueToStringHelper('InvalidConfigurationRecorderNameException')
+          ..add(
+            'message',
+            message,
+          );
     return helper.toString();
   }
 }

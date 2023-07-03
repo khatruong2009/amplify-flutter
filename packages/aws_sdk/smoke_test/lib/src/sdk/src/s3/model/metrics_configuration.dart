@@ -33,14 +33,14 @@ abstract class MetricsConfiguration
 
   const MetricsConfiguration._();
 
-  static const List<_i3.SmithySerializer> serializers = [
+  static const List<_i3.SmithySerializer<MetricsConfiguration>> serializers = [
     MetricsConfigurationRestXmlSerializer()
   ];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(MetricsConfigurationBuilder b) {}
 
-  /// The ID used to identify the metrics configuration.
+  /// The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.
   String get id;
 
   /// Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, an object tag, an access point ARN, or a conjunction (MetricsAndOperator).
@@ -52,15 +52,15 @@ abstract class MetricsConfiguration
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('MetricsConfiguration');
-    helper.add(
-      'id',
-      id,
-    );
-    helper.add(
-      'filter',
-      filter,
-    );
+    final helper = newBuiltValueToStringHelper('MetricsConfiguration')
+      ..add(
+        'id',
+        id,
+      )
+      ..add(
+        'filter',
+        filter,
+      );
     return helper.toString();
   }
 }

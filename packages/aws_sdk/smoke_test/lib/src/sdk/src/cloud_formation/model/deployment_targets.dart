@@ -46,7 +46,7 @@ abstract class DeploymentTargets
 
   const DeploymentTargets._();
 
-  static const List<_i4.SmithySerializer> serializers = [
+  static const List<_i4.SmithySerializer<DeploymentTargets>> serializers = [
     DeploymentTargetsAwsQuerySerializer()
   ];
 
@@ -70,7 +70,7 @@ abstract class DeploymentTargets
   ///
   /// *   `DIFFERENCE`: StackSets excludes the accounts specified in `Accounts` parameter. This enables user to avoid certain accounts within an OU such as suspended accounts.
   ///
-  /// *   `UNION`: (default value) StackSets includes additional accounts deployment targets.
+  /// *   `UNION`: StackSets includes additional accounts deployment targets.
   ///
   ///     This is the default value if `AccountFilterType` is not provided. This enables user to update an entire OU and individual accounts from a different OU in one request, which used to be two separate requests.
   ///
@@ -85,23 +85,23 @@ abstract class DeploymentTargets
       ];
   @override
   String toString() {
-    final helper = newBuiltValueToStringHelper('DeploymentTargets');
-    helper.add(
-      'accounts',
-      accounts,
-    );
-    helper.add(
-      'accountsUrl',
-      accountsUrl,
-    );
-    helper.add(
-      'organizationalUnitIds',
-      organizationalUnitIds,
-    );
-    helper.add(
-      'accountFilterType',
-      accountFilterType,
-    );
+    final helper = newBuiltValueToStringHelper('DeploymentTargets')
+      ..add(
+        'accounts',
+        accounts,
+      )
+      ..add(
+        'accountsUrl',
+        accountsUrl,
+      )
+      ..add(
+        'organizationalUnitIds',
+        organizationalUnitIds,
+      )
+      ..add(
+        'accountFilterType',
+        accountFilterType,
+      );
     return helper.toString();
   }
 }

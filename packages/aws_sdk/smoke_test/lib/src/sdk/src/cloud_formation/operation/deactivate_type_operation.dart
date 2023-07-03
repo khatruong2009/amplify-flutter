@@ -22,7 +22,7 @@ import 'package:smoke_test/src/sdk/src/cloud_formation/model/deactivate_type_out
 import 'package:smoke_test/src/sdk/src/cloud_formation/model/type_not_found_exception.dart'
     as _i10;
 
-/// Deactivates a public extension that was previously activated in this account and region.
+/// Deactivates a public extension that was previously activated in this account and Region.
 ///
 /// Once deactivated, an extension can't be used in any CloudFormation operation. This includes stack update operations where the stack template includes the extension, even if no updates are being made to the extension. In addition, deactivated extensions aren't automatically updated if a new version of the extension is released.
 class DeactivateTypeOperation extends _i1.HttpOperation<
@@ -30,7 +30,7 @@ class DeactivateTypeOperation extends _i1.HttpOperation<
     _i2.DeactivateTypeInput,
     _i3.DeactivateTypeOutput,
     _i3.DeactivateTypeOutput> {
-  /// Deactivates a public extension that was previously activated in this account and region.
+  /// Deactivates a public extension that was previously activated in this account and Region.
   ///
   /// Once deactivated, an extension can't be used in any CloudFormation operation. This includes stack update operations where the stack template includes the extension, even if no updates are being made to the extension. In addition, deactivated extensions aren't automatically updated if a new version of the extension is released.
   DeactivateTypeOperation({
@@ -119,7 +119,7 @@ class DeactivateTypeOperation extends _i1.HttpOperation<
       );
   @override
   List<_i1.SmithyError> get errorTypes => const [
-        _i1.SmithyError(
+        _i1.SmithyError<_i9.CfnRegistryException, _i9.CfnRegistryException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cloudformation',
             shape: 'CFNRegistryException',
@@ -129,7 +129,7 @@ class DeactivateTypeOperation extends _i1.HttpOperation<
           statusCode: 400,
           builder: _i9.CfnRegistryException.fromResponse,
         ),
-        _i1.SmithyError(
+        _i1.SmithyError<_i10.TypeNotFoundException, _i10.TypeNotFoundException>(
           _i1.ShapeId(
             namespace: 'com.amazonaws.cloudformation',
             shape: 'TypeNotFoundException',

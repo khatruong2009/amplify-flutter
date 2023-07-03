@@ -43,9 +43,8 @@ abstract class OrganizationConformancePackStatus
 
   const OrganizationConformancePackStatus._();
 
-  static const List<_i3.SmithySerializer> serializers = [
-    OrganizationConformancePackStatusAwsJson11Serializer()
-  ];
+  static const List<_i3.SmithySerializer<OrganizationConformancePackStatus>>
+      serializers = [OrganizationConformancePackStatusAwsJson11Serializer()];
 
   @BuiltValueHook(initializeBuilder: true)
   static void _init(OrganizationConformancePackStatusBuilder b) {}
@@ -53,7 +52,7 @@ abstract class OrganizationConformancePackStatus
   /// The name that you assign to organization conformance pack.
   String get organizationConformancePackName;
 
-  /// Indicates deployment status of an organization conformance pack. When master account calls PutOrganizationConformancePack for the first time, conformance pack status is created in all the member accounts. When master account calls PutOrganizationConformancePack for the second time, conformance pack status is updated in all the member accounts. Additionally, conformance pack status is updated when one or more member accounts join or leave an organization. Conformance pack status is deleted when the master account deletes OrganizationConformancePack in all the member accounts and disables service access for `config-multiaccountsetup.amazonaws.com`.
+  /// Indicates deployment status of an organization conformance pack. When management account calls PutOrganizationConformancePack for the first time, conformance pack status is created in all the member accounts. When management account calls PutOrganizationConformancePack for the second time, conformance pack status is updated in all the member accounts. Additionally, conformance pack status is updated when one or more member accounts join or leave an organization. Conformance pack status is deleted when the management account deletes OrganizationConformancePack in all the member accounts and disables service access for `config-multiaccountsetup.amazonaws.com`.
   ///
   /// Config sets the state of the conformance pack to:
   ///
@@ -95,27 +94,27 @@ abstract class OrganizationConformancePackStatus
   @override
   String toString() {
     final helper =
-        newBuiltValueToStringHelper('OrganizationConformancePackStatus');
-    helper.add(
-      'organizationConformancePackName',
-      organizationConformancePackName,
-    );
-    helper.add(
-      'status',
-      status,
-    );
-    helper.add(
-      'errorCode',
-      errorCode,
-    );
-    helper.add(
-      'errorMessage',
-      errorMessage,
-    );
-    helper.add(
-      'lastUpdateTime',
-      lastUpdateTime,
-    );
+        newBuiltValueToStringHelper('OrganizationConformancePackStatus')
+          ..add(
+            'organizationConformancePackName',
+            organizationConformancePackName,
+          )
+          ..add(
+            'status',
+            status,
+          )
+          ..add(
+            'errorCode',
+            errorCode,
+          )
+          ..add(
+            'errorMessage',
+            errorMessage,
+          )
+          ..add(
+            'lastUpdateTime',
+            lastUpdateTime,
+          );
     return helper.toString();
   }
 }
