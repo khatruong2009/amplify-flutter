@@ -3,257 +3,257 @@
 
 import 'package:amplify_authenticator/src/l10n/country_resolver.dart';
 
-class Country {
-  const Country(this.countryCode, this.value, this.key);
+class CountryCode {
+  const CountryCode(this.countryCode, this.value, this.key);
 
   final String countryCode;
   final String value;
   final CountryResolverKey key;
 
-  static const us = Country('US', '1', CountryResolverKey.us$);
-  static const af = Country('AF', '93', CountryResolverKey.af$);
-  static const ax = Country('AX', '358', CountryResolverKey.ax$);
-  static const al = Country('AL', '355', CountryResolverKey.al$);
-  static const dz = Country('DZ', '213', CountryResolverKey.dz$);
-  static const as1 = Country('AS1', '1684', CountryResolverKey.as1$);
-  static const ad = Country('AD', '376', CountryResolverKey.ad$);
-  static const ao = Country('AO', '244', CountryResolverKey.ao$);
-  static const ai = Country('AI', '1264', CountryResolverKey.ai$);
-  static const aq = Country('AQ', '672', CountryResolverKey.aq$);
-  static const ag = Country('AG', '1268', CountryResolverKey.ag$);
-  static const ar = Country('AR', '54', CountryResolverKey.ar$);
-  static const am = Country('AM', '374', CountryResolverKey.am$);
-  static const aw = Country('AW', '297', CountryResolverKey.aw$);
-  static const au = Country('AU', '61', CountryResolverKey.au$);
-  static const at = Country('AT', '43', CountryResolverKey.at$);
-  static const az = Country('AZ', '994', CountryResolverKey.az$);
-  static const bs = Country('BS', '1242', CountryResolverKey.bs$);
-  static const bh = Country('BH', '973', CountryResolverKey.bh$);
-  static const bd = Country('BD', '880', CountryResolverKey.bd$);
-  static const bb = Country('BB', '1246', CountryResolverKey.bb$);
-  static const by = Country('BY', '375', CountryResolverKey.by$);
-  static const be = Country('BE', '32', CountryResolverKey.be$);
-  static const bz = Country('BZ', '501', CountryResolverKey.bz$);
-  static const bj = Country('BJ', '229', CountryResolverKey.bj$);
-  static const bm = Country('BM', '1441', CountryResolverKey.bm$);
-  static const bt = Country('BT', '975', CountryResolverKey.bt$);
-  static const bo = Country('BO', '591', CountryResolverKey.bo$);
-  static const bq = Country('BQ', '599', CountryResolverKey.bq$);
-  static const ba = Country('BA', '387', CountryResolverKey.ba$);
-  static const bw = Country('BW', '267', CountryResolverKey.bw$);
-  static const br = Country('BR', '55', CountryResolverKey.br$);
-  static const io = Country('IO', '246', CountryResolverKey.io$);
-  static const bn = Country('BN', '673', CountryResolverKey.bn$);
-  static const bg = Country('BG', '359', CountryResolverKey.bg$);
-  static const bf = Country('BF', '226', CountryResolverKey.bf$);
-  static const bi = Country('BI', '257', CountryResolverKey.bi$);
-  static const kh = Country('KH', '855', CountryResolverKey.kh$);
-  static const cm = Country('CM', '237', CountryResolverKey.cm$);
-  static const ca = Country('CA', '1', CountryResolverKey.ca$);
-  static const cv = Country('CV', '238', CountryResolverKey.cv$);
-  static const ky = Country('KY', '1345', CountryResolverKey.ky$);
-  static const cf = Country('CF', '236', CountryResolverKey.cf$);
-  static const td = Country('TD', '235', CountryResolverKey.td$);
-  static const cl = Country('CL', '56', CountryResolverKey.cl$);
-  static const cn = Country('CN', '86', CountryResolverKey.cn$);
-  static const cx = Country('CX', '61', CountryResolverKey.cx$);
-  static const cc = Country('CC', '61', CountryResolverKey.cc$);
-  static const co = Country('CO', '57', CountryResolverKey.co$);
-  static const km = Country('KM', '269', CountryResolverKey.km$);
-  static const cg = Country('CG', '242', CountryResolverKey.cg$);
-  static const cd = Country('CD', '243', CountryResolverKey.cd$);
-  static const ck = Country('CK', '682', CountryResolverKey.ck$);
-  static const cr = Country('CR', '506', CountryResolverKey.cr$);
-  static const ci = Country('CI', '225', CountryResolverKey.ci$);
-  static const hr = Country('HR', '385', CountryResolverKey.hr$);
-  static const cu = Country('CU', '53', CountryResolverKey.cu$);
-  static const cy = Country('CY', '357', CountryResolverKey.cy$);
-  static const cz = Country('CZ', '420', CountryResolverKey.cz$);
-  static const dk = Country('DK', '45', CountryResolverKey.dk$);
-  static const dj = Country('DJ', '253', CountryResolverKey.dj$);
-  static const dm = Country('DM', '1767', CountryResolverKey.dm$);
-  static const do1 = Country('DO1', '1849', CountryResolverKey.do1$);
-  static const ec = Country('EC', '593', CountryResolverKey.ec$);
-  static const eg = Country('EG', '20', CountryResolverKey.eg$);
-  static const sv = Country('SV', '503', CountryResolverKey.sv$);
-  static const gq = Country('GQ', '240', CountryResolverKey.gq$);
-  static const er = Country('ER', '291', CountryResolverKey.er$);
-  static const ee = Country('EE', '372', CountryResolverKey.ee$);
-  static const sz = Country('SZ', '268', CountryResolverKey.sz$);
-  static const et = Country('ET', '251', CountryResolverKey.et$);
-  static const fk = Country('FK', '500', CountryResolverKey.fk$);
-  static const fo = Country('FO', '298', CountryResolverKey.fo$);
-  static const fj = Country('FJ', '679', CountryResolverKey.fj$);
-  static const fi = Country('FI', '358', CountryResolverKey.fi$);
-  static const fr = Country('FR', '33', CountryResolverKey.fr$);
-  static const gf = Country('GF', '594', CountryResolverKey.gf$);
-  static const pf = Country('PF', '689', CountryResolverKey.pf$);
-  static const ga = Country('GA', '241', CountryResolverKey.ga$);
-  static const gm = Country('GM', '220', CountryResolverKey.gm$);
-  static const ge = Country('GE', '995', CountryResolverKey.ge$);
-  static const de = Country('DE', '49', CountryResolverKey.de$);
-  static const gh = Country('GH', '233', CountryResolverKey.gh$);
-  static const gi = Country('GI', '350', CountryResolverKey.gi$);
-  static const gr = Country('GR', '30', CountryResolverKey.gr$);
-  static const gl = Country('GL', '299', CountryResolverKey.gl$);
-  static const gd = Country('GD', '1473', CountryResolverKey.gd$);
-  static const gp = Country('GP', '590', CountryResolverKey.gp$);
-  static const gu = Country('GU', '1671', CountryResolverKey.gu$);
-  static const gt = Country('GT', '502', CountryResolverKey.gt$);
-  static const gg = Country('GG', '44', CountryResolverKey.gg$);
-  static const gn = Country('GN', '224', CountryResolverKey.gn$);
-  static const gw = Country('GW', '245', CountryResolverKey.gw$);
-  static const gy = Country('GY', '592', CountryResolverKey.gy$);
-  static const ht = Country('HT', '509', CountryResolverKey.ht$);
-  static const va = Country('VA', '379', CountryResolverKey.va$);
-  static const hn = Country('HN', '504', CountryResolverKey.hn$);
-  static const hk = Country('HK', '852', CountryResolverKey.hk$);
-  static const hu = Country('HU', '36', CountryResolverKey.hu$);
-  static const is1 = Country('IS1', '354', CountryResolverKey.is1$);
-  static const in1 = Country('IN1', '91', CountryResolverKey.in1$);
-  static const id = Country('ID', '62', CountryResolverKey.id$);
-  static const ir = Country('IR', '98', CountryResolverKey.ir$);
-  static const iq = Country('IQ', '964', CountryResolverKey.iq$);
-  static const ie = Country('IE', '353', CountryResolverKey.ie$);
-  static const im = Country('IM', '44', CountryResolverKey.im$);
-  static const il = Country('IL', '972', CountryResolverKey.il$);
-  static const it = Country('IT', '39', CountryResolverKey.it$);
-  static const jm = Country('JM', '1876', CountryResolverKey.jm$);
-  static const jp = Country('JP', '81', CountryResolverKey.jp$);
-  static const je = Country('JE', '44', CountryResolverKey.je$);
-  static const jo = Country('JO', '962', CountryResolverKey.jo$);
-  static const kz = Country('KZ', '7', CountryResolverKey.kz$);
-  static const ke = Country('KE', '254', CountryResolverKey.ke$);
-  static const ki = Country('KI', '686', CountryResolverKey.ki$);
-  static const kp = Country('KP', '850', CountryResolverKey.kp$);
-  static const kr = Country('KR', '82', CountryResolverKey.kr$);
-  static const xk = Country('XK', '383', CountryResolverKey.xk$);
-  static const kw = Country('KW', '965', CountryResolverKey.kw$);
-  static const kg = Country('KG', '996', CountryResolverKey.kg$);
-  static const la = Country('LA', '856', CountryResolverKey.la$);
-  static const lv = Country('LV', '371', CountryResolverKey.lv$);
-  static const lb = Country('LB', '961', CountryResolverKey.lb$);
-  static const ls = Country('LS', '266', CountryResolverKey.ls$);
-  static const lr = Country('LR', '231', CountryResolverKey.lr$);
-  static const ly = Country('LY', '218', CountryResolverKey.ly$);
-  static const li = Country('LI', '423', CountryResolverKey.li$);
-  static const lt = Country('LT', '370', CountryResolverKey.lt$);
-  static const lu = Country('LU', '352', CountryResolverKey.lu$);
-  static const mo = Country('MO', '853', CountryResolverKey.mo$);
-  static const mk = Country('MK', '389', CountryResolverKey.mk$);
-  static const mg = Country('MG', '261', CountryResolverKey.mg$);
-  static const mw = Country('MW', '265', CountryResolverKey.mw$);
-  static const my = Country('MY', '60', CountryResolverKey.my$);
-  static const mv = Country('MV', '960', CountryResolverKey.mv$);
-  static const ml = Country('ML', '223', CountryResolverKey.ml$);
-  static const mt = Country('MT', '356', CountryResolverKey.mt$);
-  static const mh = Country('MH', '692', CountryResolverKey.mh$);
-  static const mq = Country('MQ', '596', CountryResolverKey.mq$);
-  static const mr = Country('MR', '222', CountryResolverKey.mr$);
-  static const mu = Country('MU', '230', CountryResolverKey.mu$);
-  static const yt = Country('YT', '262', CountryResolverKey.yt$);
-  static const mx = Country('MX', '52', CountryResolverKey.mx$);
-  static const fm = Country('FM', '691', CountryResolverKey.fm$);
-  static const md = Country('MD', '373', CountryResolverKey.md$);
-  static const mc = Country('MC', '377', CountryResolverKey.mc$);
-  static const mn = Country('MN', '976', CountryResolverKey.mn$);
-  static const me = Country('ME', '382', CountryResolverKey.me$);
-  static const ms = Country('MS', '1664', CountryResolverKey.ms$);
-  static const ma = Country('MA', '212', CountryResolverKey.ma$);
-  static const mz = Country('MZ', '258', CountryResolverKey.mz$);
-  static const mm = Country('MM', '95', CountryResolverKey.mm$);
-  static const na = Country('NA', '264', CountryResolverKey.na$);
-  static const nr = Country('NR', '674', CountryResolverKey.nr$);
-  static const np = Country('NP', '977', CountryResolverKey.np$);
-  static const nl = Country('NL', '31', CountryResolverKey.nl$);
-  static const nc = Country('NC', '687', CountryResolverKey.nc$);
-  static const nz = Country('NZ', '64', CountryResolverKey.nz$);
-  static const ni = Country('NI', '505', CountryResolverKey.ni$);
-  static const ne = Country('NE', '227', CountryResolverKey.ne$);
-  static const ng = Country('NG', '234', CountryResolverKey.ng$);
-  static const nu = Country('NU', '683', CountryResolverKey.nu$);
-  static const nf = Country('NF', '672', CountryResolverKey.nf$);
-  static const mp = Country('MP', '1670', CountryResolverKey.mp$);
-  static const no = Country('NO', '47', CountryResolverKey.no$);
-  static const om = Country('OM', '968', CountryResolverKey.om$);
-  static const pk = Country('PK', '92', CountryResolverKey.pk$);
-  static const pw = Country('PW', '680', CountryResolverKey.pw$);
-  static const ps = Country('PS', '970', CountryResolverKey.ps$);
-  static const pa = Country('PA', '507', CountryResolverKey.pa$);
-  static const pg = Country('PG', '675', CountryResolverKey.pg$);
-  static const py = Country('PY', '595', CountryResolverKey.py$);
-  static const pe = Country('PE', '51', CountryResolverKey.pe$);
-  static const ph = Country('PH', '63', CountryResolverKey.ph$);
-  static const pn = Country('PN', '64', CountryResolverKey.pn$);
-  static const pl = Country('PL', '48', CountryResolverKey.pl$);
-  static const pt = Country('PT', '351', CountryResolverKey.pt$);
-  static const pr = Country('PR', '1939', CountryResolverKey.pr$);
-  static const qa = Country('QA', '974', CountryResolverKey.qa$);
-  static const re = Country('RE', '262', CountryResolverKey.re$);
-  static const ro = Country('RO', '40', CountryResolverKey.ro$);
-  static const ru = Country('RU', '7', CountryResolverKey.ru$);
-  static const rw = Country('RW', '250', CountryResolverKey.rw$);
-  static const bl = Country('BL', '590', CountryResolverKey.bl$);
-  static const sh = Country('SH', '290', CountryResolverKey.sh$);
-  static const kn = Country('KN', '1869', CountryResolverKey.kn$);
-  static const lc = Country('LC', '1758', CountryResolverKey.lc$);
-  static const mf = Country('MF', '590', CountryResolverKey.mf$);
-  static const pm = Country('PM', '508', CountryResolverKey.pm$);
-  static const vc = Country('VC', '1784', CountryResolverKey.vc$);
-  static const ws = Country('WS', '685', CountryResolverKey.ws$);
-  static const sm = Country('SM', '378', CountryResolverKey.sm$);
-  static const st = Country('ST', '239', CountryResolverKey.st$);
-  static const sa = Country('SA', '966', CountryResolverKey.sa$);
-  static const sn = Country('SN', '221', CountryResolverKey.sn$);
-  static const rs = Country('RS', '381', CountryResolverKey.rs$);
-  static const sc = Country('SC', '248', CountryResolverKey.sc$);
-  static const sl = Country('SL', '232', CountryResolverKey.sl$);
-  static const sg = Country('SG', '65', CountryResolverKey.sg$);
-  static const sk = Country('SK', '421', CountryResolverKey.sk$);
-  static const si = Country('SI', '386', CountryResolverKey.si$);
-  static const sb = Country('SB', '677', CountryResolverKey.sb$);
-  static const so = Country('SO', '252', CountryResolverKey.so$);
-  static const za = Country('ZA', '27', CountryResolverKey.za$);
-  static const gs = Country('GS', '500', CountryResolverKey.gs$);
-  static const ss = Country('SS', '211', CountryResolverKey.ss$);
-  static const es = Country('ES', '34', CountryResolverKey.es$);
-  static const lk = Country('LK', '94', CountryResolverKey.lk$);
-  static const sd = Country('SD', '249', CountryResolverKey.sd$);
-  static const sr = Country('SR', '597', CountryResolverKey.sr$);
-  static const sj = Country('SJ', '47', CountryResolverKey.sj$);
-  static const se = Country('SE', '46', CountryResolverKey.se$);
-  static const ch = Country('CH', '41', CountryResolverKey.ch$);
-  static const sy = Country('SY', '963', CountryResolverKey.sy$);
-  static const tw = Country('TW', '886', CountryResolverKey.tw$);
-  static const tj = Country('TJ', '992', CountryResolverKey.tj$);
-  static const tz = Country('TZ', '255', CountryResolverKey.tz$);
-  static const th = Country('TH', '66', CountryResolverKey.th$);
-  static const tl = Country('TL', '670', CountryResolverKey.tl$);
-  static const tg = Country('TG', '228', CountryResolverKey.tg$);
-  static const tk = Country('TK', '690', CountryResolverKey.tk$);
-  static const to = Country('TO', '676', CountryResolverKey.to$);
-  static const tt = Country('TT', '1868', CountryResolverKey.tt$);
-  static const tn = Country('TN', '216', CountryResolverKey.tn$);
-  static const tr = Country('TR', '90', CountryResolverKey.tr$);
-  static const tm = Country('TM', '993', CountryResolverKey.tm$);
-  static const tc = Country('TC', '1649', CountryResolverKey.tc$);
-  static const tv = Country('TV', '688', CountryResolverKey.tv$);
-  static const ug = Country('UG', '256', CountryResolverKey.ug$);
-  static const ua = Country('UA', '380', CountryResolverKey.ua$);
-  static const ae = Country('AE', '971', CountryResolverKey.ae$);
-  static const gb = Country('GB', '44', CountryResolverKey.gb$);
-  static const um = Country('UM', '246', CountryResolverKey.um$);
-  static const uy = Country('UY', '598', CountryResolverKey.uy$);
-  static const uz = Country('UZ', '998', CountryResolverKey.uz$);
-  static const vu = Country('VU', '678', CountryResolverKey.vu$);
-  static const ve = Country('VE', '58', CountryResolverKey.ve$);
-  static const vn = Country('VN', '84', CountryResolverKey.vn$);
-  static const vg = Country('VG', '1284', CountryResolverKey.vg$);
-  static const vi = Country('VI', '1340', CountryResolverKey.vi$);
-  static const wf = Country('WF', '681', CountryResolverKey.wf$);
-  static const ye = Country('YE', '967', CountryResolverKey.ye$);
-  static const zm = Country('ZM', '260', CountryResolverKey.zm$);
-  static const zw = Country('ZW', '263', CountryResolverKey.zw$);
+  static const us = CountryCode('US', '1', CountryResolverKey.us$);
+  static const af = CountryCode('AF', '93', CountryResolverKey.af$);
+  static const ax = CountryCode('AX', '358', CountryResolverKey.ax$);
+  static const al = CountryCode('AL', '355', CountryResolverKey.al$);
+  static const dz = CountryCode('DZ', '213', CountryResolverKey.dz$);
+  static const as1 = CountryCode('AS1', '1684', CountryResolverKey.as1$);
+  static const ad = CountryCode('AD', '376', CountryResolverKey.ad$);
+  static const ao = CountryCode('AO', '244', CountryResolverKey.ao$);
+  static const ai = CountryCode('AI', '1264', CountryResolverKey.ai$);
+  static const aq = CountryCode('AQ', '672', CountryResolverKey.aq$);
+  static const ag = CountryCode('AG', '1268', CountryResolverKey.ag$);
+  static const ar = CountryCode('AR', '54', CountryResolverKey.ar$);
+  static const am = CountryCode('AM', '374', CountryResolverKey.am$);
+  static const aw = CountryCode('AW', '297', CountryResolverKey.aw$);
+  static const au = CountryCode('AU', '61', CountryResolverKey.au$);
+  static const at = CountryCode('AT', '43', CountryResolverKey.at$);
+  static const az = CountryCode('AZ', '994', CountryResolverKey.az$);
+  static const bs = CountryCode('BS', '1242', CountryResolverKey.bs$);
+  static const bh = CountryCode('BH', '973', CountryResolverKey.bh$);
+  static const bd = CountryCode('BD', '880', CountryResolverKey.bd$);
+  static const bb = CountryCode('BB', '1246', CountryResolverKey.bb$);
+  static const by = CountryCode('BY', '375', CountryResolverKey.by$);
+  static const be = CountryCode('BE', '32', CountryResolverKey.be$);
+  static const bz = CountryCode('BZ', '501', CountryResolverKey.bz$);
+  static const bj = CountryCode('BJ', '229', CountryResolverKey.bj$);
+  static const bm = CountryCode('BM', '1441', CountryResolverKey.bm$);
+  static const bt = CountryCode('BT', '975', CountryResolverKey.bt$);
+  static const bo = CountryCode('BO', '591', CountryResolverKey.bo$);
+  static const bq = CountryCode('BQ', '599', CountryResolverKey.bq$);
+  static const ba = CountryCode('BA', '387', CountryResolverKey.ba$);
+  static const bw = CountryCode('BW', '267', CountryResolverKey.bw$);
+  static const br = CountryCode('BR', '55', CountryResolverKey.br$);
+  static const io = CountryCode('IO', '246', CountryResolverKey.io$);
+  static const bn = CountryCode('BN', '673', CountryResolverKey.bn$);
+  static const bg = CountryCode('BG', '359', CountryResolverKey.bg$);
+  static const bf = CountryCode('BF', '226', CountryResolverKey.bf$);
+  static const bi = CountryCode('BI', '257', CountryResolverKey.bi$);
+  static const kh = CountryCode('KH', '855', CountryResolverKey.kh$);
+  static const cm = CountryCode('CM', '237', CountryResolverKey.cm$);
+  static const ca = CountryCode('CA', '1', CountryResolverKey.ca$);
+  static const cv = CountryCode('CV', '238', CountryResolverKey.cv$);
+  static const ky = CountryCode('KY', '1345', CountryResolverKey.ky$);
+  static const cf = CountryCode('CF', '236', CountryResolverKey.cf$);
+  static const td = CountryCode('TD', '235', CountryResolverKey.td$);
+  static const cl = CountryCode('CL', '56', CountryResolverKey.cl$);
+  static const cn = CountryCode('CN', '86', CountryResolverKey.cn$);
+  static const cx = CountryCode('CX', '61', CountryResolverKey.cx$);
+  static const cc = CountryCode('CC', '61', CountryResolverKey.cc$);
+  static const co = CountryCode('CO', '57', CountryResolverKey.co$);
+  static const km = CountryCode('KM', '269', CountryResolverKey.km$);
+  static const cg = CountryCode('CG', '242', CountryResolverKey.cg$);
+  static const cd = CountryCode('CD', '243', CountryResolverKey.cd$);
+  static const ck = CountryCode('CK', '682', CountryResolverKey.ck$);
+  static const cr = CountryCode('CR', '506', CountryResolverKey.cr$);
+  static const ci = CountryCode('CI', '225', CountryResolverKey.ci$);
+  static const hr = CountryCode('HR', '385', CountryResolverKey.hr$);
+  static const cu = CountryCode('CU', '53', CountryResolverKey.cu$);
+  static const cy = CountryCode('CY', '357', CountryResolverKey.cy$);
+  static const cz = CountryCode('CZ', '420', CountryResolverKey.cz$);
+  static const dk = CountryCode('DK', '45', CountryResolverKey.dk$);
+  static const dj = CountryCode('DJ', '253', CountryResolverKey.dj$);
+  static const dm = CountryCode('DM', '1767', CountryResolverKey.dm$);
+  static const do1 = CountryCode('DO1', '1849', CountryResolverKey.do1$);
+  static const ec = CountryCode('EC', '593', CountryResolverKey.ec$);
+  static const eg = CountryCode('EG', '20', CountryResolverKey.eg$);
+  static const sv = CountryCode('SV', '503', CountryResolverKey.sv$);
+  static const gq = CountryCode('GQ', '240', CountryResolverKey.gq$);
+  static const er = CountryCode('ER', '291', CountryResolverKey.er$);
+  static const ee = CountryCode('EE', '372', CountryResolverKey.ee$);
+  static const sz = CountryCode('SZ', '268', CountryResolverKey.sz$);
+  static const et = CountryCode('ET', '251', CountryResolverKey.et$);
+  static const fk = CountryCode('FK', '500', CountryResolverKey.fk$);
+  static const fo = CountryCode('FO', '298', CountryResolverKey.fo$);
+  static const fj = CountryCode('FJ', '679', CountryResolverKey.fj$);
+  static const fi = CountryCode('FI', '358', CountryResolverKey.fi$);
+  static const fr = CountryCode('FR', '33', CountryResolverKey.fr$);
+  static const gf = CountryCode('GF', '594', CountryResolverKey.gf$);
+  static const pf = CountryCode('PF', '689', CountryResolverKey.pf$);
+  static const ga = CountryCode('GA', '241', CountryResolverKey.ga$);
+  static const gm = CountryCode('GM', '220', CountryResolverKey.gm$);
+  static const ge = CountryCode('GE', '995', CountryResolverKey.ge$);
+  static const de = CountryCode('DE', '49', CountryResolverKey.de$);
+  static const gh = CountryCode('GH', '233', CountryResolverKey.gh$);
+  static const gi = CountryCode('GI', '350', CountryResolverKey.gi$);
+  static const gr = CountryCode('GR', '30', CountryResolverKey.gr$);
+  static const gl = CountryCode('GL', '299', CountryResolverKey.gl$);
+  static const gd = CountryCode('GD', '1473', CountryResolverKey.gd$);
+  static const gp = CountryCode('GP', '590', CountryResolverKey.gp$);
+  static const gu = CountryCode('GU', '1671', CountryResolverKey.gu$);
+  static const gt = CountryCode('GT', '502', CountryResolverKey.gt$);
+  static const gg = CountryCode('GG', '44', CountryResolverKey.gg$);
+  static const gn = CountryCode('GN', '224', CountryResolverKey.gn$);
+  static const gw = CountryCode('GW', '245', CountryResolverKey.gw$);
+  static const gy = CountryCode('GY', '592', CountryResolverKey.gy$);
+  static const ht = CountryCode('HT', '509', CountryResolverKey.ht$);
+  static const va = CountryCode('VA', '379', CountryResolverKey.va$);
+  static const hn = CountryCode('HN', '504', CountryResolverKey.hn$);
+  static const hk = CountryCode('HK', '852', CountryResolverKey.hk$);
+  static const hu = CountryCode('HU', '36', CountryResolverKey.hu$);
+  static const is1 = CountryCode('IS1', '354', CountryResolverKey.is1$);
+  static const in1 = CountryCode('IN1', '91', CountryResolverKey.in1$);
+  static const id = CountryCode('ID', '62', CountryResolverKey.id$);
+  static const ir = CountryCode('IR', '98', CountryResolverKey.ir$);
+  static const iq = CountryCode('IQ', '964', CountryResolverKey.iq$);
+  static const ie = CountryCode('IE', '353', CountryResolverKey.ie$);
+  static const im = CountryCode('IM', '44', CountryResolverKey.im$);
+  static const il = CountryCode('IL', '972', CountryResolverKey.il$);
+  static const it = CountryCode('IT', '39', CountryResolverKey.it$);
+  static const jm = CountryCode('JM', '1876', CountryResolverKey.jm$);
+  static const jp = CountryCode('JP', '81', CountryResolverKey.jp$);
+  static const je = CountryCode('JE', '44', CountryResolverKey.je$);
+  static const jo = CountryCode('JO', '962', CountryResolverKey.jo$);
+  static const kz = CountryCode('KZ', '7', CountryResolverKey.kz$);
+  static const ke = CountryCode('KE', '254', CountryResolverKey.ke$);
+  static const ki = CountryCode('KI', '686', CountryResolverKey.ki$);
+  static const kp = CountryCode('KP', '850', CountryResolverKey.kp$);
+  static const kr = CountryCode('KR', '82', CountryResolverKey.kr$);
+  static const xk = CountryCode('XK', '383', CountryResolverKey.xk$);
+  static const kw = CountryCode('KW', '965', CountryResolverKey.kw$);
+  static const kg = CountryCode('KG', '996', CountryResolverKey.kg$);
+  static const la = CountryCode('LA', '856', CountryResolverKey.la$);
+  static const lv = CountryCode('LV', '371', CountryResolverKey.lv$);
+  static const lb = CountryCode('LB', '961', CountryResolverKey.lb$);
+  static const ls = CountryCode('LS', '266', CountryResolverKey.ls$);
+  static const lr = CountryCode('LR', '231', CountryResolverKey.lr$);
+  static const ly = CountryCode('LY', '218', CountryResolverKey.ly$);
+  static const li = CountryCode('LI', '423', CountryResolverKey.li$);
+  static const lt = CountryCode('LT', '370', CountryResolverKey.lt$);
+  static const lu = CountryCode('LU', '352', CountryResolverKey.lu$);
+  static const mo = CountryCode('MO', '853', CountryResolverKey.mo$);
+  static const mk = CountryCode('MK', '389', CountryResolverKey.mk$);
+  static const mg = CountryCode('MG', '261', CountryResolverKey.mg$);
+  static const mw = CountryCode('MW', '265', CountryResolverKey.mw$);
+  static const my = CountryCode('MY', '60', CountryResolverKey.my$);
+  static const mv = CountryCode('MV', '960', CountryResolverKey.mv$);
+  static const ml = CountryCode('ML', '223', CountryResolverKey.ml$);
+  static const mt = CountryCode('MT', '356', CountryResolverKey.mt$);
+  static const mh = CountryCode('MH', '692', CountryResolverKey.mh$);
+  static const mq = CountryCode('MQ', '596', CountryResolverKey.mq$);
+  static const mr = CountryCode('MR', '222', CountryResolverKey.mr$);
+  static const mu = CountryCode('MU', '230', CountryResolverKey.mu$);
+  static const yt = CountryCode('YT', '262', CountryResolverKey.yt$);
+  static const mx = CountryCode('MX', '52', CountryResolverKey.mx$);
+  static const fm = CountryCode('FM', '691', CountryResolverKey.fm$);
+  static const md = CountryCode('MD', '373', CountryResolverKey.md$);
+  static const mc = CountryCode('MC', '377', CountryResolverKey.mc$);
+  static const mn = CountryCode('MN', '976', CountryResolverKey.mn$);
+  static const me = CountryCode('ME', '382', CountryResolverKey.me$);
+  static const ms = CountryCode('MS', '1664', CountryResolverKey.ms$);
+  static const ma = CountryCode('MA', '212', CountryResolverKey.ma$);
+  static const mz = CountryCode('MZ', '258', CountryResolverKey.mz$);
+  static const mm = CountryCode('MM', '95', CountryResolverKey.mm$);
+  static const na = CountryCode('NA', '264', CountryResolverKey.na$);
+  static const nr = CountryCode('NR', '674', CountryResolverKey.nr$);
+  static const np = CountryCode('NP', '977', CountryResolverKey.np$);
+  static const nl = CountryCode('NL', '31', CountryResolverKey.nl$);
+  static const nc = CountryCode('NC', '687', CountryResolverKey.nc$);
+  static const nz = CountryCode('NZ', '64', CountryResolverKey.nz$);
+  static const ni = CountryCode('NI', '505', CountryResolverKey.ni$);
+  static const ne = CountryCode('NE', '227', CountryResolverKey.ne$);
+  static const ng = CountryCode('NG', '234', CountryResolverKey.ng$);
+  static const nu = CountryCode('NU', '683', CountryResolverKey.nu$);
+  static const nf = CountryCode('NF', '672', CountryResolverKey.nf$);
+  static const mp = CountryCode('MP', '1670', CountryResolverKey.mp$);
+  static const no = CountryCode('NO', '47', CountryResolverKey.no$);
+  static const om = CountryCode('OM', '968', CountryResolverKey.om$);
+  static const pk = CountryCode('PK', '92', CountryResolverKey.pk$);
+  static const pw = CountryCode('PW', '680', CountryResolverKey.pw$);
+  static const ps = CountryCode('PS', '970', CountryResolverKey.ps$);
+  static const pa = CountryCode('PA', '507', CountryResolverKey.pa$);
+  static const pg = CountryCode('PG', '675', CountryResolverKey.pg$);
+  static const py = CountryCode('PY', '595', CountryResolverKey.py$);
+  static const pe = CountryCode('PE', '51', CountryResolverKey.pe$);
+  static const ph = CountryCode('PH', '63', CountryResolverKey.ph$);
+  static const pn = CountryCode('PN', '64', CountryResolverKey.pn$);
+  static const pl = CountryCode('PL', '48', CountryResolverKey.pl$);
+  static const pt = CountryCode('PT', '351', CountryResolverKey.pt$);
+  static const pr = CountryCode('PR', '1939', CountryResolverKey.pr$);
+  static const qa = CountryCode('QA', '974', CountryResolverKey.qa$);
+  static const re = CountryCode('RE', '262', CountryResolverKey.re$);
+  static const ro = CountryCode('RO', '40', CountryResolverKey.ro$);
+  static const ru = CountryCode('RU', '7', CountryResolverKey.ru$);
+  static const rw = CountryCode('RW', '250', CountryResolverKey.rw$);
+  static const bl = CountryCode('BL', '590', CountryResolverKey.bl$);
+  static const sh = CountryCode('SH', '290', CountryResolverKey.sh$);
+  static const kn = CountryCode('KN', '1869', CountryResolverKey.kn$);
+  static const lc = CountryCode('LC', '1758', CountryResolverKey.lc$);
+  static const mf = CountryCode('MF', '590', CountryResolverKey.mf$);
+  static const pm = CountryCode('PM', '508', CountryResolverKey.pm$);
+  static const vc = CountryCode('VC', '1784', CountryResolverKey.vc$);
+  static const ws = CountryCode('WS', '685', CountryResolverKey.ws$);
+  static const sm = CountryCode('SM', '378', CountryResolverKey.sm$);
+  static const st = CountryCode('ST', '239', CountryResolverKey.st$);
+  static const sa = CountryCode('SA', '966', CountryResolverKey.sa$);
+  static const sn = CountryCode('SN', '221', CountryResolverKey.sn$);
+  static const rs = CountryCode('RS', '381', CountryResolverKey.rs$);
+  static const sc = CountryCode('SC', '248', CountryResolverKey.sc$);
+  static const sl = CountryCode('SL', '232', CountryResolverKey.sl$);
+  static const sg = CountryCode('SG', '65', CountryResolverKey.sg$);
+  static const sk = CountryCode('SK', '421', CountryResolverKey.sk$);
+  static const si = CountryCode('SI', '386', CountryResolverKey.si$);
+  static const sb = CountryCode('SB', '677', CountryResolverKey.sb$);
+  static const so = CountryCode('SO', '252', CountryResolverKey.so$);
+  static const za = CountryCode('ZA', '27', CountryResolverKey.za$);
+  static const gs = CountryCode('GS', '500', CountryResolverKey.gs$);
+  static const ss = CountryCode('SS', '211', CountryResolverKey.ss$);
+  static const es = CountryCode('ES', '34', CountryResolverKey.es$);
+  static const lk = CountryCode('LK', '94', CountryResolverKey.lk$);
+  static const sd = CountryCode('SD', '249', CountryResolverKey.sd$);
+  static const sr = CountryCode('SR', '597', CountryResolverKey.sr$);
+  static const sj = CountryCode('SJ', '47', CountryResolverKey.sj$);
+  static const se = CountryCode('SE', '46', CountryResolverKey.se$);
+  static const ch = CountryCode('CH', '41', CountryResolverKey.ch$);
+  static const sy = CountryCode('SY', '963', CountryResolverKey.sy$);
+  static const tw = CountryCode('TW', '886', CountryResolverKey.tw$);
+  static const tj = CountryCode('TJ', '992', CountryResolverKey.tj$);
+  static const tz = CountryCode('TZ', '255', CountryResolverKey.tz$);
+  static const th = CountryCode('TH', '66', CountryResolverKey.th$);
+  static const tl = CountryCode('TL', '670', CountryResolverKey.tl$);
+  static const tg = CountryCode('TG', '228', CountryResolverKey.tg$);
+  static const tk = CountryCode('TK', '690', CountryResolverKey.tk$);
+  static const to = CountryCode('TO', '676', CountryResolverKey.to$);
+  static const tt = CountryCode('TT', '1868', CountryResolverKey.tt$);
+  static const tn = CountryCode('TN', '216', CountryResolverKey.tn$);
+  static const tr = CountryCode('TR', '90', CountryResolverKey.tr$);
+  static const tm = CountryCode('TM', '993', CountryResolverKey.tm$);
+  static const tc = CountryCode('TC', '1649', CountryResolverKey.tc$);
+  static const tv = CountryCode('TV', '688', CountryResolverKey.tv$);
+  static const ug = CountryCode('UG', '256', CountryResolverKey.ug$);
+  static const ua = CountryCode('UA', '380', CountryResolverKey.ua$);
+  static const ae = CountryCode('AE', '971', CountryResolverKey.ae$);
+  static const gb = CountryCode('GB', '44', CountryResolverKey.gb$);
+  static const um = CountryCode('UM', '246', CountryResolverKey.um$);
+  static const uy = CountryCode('UY', '598', CountryResolverKey.uy$);
+  static const uz = CountryCode('UZ', '998', CountryResolverKey.uz$);
+  static const vu = CountryCode('VU', '678', CountryResolverKey.vu$);
+  static const ve = CountryCode('VE', '58', CountryResolverKey.ve$);
+  static const vn = CountryCode('VN', '84', CountryResolverKey.vn$);
+  static const vg = CountryCode('VG', '1284', CountryResolverKey.vg$);
+  static const vi = CountryCode('VI', '1340', CountryResolverKey.vi$);
+  static const wf = CountryCode('WF', '681', CountryResolverKey.wf$);
+  static const ye = CountryCode('YE', '967', CountryResolverKey.ye$);
+  static const zm = CountryCode('ZM', '260', CountryResolverKey.zm$);
+  static const zw = CountryCode('ZW', '263', CountryResolverKey.zw$);
 }
 
 /// List of country information.
@@ -262,250 +262,250 @@ class Country {
 /// translations, not the country code. However, countryCodes will be ordered
 /// according to the i18n content at runtime to account for custom translations.
 const countryCodes = [
-  Country('AF', '93', CountryResolverKey.af$),
-  Country('AX', '358', CountryResolverKey.ax$),
-  Country('AL', '355', CountryResolverKey.al$),
-  Country('DZ', '213', CountryResolverKey.dz$),
-  Country('AS1', '1684', CountryResolverKey.as1$),
-  Country('AD', '376', CountryResolverKey.ad$),
-  Country('AO', '244', CountryResolverKey.ao$),
-  Country('AI', '1264', CountryResolverKey.ai$),
-  Country('AQ', '672', CountryResolverKey.aq$),
-  Country('AG', '1268', CountryResolverKey.ag$),
-  Country('AR', '54', CountryResolverKey.ar$),
-  Country('AM', '374', CountryResolverKey.am$),
-  Country('AW', '297', CountryResolverKey.aw$),
-  Country('AU', '61', CountryResolverKey.au$),
-  Country('AT', '43', CountryResolverKey.at$),
-  Country('AZ', '994', CountryResolverKey.az$),
-  Country('BS', '1242', CountryResolverKey.bs$),
-  Country('BH', '973', CountryResolverKey.bh$),
-  Country('BD', '880', CountryResolverKey.bd$),
-  Country('BB', '1246', CountryResolverKey.bb$),
-  Country('BY', '375', CountryResolverKey.by$),
-  Country('BE', '32', CountryResolverKey.be$),
-  Country('BZ', '501', CountryResolverKey.bz$),
-  Country('BJ', '229', CountryResolverKey.bj$),
-  Country('BM', '1441', CountryResolverKey.bm$),
-  Country('BT', '975', CountryResolverKey.bt$),
-  Country('BO', '591', CountryResolverKey.bo$),
-  Country('BQ', '599', CountryResolverKey.bq$),
-  Country('BA', '387', CountryResolverKey.ba$),
-  Country('BW', '267', CountryResolverKey.bw$),
-  Country('BR', '55', CountryResolverKey.br$),
-  Country('IO', '246', CountryResolverKey.io$),
-  Country('BN', '673', CountryResolverKey.bn$),
-  Country('BG', '359', CountryResolverKey.bg$),
-  Country('BF', '226', CountryResolverKey.bf$),
-  Country('BI', '257', CountryResolverKey.bi$),
-  Country('KH', '855', CountryResolverKey.kh$),
-  Country('CM', '237', CountryResolverKey.cm$),
-  Country('CA', '1', CountryResolverKey.ca$),
-  Country('CV', '238', CountryResolverKey.cv$),
-  Country('KY', '1345', CountryResolverKey.ky$),
-  Country('CF', '236', CountryResolverKey.cf$),
-  Country('TD', '235', CountryResolverKey.td$),
-  Country('CL', '56', CountryResolverKey.cl$),
-  Country('CN', '86', CountryResolverKey.cn$),
-  Country('CX', '61', CountryResolverKey.cx$),
-  Country('CC', '61', CountryResolverKey.cc$),
-  Country('CO', '57', CountryResolverKey.co$),
-  Country('KM', '269', CountryResolverKey.km$),
-  Country('CG', '242', CountryResolverKey.cg$),
-  Country('CD', '243', CountryResolverKey.cd$),
-  Country('CK', '682', CountryResolverKey.ck$),
-  Country('CR', '506', CountryResolverKey.cr$),
-  Country('CI', '225', CountryResolverKey.ci$),
-  Country('HR', '385', CountryResolverKey.hr$),
-  Country('CU', '53', CountryResolverKey.cu$),
-  Country('CY', '357', CountryResolverKey.cy$),
-  Country('CZ', '420', CountryResolverKey.cz$),
-  Country('DK', '45', CountryResolverKey.dk$),
-  Country('DJ', '253', CountryResolverKey.dj$),
-  Country('DM', '1767', CountryResolverKey.dm$),
-  Country('DO1', '1849', CountryResolverKey.do1$),
-  Country('EC', '593', CountryResolverKey.ec$),
-  Country('EG', '20', CountryResolverKey.eg$),
-  Country('SV', '503', CountryResolverKey.sv$),
-  Country('GQ', '240', CountryResolverKey.gq$),
-  Country('ER', '291', CountryResolverKey.er$),
-  Country('EE', '372', CountryResolverKey.ee$),
-  Country('SZ', '268', CountryResolverKey.sz$),
-  Country('ET', '251', CountryResolverKey.et$),
-  Country('FK', '500', CountryResolverKey.fk$),
-  Country('FO', '298', CountryResolverKey.fo$),
-  Country('FJ', '679', CountryResolverKey.fj$),
-  Country('FI', '358', CountryResolverKey.fi$),
-  Country('FR', '33', CountryResolverKey.fr$),
-  Country('GF', '594', CountryResolverKey.gf$),
-  Country('PF', '689', CountryResolverKey.pf$),
-  Country('GA', '241', CountryResolverKey.ga$),
-  Country('GM', '220', CountryResolverKey.gm$),
-  Country('GE', '995', CountryResolverKey.ge$),
-  Country('DE', '49', CountryResolverKey.de$),
-  Country('GH', '233', CountryResolverKey.gh$),
-  Country('GI', '350', CountryResolverKey.gi$),
-  Country('GR', '30', CountryResolverKey.gr$),
-  Country('GL', '299', CountryResolverKey.gl$),
-  Country('GD', '1473', CountryResolverKey.gd$),
-  Country('GP', '590', CountryResolverKey.gp$),
-  Country('GU', '1671', CountryResolverKey.gu$),
-  Country('GT', '502', CountryResolverKey.gt$),
-  Country('GG', '44', CountryResolverKey.gg$),
-  Country('GN', '224', CountryResolverKey.gn$),
-  Country('GW', '245', CountryResolverKey.gw$),
-  Country('GY', '592', CountryResolverKey.gy$),
-  Country('HT', '509', CountryResolverKey.ht$),
-  Country('VA', '379', CountryResolverKey.va$),
-  Country('HN', '504', CountryResolverKey.hn$),
-  Country('HK', '852', CountryResolverKey.hk$),
-  Country('HU', '36', CountryResolverKey.hu$),
-  Country('IS1', '354', CountryResolverKey.is1$),
-  Country('IN1', '91', CountryResolverKey.in1$),
-  Country('ID', '62', CountryResolverKey.id$),
-  Country('IR', '98', CountryResolverKey.ir$),
-  Country('IQ', '964', CountryResolverKey.iq$),
-  Country('IE', '353', CountryResolverKey.ie$),
-  Country('IM', '44', CountryResolverKey.im$),
-  Country('IL', '972', CountryResolverKey.il$),
-  Country('IT', '39', CountryResolverKey.it$),
-  Country('JM', '1876', CountryResolverKey.jm$),
-  Country('JP', '81', CountryResolverKey.jp$),
-  Country('JE', '44', CountryResolverKey.je$),
-  Country('JO', '962', CountryResolverKey.jo$),
-  Country('KZ', '7', CountryResolverKey.kz$),
-  Country('KE', '254', CountryResolverKey.ke$),
-  Country('KI', '686', CountryResolverKey.ki$),
-  Country('KP', '850', CountryResolverKey.kp$),
-  Country('KR', '82', CountryResolverKey.kr$),
-  Country('XK', '383', CountryResolverKey.xk$),
-  Country('KW', '965', CountryResolverKey.kw$),
-  Country('KG', '996', CountryResolverKey.kg$),
-  Country('LA', '856', CountryResolverKey.la$),
-  Country('LV', '371', CountryResolverKey.lv$),
-  Country('LB', '961', CountryResolverKey.lb$),
-  Country('LS', '266', CountryResolverKey.ls$),
-  Country('LR', '231', CountryResolverKey.lr$),
-  Country('LY', '218', CountryResolverKey.ly$),
-  Country('LI', '423', CountryResolverKey.li$),
-  Country('LT', '370', CountryResolverKey.lt$),
-  Country('LU', '352', CountryResolverKey.lu$),
-  Country('MO', '853', CountryResolverKey.mo$),
-  Country('MK', '389', CountryResolverKey.mk$),
-  Country('MG', '261', CountryResolverKey.mg$),
-  Country('MW', '265', CountryResolverKey.mw$),
-  Country('MY', '60', CountryResolverKey.my$),
-  Country('MV', '960', CountryResolverKey.mv$),
-  Country('ML', '223', CountryResolverKey.ml$),
-  Country('MT', '356', CountryResolverKey.mt$),
-  Country('MH', '692', CountryResolverKey.mh$),
-  Country('MQ', '596', CountryResolverKey.mq$),
-  Country('MR', '222', CountryResolverKey.mr$),
-  Country('MU', '230', CountryResolverKey.mu$),
-  Country('YT', '262', CountryResolverKey.yt$),
-  Country('MX', '52', CountryResolverKey.mx$),
-  Country('FM', '691', CountryResolverKey.fm$),
-  Country('MD', '373', CountryResolverKey.md$),
-  Country('MC', '377', CountryResolverKey.mc$),
-  Country('MN', '976', CountryResolverKey.mn$),
-  Country('ME', '382', CountryResolverKey.me$),
-  Country('MS', '1664', CountryResolverKey.ms$),
-  Country('MA', '212', CountryResolverKey.ma$),
-  Country('MZ', '258', CountryResolverKey.mz$),
-  Country('MM', '95', CountryResolverKey.mm$),
-  Country('NA', '264', CountryResolverKey.na$),
-  Country('NR', '674', CountryResolverKey.nr$),
-  Country('NP', '977', CountryResolverKey.np$),
-  Country('NL', '31', CountryResolverKey.nl$),
-  Country('NC', '687', CountryResolverKey.nc$),
-  Country('NZ', '64', CountryResolverKey.nz$),
-  Country('NI', '505', CountryResolverKey.ni$),
-  Country('NE', '227', CountryResolverKey.ne$),
-  Country('NG', '234', CountryResolverKey.ng$),
-  Country('NU', '683', CountryResolverKey.nu$),
-  Country('NF', '672', CountryResolverKey.nf$),
-  Country('MP', '1670', CountryResolverKey.mp$),
-  Country('NO', '47', CountryResolverKey.no$),
-  Country('OM', '968', CountryResolverKey.om$),
-  Country('PK', '92', CountryResolverKey.pk$),
-  Country('PW', '680', CountryResolverKey.pw$),
-  Country('PS', '970', CountryResolverKey.ps$),
-  Country('PA', '507', CountryResolverKey.pa$),
-  Country('PG', '675', CountryResolverKey.pg$),
-  Country('PY', '595', CountryResolverKey.py$),
-  Country('PE', '51', CountryResolverKey.pe$),
-  Country('PH', '63', CountryResolverKey.ph$),
-  Country('PN', '64', CountryResolverKey.pn$),
-  Country('PL', '48', CountryResolverKey.pl$),
-  Country('PT', '351', CountryResolverKey.pt$),
-  Country('PR', '1939', CountryResolverKey.pr$),
-  Country('QA', '974', CountryResolverKey.qa$),
-  Country('RE', '262', CountryResolverKey.re$),
-  Country('RO', '40', CountryResolverKey.ro$),
-  Country('RU', '7', CountryResolverKey.ru$),
-  Country('RW', '250', CountryResolverKey.rw$),
-  Country('BL', '590', CountryResolverKey.bl$),
-  Country('SH', '290', CountryResolverKey.sh$),
-  Country('KN', '1869', CountryResolverKey.kn$),
-  Country('LC', '1758', CountryResolverKey.lc$),
-  Country('MF', '590', CountryResolverKey.mf$),
-  Country('PM', '508', CountryResolverKey.pm$),
-  Country('VC', '1784', CountryResolverKey.vc$),
-  Country('WS', '685', CountryResolverKey.ws$),
-  Country('SM', '378', CountryResolverKey.sm$),
-  Country('ST', '239', CountryResolverKey.st$),
-  Country('SA', '966', CountryResolverKey.sa$),
-  Country('SN', '221', CountryResolverKey.sn$),
-  Country('RS', '381', CountryResolverKey.rs$),
-  Country('SC', '248', CountryResolverKey.sc$),
-  Country('SL', '232', CountryResolverKey.sl$),
-  Country('SG', '65', CountryResolverKey.sg$),
-  Country('SK', '421', CountryResolverKey.sk$),
-  Country('SI', '386', CountryResolverKey.si$),
-  Country('SB', '677', CountryResolverKey.sb$),
-  Country('SO', '252', CountryResolverKey.so$),
-  Country('ZA', '27', CountryResolverKey.za$),
-  Country('GS', '500', CountryResolverKey.gs$),
-  Country('SS', '211', CountryResolverKey.ss$),
-  Country('ES', '34', CountryResolverKey.es$),
-  Country('LK', '94', CountryResolverKey.lk$),
-  Country('SD', '249', CountryResolverKey.sd$),
-  Country('SR', '597', CountryResolverKey.sr$),
-  Country('SJ', '47', CountryResolverKey.sj$),
-  Country('SE', '46', CountryResolverKey.se$),
-  Country('CH', '41', CountryResolverKey.ch$),
-  Country('SY', '963', CountryResolverKey.sy$),
-  Country('TW', '886', CountryResolverKey.tw$),
-  Country('TJ', '992', CountryResolverKey.tj$),
-  Country('TZ', '255', CountryResolverKey.tz$),
-  Country('TH', '66', CountryResolverKey.th$),
-  Country('TL', '670', CountryResolverKey.tl$),
-  Country('TG', '228', CountryResolverKey.tg$),
-  Country('TK', '690', CountryResolverKey.tk$),
-  Country('TO', '676', CountryResolverKey.to$),
-  Country('TT', '1868', CountryResolverKey.tt$),
-  Country('TN', '216', CountryResolverKey.tn$),
-  Country('TR', '90', CountryResolverKey.tr$),
-  Country('TM', '993', CountryResolverKey.tm$),
-  Country('TC', '1649', CountryResolverKey.tc$),
-  Country('TV', '688', CountryResolverKey.tv$),
-  Country('UG', '256', CountryResolverKey.ug$),
-  Country('UA', '380', CountryResolverKey.ua$),
-  Country('AE', '971', CountryResolverKey.ae$),
-  Country('GB', '44', CountryResolverKey.gb$),
-  Country('US', '1', CountryResolverKey.us$),
-  Country('UM', '246', CountryResolverKey.um$),
-  Country('UY', '598', CountryResolverKey.uy$),
-  Country('UZ', '998', CountryResolverKey.uz$),
-  Country('VU', '678', CountryResolverKey.vu$),
-  Country('VE', '58', CountryResolverKey.ve$),
-  Country('VN', '84', CountryResolverKey.vn$),
-  Country('VG', '1284', CountryResolverKey.vg$),
-  Country('VI', '1340', CountryResolverKey.vi$),
-  Country('WF', '681', CountryResolverKey.wf$),
-  Country('YE', '967', CountryResolverKey.ye$),
-  Country('ZM', '260', CountryResolverKey.zm$),
-  Country('ZW', '263', CountryResolverKey.zw$)
+  CountryCode('AF', '93', CountryResolverKey.af$),
+  CountryCode('AX', '358', CountryResolverKey.ax$),
+  CountryCode('AL', '355', CountryResolverKey.al$),
+  CountryCode('DZ', '213', CountryResolverKey.dz$),
+  CountryCode('AS1', '1684', CountryResolverKey.as1$),
+  CountryCode('AD', '376', CountryResolverKey.ad$),
+  CountryCode('AO', '244', CountryResolverKey.ao$),
+  CountryCode('AI', '1264', CountryResolverKey.ai$),
+  CountryCode('AQ', '672', CountryResolverKey.aq$),
+  CountryCode('AG', '1268', CountryResolverKey.ag$),
+  CountryCode('AR', '54', CountryResolverKey.ar$),
+  CountryCode('AM', '374', CountryResolverKey.am$),
+  CountryCode('AW', '297', CountryResolverKey.aw$),
+  CountryCode('AU', '61', CountryResolverKey.au$),
+  CountryCode('AT', '43', CountryResolverKey.at$),
+  CountryCode('AZ', '994', CountryResolverKey.az$),
+  CountryCode('BS', '1242', CountryResolverKey.bs$),
+  CountryCode('BH', '973', CountryResolverKey.bh$),
+  CountryCode('BD', '880', CountryResolverKey.bd$),
+  CountryCode('BB', '1246', CountryResolverKey.bb$),
+  CountryCode('BY', '375', CountryResolverKey.by$),
+  CountryCode('BE', '32', CountryResolverKey.be$),
+  CountryCode('BZ', '501', CountryResolverKey.bz$),
+  CountryCode('BJ', '229', CountryResolverKey.bj$),
+  CountryCode('BM', '1441', CountryResolverKey.bm$),
+  CountryCode('BT', '975', CountryResolverKey.bt$),
+  CountryCode('BO', '591', CountryResolverKey.bo$),
+  CountryCode('BQ', '599', CountryResolverKey.bq$),
+  CountryCode('BA', '387', CountryResolverKey.ba$),
+  CountryCode('BW', '267', CountryResolverKey.bw$),
+  CountryCode('BR', '55', CountryResolverKey.br$),
+  CountryCode('IO', '246', CountryResolverKey.io$),
+  CountryCode('BN', '673', CountryResolverKey.bn$),
+  CountryCode('BG', '359', CountryResolverKey.bg$),
+  CountryCode('BF', '226', CountryResolverKey.bf$),
+  CountryCode('BI', '257', CountryResolverKey.bi$),
+  CountryCode('KH', '855', CountryResolverKey.kh$),
+  CountryCode('CM', '237', CountryResolverKey.cm$),
+  CountryCode('CA', '1', CountryResolverKey.ca$),
+  CountryCode('CV', '238', CountryResolverKey.cv$),
+  CountryCode('KY', '1345', CountryResolverKey.ky$),
+  CountryCode('CF', '236', CountryResolverKey.cf$),
+  CountryCode('TD', '235', CountryResolverKey.td$),
+  CountryCode('CL', '56', CountryResolverKey.cl$),
+  CountryCode('CN', '86', CountryResolverKey.cn$),
+  CountryCode('CX', '61', CountryResolverKey.cx$),
+  CountryCode('CC', '61', CountryResolverKey.cc$),
+  CountryCode('CO', '57', CountryResolverKey.co$),
+  CountryCode('KM', '269', CountryResolverKey.km$),
+  CountryCode('CG', '242', CountryResolverKey.cg$),
+  CountryCode('CD', '243', CountryResolverKey.cd$),
+  CountryCode('CK', '682', CountryResolverKey.ck$),
+  CountryCode('CR', '506', CountryResolverKey.cr$),
+  CountryCode('CI', '225', CountryResolverKey.ci$),
+  CountryCode('HR', '385', CountryResolverKey.hr$),
+  CountryCode('CU', '53', CountryResolverKey.cu$),
+  CountryCode('CY', '357', CountryResolverKey.cy$),
+  CountryCode('CZ', '420', CountryResolverKey.cz$),
+  CountryCode('DK', '45', CountryResolverKey.dk$),
+  CountryCode('DJ', '253', CountryResolverKey.dj$),
+  CountryCode('DM', '1767', CountryResolverKey.dm$),
+  CountryCode('DO1', '1849', CountryResolverKey.do1$),
+  CountryCode('EC', '593', CountryResolverKey.ec$),
+  CountryCode('EG', '20', CountryResolverKey.eg$),
+  CountryCode('SV', '503', CountryResolverKey.sv$),
+  CountryCode('GQ', '240', CountryResolverKey.gq$),
+  CountryCode('ER', '291', CountryResolverKey.er$),
+  CountryCode('EE', '372', CountryResolverKey.ee$),
+  CountryCode('SZ', '268', CountryResolverKey.sz$),
+  CountryCode('ET', '251', CountryResolverKey.et$),
+  CountryCode('FK', '500', CountryResolverKey.fk$),
+  CountryCode('FO', '298', CountryResolverKey.fo$),
+  CountryCode('FJ', '679', CountryResolverKey.fj$),
+  CountryCode('FI', '358', CountryResolverKey.fi$),
+  CountryCode('FR', '33', CountryResolverKey.fr$),
+  CountryCode('GF', '594', CountryResolverKey.gf$),
+  CountryCode('PF', '689', CountryResolverKey.pf$),
+  CountryCode('GA', '241', CountryResolverKey.ga$),
+  CountryCode('GM', '220', CountryResolverKey.gm$),
+  CountryCode('GE', '995', CountryResolverKey.ge$),
+  CountryCode('DE', '49', CountryResolverKey.de$),
+  CountryCode('GH', '233', CountryResolverKey.gh$),
+  CountryCode('GI', '350', CountryResolverKey.gi$),
+  CountryCode('GR', '30', CountryResolverKey.gr$),
+  CountryCode('GL', '299', CountryResolverKey.gl$),
+  CountryCode('GD', '1473', CountryResolverKey.gd$),
+  CountryCode('GP', '590', CountryResolverKey.gp$),
+  CountryCode('GU', '1671', CountryResolverKey.gu$),
+  CountryCode('GT', '502', CountryResolverKey.gt$),
+  CountryCode('GG', '44', CountryResolverKey.gg$),
+  CountryCode('GN', '224', CountryResolverKey.gn$),
+  CountryCode('GW', '245', CountryResolverKey.gw$),
+  CountryCode('GY', '592', CountryResolverKey.gy$),
+  CountryCode('HT', '509', CountryResolverKey.ht$),
+  CountryCode('VA', '379', CountryResolverKey.va$),
+  CountryCode('HN', '504', CountryResolverKey.hn$),
+  CountryCode('HK', '852', CountryResolverKey.hk$),
+  CountryCode('HU', '36', CountryResolverKey.hu$),
+  CountryCode('IS1', '354', CountryResolverKey.is1$),
+  CountryCode('IN1', '91', CountryResolverKey.in1$),
+  CountryCode('ID', '62', CountryResolverKey.id$),
+  CountryCode('IR', '98', CountryResolverKey.ir$),
+  CountryCode('IQ', '964', CountryResolverKey.iq$),
+  CountryCode('IE', '353', CountryResolverKey.ie$),
+  CountryCode('IM', '44', CountryResolverKey.im$),
+  CountryCode('IL', '972', CountryResolverKey.il$),
+  CountryCode('IT', '39', CountryResolverKey.it$),
+  CountryCode('JM', '1876', CountryResolverKey.jm$),
+  CountryCode('JP', '81', CountryResolverKey.jp$),
+  CountryCode('JE', '44', CountryResolverKey.je$),
+  CountryCode('JO', '962', CountryResolverKey.jo$),
+  CountryCode('KZ', '7', CountryResolverKey.kz$),
+  CountryCode('KE', '254', CountryResolverKey.ke$),
+  CountryCode('KI', '686', CountryResolverKey.ki$),
+  CountryCode('KP', '850', CountryResolverKey.kp$),
+  CountryCode('KR', '82', CountryResolverKey.kr$),
+  CountryCode('XK', '383', CountryResolverKey.xk$),
+  CountryCode('KW', '965', CountryResolverKey.kw$),
+  CountryCode('KG', '996', CountryResolverKey.kg$),
+  CountryCode('LA', '856', CountryResolverKey.la$),
+  CountryCode('LV', '371', CountryResolverKey.lv$),
+  CountryCode('LB', '961', CountryResolverKey.lb$),
+  CountryCode('LS', '266', CountryResolverKey.ls$),
+  CountryCode('LR', '231', CountryResolverKey.lr$),
+  CountryCode('LY', '218', CountryResolverKey.ly$),
+  CountryCode('LI', '423', CountryResolverKey.li$),
+  CountryCode('LT', '370', CountryResolverKey.lt$),
+  CountryCode('LU', '352', CountryResolverKey.lu$),
+  CountryCode('MO', '853', CountryResolverKey.mo$),
+  CountryCode('MK', '389', CountryResolverKey.mk$),
+  CountryCode('MG', '261', CountryResolverKey.mg$),
+  CountryCode('MW', '265', CountryResolverKey.mw$),
+  CountryCode('MY', '60', CountryResolverKey.my$),
+  CountryCode('MV', '960', CountryResolverKey.mv$),
+  CountryCode('ML', '223', CountryResolverKey.ml$),
+  CountryCode('MT', '356', CountryResolverKey.mt$),
+  CountryCode('MH', '692', CountryResolverKey.mh$),
+  CountryCode('MQ', '596', CountryResolverKey.mq$),
+  CountryCode('MR', '222', CountryResolverKey.mr$),
+  CountryCode('MU', '230', CountryResolverKey.mu$),
+  CountryCode('YT', '262', CountryResolverKey.yt$),
+  CountryCode('MX', '52', CountryResolverKey.mx$),
+  CountryCode('FM', '691', CountryResolverKey.fm$),
+  CountryCode('MD', '373', CountryResolverKey.md$),
+  CountryCode('MC', '377', CountryResolverKey.mc$),
+  CountryCode('MN', '976', CountryResolverKey.mn$),
+  CountryCode('ME', '382', CountryResolverKey.me$),
+  CountryCode('MS', '1664', CountryResolverKey.ms$),
+  CountryCode('MA', '212', CountryResolverKey.ma$),
+  CountryCode('MZ', '258', CountryResolverKey.mz$),
+  CountryCode('MM', '95', CountryResolverKey.mm$),
+  CountryCode('NA', '264', CountryResolverKey.na$),
+  CountryCode('NR', '674', CountryResolverKey.nr$),
+  CountryCode('NP', '977', CountryResolverKey.np$),
+  CountryCode('NL', '31', CountryResolverKey.nl$),
+  CountryCode('NC', '687', CountryResolverKey.nc$),
+  CountryCode('NZ', '64', CountryResolverKey.nz$),
+  CountryCode('NI', '505', CountryResolverKey.ni$),
+  CountryCode('NE', '227', CountryResolverKey.ne$),
+  CountryCode('NG', '234', CountryResolverKey.ng$),
+  CountryCode('NU', '683', CountryResolverKey.nu$),
+  CountryCode('NF', '672', CountryResolverKey.nf$),
+  CountryCode('MP', '1670', CountryResolverKey.mp$),
+  CountryCode('NO', '47', CountryResolverKey.no$),
+  CountryCode('OM', '968', CountryResolverKey.om$),
+  CountryCode('PK', '92', CountryResolverKey.pk$),
+  CountryCode('PW', '680', CountryResolverKey.pw$),
+  CountryCode('PS', '970', CountryResolverKey.ps$),
+  CountryCode('PA', '507', CountryResolverKey.pa$),
+  CountryCode('PG', '675', CountryResolverKey.pg$),
+  CountryCode('PY', '595', CountryResolverKey.py$),
+  CountryCode('PE', '51', CountryResolverKey.pe$),
+  CountryCode('PH', '63', CountryResolverKey.ph$),
+  CountryCode('PN', '64', CountryResolverKey.pn$),
+  CountryCode('PL', '48', CountryResolverKey.pl$),
+  CountryCode('PT', '351', CountryResolverKey.pt$),
+  CountryCode('PR', '1939', CountryResolverKey.pr$),
+  CountryCode('QA', '974', CountryResolverKey.qa$),
+  CountryCode('RE', '262', CountryResolverKey.re$),
+  CountryCode('RO', '40', CountryResolverKey.ro$),
+  CountryCode('RU', '7', CountryResolverKey.ru$),
+  CountryCode('RW', '250', CountryResolverKey.rw$),
+  CountryCode('BL', '590', CountryResolverKey.bl$),
+  CountryCode('SH', '290', CountryResolverKey.sh$),
+  CountryCode('KN', '1869', CountryResolverKey.kn$),
+  CountryCode('LC', '1758', CountryResolverKey.lc$),
+  CountryCode('MF', '590', CountryResolverKey.mf$),
+  CountryCode('PM', '508', CountryResolverKey.pm$),
+  CountryCode('VC', '1784', CountryResolverKey.vc$),
+  CountryCode('WS', '685', CountryResolverKey.ws$),
+  CountryCode('SM', '378', CountryResolverKey.sm$),
+  CountryCode('ST', '239', CountryResolverKey.st$),
+  CountryCode('SA', '966', CountryResolverKey.sa$),
+  CountryCode('SN', '221', CountryResolverKey.sn$),
+  CountryCode('RS', '381', CountryResolverKey.rs$),
+  CountryCode('SC', '248', CountryResolverKey.sc$),
+  CountryCode('SL', '232', CountryResolverKey.sl$),
+  CountryCode('SG', '65', CountryResolverKey.sg$),
+  CountryCode('SK', '421', CountryResolverKey.sk$),
+  CountryCode('SI', '386', CountryResolverKey.si$),
+  CountryCode('SB', '677', CountryResolverKey.sb$),
+  CountryCode('SO', '252', CountryResolverKey.so$),
+  CountryCode('ZA', '27', CountryResolverKey.za$),
+  CountryCode('GS', '500', CountryResolverKey.gs$),
+  CountryCode('SS', '211', CountryResolverKey.ss$),
+  CountryCode('ES', '34', CountryResolverKey.es$),
+  CountryCode('LK', '94', CountryResolverKey.lk$),
+  CountryCode('SD', '249', CountryResolverKey.sd$),
+  CountryCode('SR', '597', CountryResolverKey.sr$),
+  CountryCode('SJ', '47', CountryResolverKey.sj$),
+  CountryCode('SE', '46', CountryResolverKey.se$),
+  CountryCode('CH', '41', CountryResolverKey.ch$),
+  CountryCode('SY', '963', CountryResolverKey.sy$),
+  CountryCode('TW', '886', CountryResolverKey.tw$),
+  CountryCode('TJ', '992', CountryResolverKey.tj$),
+  CountryCode('TZ', '255', CountryResolverKey.tz$),
+  CountryCode('TH', '66', CountryResolverKey.th$),
+  CountryCode('TL', '670', CountryResolverKey.tl$),
+  CountryCode('TG', '228', CountryResolverKey.tg$),
+  CountryCode('TK', '690', CountryResolverKey.tk$),
+  CountryCode('TO', '676', CountryResolverKey.to$),
+  CountryCode('TT', '1868', CountryResolverKey.tt$),
+  CountryCode('TN', '216', CountryResolverKey.tn$),
+  CountryCode('TR', '90', CountryResolverKey.tr$),
+  CountryCode('TM', '993', CountryResolverKey.tm$),
+  CountryCode('TC', '1649', CountryResolverKey.tc$),
+  CountryCode('TV', '688', CountryResolverKey.tv$),
+  CountryCode('UG', '256', CountryResolverKey.ug$),
+  CountryCode('UA', '380', CountryResolverKey.ua$),
+  CountryCode('AE', '971', CountryResolverKey.ae$),
+  CountryCode('GB', '44', CountryResolverKey.gb$),
+  CountryCode('US', '1', CountryResolverKey.us$),
+  CountryCode('UM', '246', CountryResolverKey.um$),
+  CountryCode('UY', '598', CountryResolverKey.uy$),
+  CountryCode('UZ', '998', CountryResolverKey.uz$),
+  CountryCode('VU', '678', CountryResolverKey.vu$),
+  CountryCode('VE', '58', CountryResolverKey.ve$),
+  CountryCode('VN', '84', CountryResolverKey.vn$),
+  CountryCode('VG', '1284', CountryResolverKey.vg$),
+  CountryCode('VI', '1340', CountryResolverKey.vi$),
+  CountryCode('WF', '681', CountryResolverKey.wf$),
+  CountryCode('YE', '967', CountryResolverKey.ye$),
+  CountryCode('ZM', '260', CountryResolverKey.zm$),
+  CountryCode('ZW', '263', CountryResolverKey.zw$)
 ];
 
-const initialCountryCode = Country('US', '1', CountryResolverKey.us$);
+const initialCountryCode = CountryCode('US', '1', CountryResolverKey.us$);
