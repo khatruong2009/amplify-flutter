@@ -13,26 +13,26 @@ import 'package:flutter/material.dart';
 mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
         T extends AuthenticatorFormField<FieldType, String>>
     on AuthenticatorFormFieldState<FieldType, String, T>
-    implements SelectableConfig<CountryResolverKey, Country> {
+    implements SelectableConfig<CountryResolverKey, CountryCode> {
   late final CountryResolver _countriesResolver = stringResolver.countries;
 
   @override
-  Country get selectionValue => state.country;
+  CountryCode get selectionValue => state.country;
 
   String _searchVal = '';
 
   @override
-  late final List<InputSelection<CountryResolverKey, Country>> selections =
+  late final List<InputSelection<CountryResolverKey, CountryCode>> selections =
       countryCodes
           .map(
-            (Country country) => InputSelection(
+            (CountryCode country) => InputSelection(
               label: country.key,
               value: country,
             ),
           )
           .toList();
 
-  List<Country> get filteredCountries => countryCodes
+  List<CountryCode> get filteredCountries => countryCodes
       .where(
         (country) => _countriesResolver
             .resolve(context, country.key)
@@ -174,7 +174,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
     // Reset search
     _searchVal = '';
 
-    final selectedCountry = await showDialog<Country>(
+    final selectedCountry = await showDialog<CountryCode>(
       context: context,
       builder: (context) {
         return StatefulBuilder(

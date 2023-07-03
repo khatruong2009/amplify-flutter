@@ -36,7 +36,8 @@ import 'package:flutter/material.dart';
 
 export 'package:amplify_auth_cognito/amplify_auth_cognito.dart'
     show AuthProvider;
-export 'package:amplify_authenticator/src/utils/country_code.dart' show Country;
+export 'package:amplify_authenticator/src/utils/country_code.dart'
+    show CountryCode;
 export 'package:amplify_flutter/amplify_flutter.dart'
     show PasswordProtectionSettings, PasswordPolicyCharacters;
 
@@ -305,7 +306,7 @@ class Authenticator extends StatefulWidget {
     this.initialStep = AuthenticatorStep.signIn,
     this.authenticatorBuilder,
     this.padding = const EdgeInsets.all(32),
-    this.defaultDialCode = Country.us,
+    this.defaultDialCode = CountryCode.us,
   }) :
         // ignore: prefer_asserts_with_message
         assert(() {
@@ -424,7 +425,7 @@ class Authenticator extends StatefulWidget {
 
   /// The default dial country code code to use for phone number sign in or sign up.
   /// The default is set to US (+1).
-  final Country defaultDialCode;
+  final CountryCode defaultDialCode;
 
   @override
   State<Authenticator> createState() => _AuthenticatorState();
@@ -462,7 +463,8 @@ class Authenticator extends StatefulWidget {
         ),
       )
       ..add(DiagnosticsProperty<EdgeInsets>('padding', padding))
-      ..add(DiagnosticsProperty<Country>('defaultDialCode', defaultDialCode));
+      ..add(
+          DiagnosticsProperty<CountryCode>('defaultDialCode', defaultDialCode));
   }
 }
 
