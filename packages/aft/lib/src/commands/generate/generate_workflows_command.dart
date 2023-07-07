@@ -277,8 +277,7 @@ jobs:
     ignore:
       # Ignore Kotlin updates since we should always match Flutter stable
       # to ensure users can have Kt versions >= Flutter stable.
-      - dependency-name: "kotlin_version"
-      - dependency-name: "org.jetbrains.kotlin:kotlin-gradle-plugin"
+      - dependency-name: "kotlin"
       
       # Ignore patch version bumps
       - dependency-name: "*"
@@ -315,11 +314,11 @@ jobs:
 
     final androidPlatformPackagePaths = [
       if (platformPackageAndroidTestDirExists)
-        '${repoRelativePath}_android/**/*',
+        '${repoRelativePath}_android/**/*'
     ];
     final androidWorkflowPaths = [
       '.github/workflows/$androidWorkflow',
-      p.relative(androidWorkflowFilepath, from: rootDir.path),
+      p.relative(androidWorkflowFilepath, from: rootDir.path)
     ];
     final androidPathString =
         (androidPlatformPackagePaths + androidWorkflowPaths)
@@ -396,11 +395,11 @@ jobs:
     );
 
     final iosPlatformPackagePaths = [
-      if (platformPackageDirExists) '${repoRelativePath}_ios/**/*',
+      if (platformPackageDirExists) '${repoRelativePath}_ios/**/*'
     ];
     final iosWorkflowPaths = [
       '.github/workflows/$iosWorkflow',
-      p.relative(iosWorkflowFilepath, from: rootDir.path),
+      p.relative(iosWorkflowFilepath, from: rootDir.path)
     ];
     final iosPathString = (iosPlatformPackagePaths + iosWorkflowPaths)
         .map((path) => "      - '$path'")
