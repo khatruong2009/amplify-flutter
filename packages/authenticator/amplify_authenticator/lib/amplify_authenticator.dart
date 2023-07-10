@@ -423,7 +423,7 @@ class Authenticator extends StatefulWidget {
   /// method.
   final AuthenticatorStep initialStep;
 
-  /// The default dial country code code to use for phone number sign in or sign up.
+  /// The default dial code code to use for phone number sign in or sign up.
   /// The default is set to US (+1).
   final DialCode defaultDialCode;
 

@@ -4,7 +4,7 @@
 import 'package:amplify_authenticator/src/keys.dart';
 import 'package:amplify_authenticator/src/l10n/country_resolver.dart';
 import 'package:amplify_authenticator/src/utils/breakpoint.dart';
-import 'package:amplify_authenticator/src/utils/country_code.dart';
+import 'package:amplify_authenticator/src/utils/dial_code.dart';
 import 'package:amplify_authenticator/src/widgets/authenticator_input_config.dart';
 import 'package:amplify_authenticator/src/widgets/form_field.dart';
 import 'package:collection/collection.dart';
@@ -13,26 +13,26 @@ import 'package:flutter/material.dart';
 mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
         T extends AuthenticatorFormField<FieldType, String>>
     on AuthenticatorFormFieldState<FieldType, String, T>
-    implements SelectableConfig<CountryResolverKey, CountryCode> {
+    implements SelectableConfig<CountryResolverKey, DialCode> {
   late final CountryResolver _countriesResolver = stringResolver.countries;
 
   @override
-  CountryCode get selectionValue => state.country;
+  DialCode get selectionValue => state.country;
 
   String _searchVal = '';
 
   @override
-  late final List<InputSelection<CountryResolverKey, CountryCode>> selections =
+  late final List<InputSelection<CountryResolverKey, DialCode>> selections =
       countryCodes
           .map(
-            (CountryCode country) => InputSelection(
+            (DialCode country) => InputSelection(
               label: country.key,
               value: country,
             ),
           )
           .toList();
 
-  List<CountryCode> get filteredCountries => countryCodes
+  List<DialCode> get filteredCountries => countryCodes
       .where(
         (country) => _countriesResolver
             .resolve(context, country.key)
@@ -174,7 +174,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
     // Reset search
     _searchVal = '';
 
-    final selectedCountry = await showDialog<CountryCode>(
+    final selectedCountry = await showDialog<DialCode>(
       context: context,
       builder: (context) {
         return StatefulBuilder(
