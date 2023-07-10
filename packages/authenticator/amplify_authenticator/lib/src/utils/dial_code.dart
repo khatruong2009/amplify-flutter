@@ -4,9 +4,9 @@
 import 'package:amplify_authenticator/src/l10n/country_resolver.dart';
 
 class DialCode {
-  const DialCode(this.countryCode, this.value, this.key);
+  const DialCode(this.dialCode, this.value, this.key);
 
-  final String countryCode;
+  final String dialCode;
   final String value;
   final CountryResolverKey key;
 
