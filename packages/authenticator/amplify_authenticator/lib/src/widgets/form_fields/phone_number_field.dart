@@ -110,8 +110,7 @@ class _AuthenticatorPhoneFieldState<FieldType extends Enum>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-          IterableProperty<CountryCode>('filteredCountries', filteredCountries))
+      ..add(IterableProperty<DialCode>('filteredCountries', filteredCountries))
       ..add(
         ObjectFlagProperty<ValueChanged<String>>.has('onChanged', onChanged),
       );
