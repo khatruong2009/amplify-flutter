@@ -175,5 +175,5 @@ const countryCodes = [
 ];
   ''');
 
-  File('$dir/../utils/country_code.dart').writeAsString(list.toString());
+  File('$dir/../utils/dial_code.dart').writeAsString(list.toString());
 }
