@@ -28,6 +28,7 @@ import 'package:amplify_authenticator/src/state/inherited_config.dart';
 import 'package:amplify_authenticator/src/state/inherited_forms.dart';
 import 'package:amplify_authenticator/src/state/inherited_strings.dart';
 import 'package:amplify_authenticator/src/utils/dial_code.dart';
+import 'package:amplify_authenticator/src/utils/dial_code_options.dart';
 import 'package:amplify_authenticator/src/widgets/authenticator_banner.dart';
 import 'package:amplify_authenticator/src/widgets/form.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
@@ -37,6 +38,8 @@ import 'package:flutter/material.dart';
 export 'package:amplify_auth_cognito/amplify_auth_cognito.dart'
     show AuthProvider;
 export 'package:amplify_authenticator/src/utils/dial_code.dart' show DialCode;
+export 'package:amplify_authenticator/src/utils/dial_code_options.dart'
+    show DialCodeOptions;
 export 'package:amplify_flutter/amplify_flutter.dart'
     show PasswordProtectionSettings, PasswordPolicyCharacters;
 
@@ -305,7 +308,7 @@ class Authenticator extends StatefulWidget {
     this.initialStep = AuthenticatorStep.signIn,
     this.authenticatorBuilder,
     this.padding = const EdgeInsets.all(32),
-    this.defaultDialCode = DialCode.us,
+    this.dialCodeOptions = const DialCodeOptions(defaultDialCode: DialCode.us),
   }) :
         // ignore: prefer_asserts_with_message
         assert(() {
@@ -424,7 +427,9 @@ class Authenticator extends StatefulWidget {
 
   /// The default dial code code to use for phone number sign in or sign up.
   /// The default is set to US (+1).
-  final DialCode defaultDialCode;
+
+  /// The options to configure the dial code selector.
+  final DialCodeOptions dialCodeOptions;
 
   @override
   State<Authenticator> createState() => _AuthenticatorState();
@@ -463,8 +468,17 @@ class Authenticator extends StatefulWidget {
       )
       ..add(DiagnosticsProperty<EdgeInsets>('padding', padding))
       ..add(
-        DiagnosticsProperty<DialCode>('defaultDialCode', defaultDialCode),
+        DiagnosticsProperty<DialCode>(
+          'defaultDialCode',
+          dialCodeOptions.defaultDialCode,
+        ),
       );
+    properties.add(
+      DiagnosticsProperty<DialCodeOptions>(
+        'dialCodeOptions',
+        dialCodeOptions,
+      ),
+    );
   }
 }
 
@@ -493,7 +507,7 @@ class _AuthenticatorState extends State<Authenticator> {
     )..add(const AuthLoad());
     _authenticatorState = AuthenticatorState(
       _stateMachineBloc,
-      defaultDialCode: widget.defaultDialCode,
+      defaultDialCode: widget.dialCodeOptions.defaultDialCode,
     );
     _subscribeToExceptions();
     _subscribeToInfoMessages();

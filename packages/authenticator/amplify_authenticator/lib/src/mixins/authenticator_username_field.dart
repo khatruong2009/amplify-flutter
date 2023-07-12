@@ -144,7 +144,7 @@ mixin AuthenticatorUsernameField<FieldType extends Enum,
                     state.authAttributes.clear();
                     // Reset country code if phone is not being used as a username
                     if (newUsernameSelection != UsernameSelection.phoneNumber) {
-                      state.country = initialCountryCode;
+                      state.country = initialDialCode;
                     }
                     // Update the username & username selection
                     state

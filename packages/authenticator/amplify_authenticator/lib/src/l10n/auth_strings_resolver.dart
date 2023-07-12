@@ -1,15 +1,11 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
-import 'package:amplify_authenticator/src/l10n/button_resolver.dart';
-import 'package:amplify_authenticator/src/l10n/country_resolver.dart';
-import 'package:amplify_authenticator/src/l10n/input_resolver.dart';
-import 'package:amplify_authenticator/src/l10n/message_resolver.dart';
-import 'package:amplify_authenticator/src/l10n/title_resolver.dart';
+import 'package:amplify_authenticator/amplify_authenticator.dart';
 import 'package:flutter/material.dart';
 
 export 'button_resolver.dart';
-export 'country_resolver.dart';
+export 'dial_code_resolver.dart';
 export 'input_resolver.dart';
 export 'message_resolver.dart';
 export 'title_resolver.dart';
@@ -25,12 +21,12 @@ class AuthStringResolver {
   /// {@macro amplify_authenticator.auth_string_resolver}
   const AuthStringResolver({
     ButtonResolver? buttons,
-    CountryResolver? countries,
+    DialCodeResolver? countries,
     InputResolver? inputs,
     MessageResolver? messages,
     TitleResolver? titles,
   })  : buttons = buttons ?? const ButtonResolver(),
-        countries = countries ?? const CountryResolver(),
+        countries = countries ?? const DialCodeResolver(),
         inputs = inputs ?? const InputResolver(),
         titles = titles ?? const TitleResolver(),
         messages = messages ?? const MessageResolver();
@@ -39,7 +35,7 @@ class AuthStringResolver {
   final ButtonResolver buttons;
 
   /// The resolver class for countries
-  final CountryResolver countries;
+  final DialCodeResolver countries;
 
   /// The resolver class for shared input Widgets
   final InputResolver inputs;
