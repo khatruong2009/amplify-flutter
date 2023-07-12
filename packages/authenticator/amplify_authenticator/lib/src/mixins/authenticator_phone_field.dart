@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import 'package:amplify_authenticator/src/keys.dart';
-import 'package:amplify_authenticator/src/l10n/country_resolver.dart';
+import 'package:amplify_authenticator/src/l10n/dial_code_resolver.dart';
 import 'package:amplify_authenticator/src/utils/breakpoint.dart';
 import 'package:amplify_authenticator/src/utils/dial_code.dart';
 import 'package:amplify_authenticator/src/widgets/authenticator_input_config.dart';
@@ -13,8 +13,8 @@ import 'package:flutter/material.dart';
 mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
         T extends AuthenticatorFormField<FieldType, String>>
     on AuthenticatorFormFieldState<FieldType, String, T>
-    implements SelectableConfig<CountryResolverKey, DialCode> {
-  late final CountryResolver _countriesResolver = stringResolver.countries;
+    implements SelectableConfig<DialCodeResolverKey, DialCode> {
+  late final DialCodeResolver _countriesResolver = stringResolver.countries;
 
   @override
   DialCode get selectionValue => state.country;
@@ -22,7 +22,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
   String _searchVal = '';
 
   @override
-  late final List<InputSelection<CountryResolverKey, DialCode>> selections =
+  late final List<InputSelection<DialCodeResolverKey, DialCode>> selections =
       countryCodes
           .map(
             (DialCode country) => InputSelection(
@@ -72,7 +72,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
         isFullScreen: Breakpoint.of(context) == Breakpoint.small ? true : null,
         viewHintText: _countriesResolver.resolve(
           context,
-          CountryResolverKey.selectDialCode,
+          DialCodeResolverKey.selectDialCode,
         ),
         builder: (context, controller) {
           return Row(
@@ -190,7 +190,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
                       child: Text(
                         _countriesResolver.resolve(
                           context,
-                          CountryResolverKey.selectDialCode,
+                          DialCodeResolverKey.selectDialCode,
                         ),
                         style: DialogTheme.of(context).titleTextStyle ??
                             Theme.of(context).textTheme.titleLarge!,
