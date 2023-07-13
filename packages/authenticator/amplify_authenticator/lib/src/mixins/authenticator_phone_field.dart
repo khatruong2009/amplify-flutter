@@ -14,7 +14,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
         T extends AuthenticatorFormField<FieldType, String>>
     on AuthenticatorFormFieldState<FieldType, String, T>
     implements SelectableConfig<DialCodeResolverKey, DialCode> {
-  late final DialCodeResolver _countriesResolver = stringResolver.countries;
+  late final DialCodeResolver _dialCodeResolver = stringResolver.countries;
 
   @override
   DialCode get selectionValue => state.country;
