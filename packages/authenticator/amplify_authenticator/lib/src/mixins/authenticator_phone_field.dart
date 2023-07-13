@@ -34,13 +34,13 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
 
   List<DialCode> get filteredCountries => countryCodes
       .where(
-        (country) => _countriesResolver
+        (country) => _dialCodeResolver
             .resolve(context, country.key)
             .toLowerCase()
             .contains(_searchVal.toLowerCase()),
       )
       .sortedBy(
-        (country) => _countriesResolver.resolve(context, country.key),
+        (country) => _dialCodeResolver.resolve(context, country.key),
       )
       .toList();
 
@@ -70,7 +70,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
         // Always use full screen at small break point. Otherwise use default
         // behavior.
         isFullScreen: Breakpoint.of(context) == Breakpoint.small ? true : null,
-        viewHintText: _countriesResolver.resolve(
+        viewHintText: _dialCodeResolver.resolve(
           context,
           DialCodeResolverKey.selectDialCode,
         ),
@@ -102,13 +102,13 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
                 (country) =>
                     country.value
                         .contains(controller.text.replaceFirst('+', '')) ||
-                    _countriesResolver
+                    _dialCodeResolver
                         .resolve(context, country.key)
                         .toLowerCase()
                         .contains(controller.text.toLowerCase()),
               )
               .sortedBy(
-                (country) => _countriesResolver.resolve(context, country.key),
+                (country) => _dialCodeResolver.resolve(context, country.key),
               );
           return filteredCountries.map(
             (country) => InkWell(
@@ -124,7 +124,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
                       Navigator.of(context).pop();
                     },
                     title: Text(
-                      _countriesResolver.resolve(context, country.key),
+                      _dialCodeResolver.resolve(context, country.key),
                       style: textStyle,
                     ),
                     // Prevent overflows during animations.
@@ -188,7 +188,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
                     Padding(
                       padding: const EdgeInsets.all(24),
                       child: Text(
-                        _countriesResolver.resolve(
+                        _dialCodeResolver.resolve(
                           context,
                           DialCodeResolverKey.selectDialCode,
                         ),
@@ -222,7 +222,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
                           return SimpleDialogOption(
                             onPressed: () => Navigator.of(context).pop(current),
                             child: Text(
-                              '${_countriesResolver.resolve(context, current.key)} '
+                              '${_dialCodeResolver.resolve(context, current.key)} '
                               '(+${current.value})',
                             ),
                           );
