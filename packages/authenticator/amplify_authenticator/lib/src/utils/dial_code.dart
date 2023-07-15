@@ -507,5 +507,3 @@ const dialCodes = [
   DialCode._('ZM', '260', DialCodeResolverKey.zm$),
   DialCode._('ZW', '263', DialCodeResolverKey.zw$)
 ];
-
-const initialDialCode = DialCode.us;
