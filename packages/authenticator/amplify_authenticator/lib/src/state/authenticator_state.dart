@@ -167,9 +167,9 @@ class AuthenticatorState extends ChangeNotifier {
   String _newPassword = '';
 
   /// The value for the country code portion of the phone number field
-  DialCode get country => _country;
+  DialCode get dialCode => _country;
 
-  set country(DialCode newCountry) {
+  set dialCode(DialCode newCountry) {
     final oldCountry = _country;
     final currentPhoneNumber =
         authAttributes[CognitoUserAttributeKey.phoneNumber];

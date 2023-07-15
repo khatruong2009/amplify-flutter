@@ -261,7 +261,7 @@ class DialCode {
 /// Countries are listed in alphabetical order according to the default
 /// translations, not the country code. However, countryCodes will be ordered
 /// according to the i18n content at runtime to account for custom translations.
-const countryCodes = [
+const dialCodes = [
   DialCode._('AF', '93', DialCodeResolverKey.af$),
   DialCode._('AX', '358', DialCodeResolverKey.ax$),
   DialCode._('AL', '355', DialCodeResolverKey.al$),

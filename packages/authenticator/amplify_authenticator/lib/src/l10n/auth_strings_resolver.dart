@@ -21,12 +21,14 @@ class AuthStringResolver {
   /// {@macro amplify_authenticator.auth_string_resolver}
   const AuthStringResolver({
     ButtonResolver? buttons,
-    DialCodeResolver? countries,
+    // ignore: deprecated_member_use_from_same_package
+    @Deprecated('Use areas instead') CountryResolver? countries,
+    DialCodeResolver? areas,
     InputResolver? inputs,
     MessageResolver? messages,
     TitleResolver? titles,
   })  : buttons = buttons ?? const ButtonResolver(),
-        countries = countries ?? const DialCodeResolver(),
+        areas = areas ?? countries ?? const DialCodeResolver(),
         inputs = inputs ?? const InputResolver(),
         titles = titles ?? const TitleResolver(),
         messages = messages ?? const MessageResolver();
@@ -34,8 +36,12 @@ class AuthStringResolver {
   /// The resolver class for shared button Widgets
   final ButtonResolver buttons;
 
-  /// The resolver class for countries
-  final DialCodeResolver countries;
+  /// The resolver class for area codes
+  final DialCodeResolver areas;
+
+  /// The resolver class for area codes
+  @Deprecated('Use areas instead')
+  DialCodeResolver get countries => areas;
 
   /// The resolver class for shared input Widgets
   final InputResolver inputs;
@@ -50,7 +56,7 @@ class AuthStringResolver {
   bool operator ==(Object other) =>
       other is AuthStringResolver &&
       buttons == other.buttons &&
-      countries == other.countries &&
+      areas == other.areas &&
       inputs == other.inputs &&
       titles == other.titles;
 

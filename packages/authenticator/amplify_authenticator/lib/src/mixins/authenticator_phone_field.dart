@@ -14,16 +14,16 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
         T extends AuthenticatorFormField<FieldType, String>>
     on AuthenticatorFormFieldState<FieldType, String, T>
     implements SelectableConfig<DialCodeResolverKey, DialCode> {
-  late final DialCodeResolver _dialCodeResolver = stringResolver.countries;
+  late final DialCodeResolver _dialCodeResolver = stringResolver.areas;
 
   @override
-  DialCode get selectionValue => state.country;
+  DialCode get selectionValue => state.dialCode;
 
   String _searchVal = '';
 
   @override
   late final List<InputSelection<DialCodeResolverKey, DialCode>> selections =
-      countryCodes
+      dialCodes
           .map(
             (DialCode country) => InputSelection(
               label: country.key,
@@ -32,7 +32,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
           )
           .toList();
 
-  List<DialCode> get filteredCountries => countryCodes
+  List<DialCode> get filteredCountries => dialCodes
       .where(
         (country) => _dialCodeResolver
             .resolve(context, country.key)
@@ -45,11 +45,11 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
       .toList();
 
   String? formatPhoneNumber(String? phoneNumber) {
-    return phoneNumber?.ensureStartsWith('+${state.country.value}');
+    return phoneNumber?.ensureStartsWith('+${state.dialCode.value}');
   }
 
   String displayPhoneNumber(String phoneNumber) {
-    final prefix = '+${state.country.value}';
+    final prefix = '+${state.dialCode.value}';
     if (phoneNumber.startsWith(prefix)) {
       phoneNumber = phoneNumber.substring(prefix.length);
     }
@@ -57,7 +57,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
   }
 
   String get dialCode {
-    return state.country.value;
+    return state.dialCode.value;
   }
 
   @override
@@ -79,7 +79,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                '+${state.country.value}',
+                '+${state.dialCode.value}',
                 textAlign: TextAlign.center,
               ),
               const Flexible(
@@ -97,7 +97,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
         suggestionsBuilder: ((context, SearchController controller) {
           final textStyle = Theme.of(context).listTileTheme.titleTextStyle ??
               const TextStyle(fontSize: 15);
-          final filteredCountries = countryCodes
+          final filteredCountries = dialCodes
               .where(
                 (country) =>
                     country.value
@@ -113,14 +113,14 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
           return filteredCountries.map(
             (country) => InkWell(
               onTap: () {
-                state.country = country;
+                state.dialCode = country;
                 Navigator.of(context).pop();
               },
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   return ListTile(
                     onTap: () {
-                      state.country = country;
+                      state.dialCode = country;
                       Navigator.of(context).pop();
                     },
                     title: Text(
@@ -153,7 +153,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                '+${state.country.value}',
+                '+${state.dialCode.value}',
                 style: Theme.of(context).inputDecorationTheme.hintStyle ??
                     Theme.of(context).textTheme.titleMedium,
                 textAlign: TextAlign.center,
@@ -241,7 +241,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
     );
 
     if (selectedCountry != null) {
-      state.country = selectedCountry;
+      state.dialCode = selectedCountry;
     }
   }
 }

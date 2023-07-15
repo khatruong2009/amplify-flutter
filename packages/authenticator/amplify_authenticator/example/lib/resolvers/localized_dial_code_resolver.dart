@@ -7,11 +7,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// Our custom country string resolver which calls into our localizations class.
 
-@Deprecated('Use DialCodeResolver instead')
-typedef CountryResolver = DialCodeResolver;
-
-class LocalizedCountryResolver extends DialCodeResolver {
-  const LocalizedCountryResolver();
+class LocalizedDialResolver extends DialCodeResolver {
+  const LocalizedDialResolver();
 
   @override
   String us(BuildContext context) {
