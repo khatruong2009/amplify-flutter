@@ -258,6 +258,9 @@ enum DialCodeResolverKey {
 @Deprecated('Use DialCodeResolverKey instead')
 typedef CountryResolverKey = DialCodeResolverKey;
 
+@Deprecated('Use DialCodeResolver instead')
+typedef CountryResolver = DialCodeResolver;
+
 class DialCodeResolver extends Resolver<DialCodeResolverKey> {
   const DialCodeResolver();
 
