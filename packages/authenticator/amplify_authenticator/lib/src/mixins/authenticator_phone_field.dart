@@ -7,7 +7,6 @@ import 'package:amplify_authenticator/src/utils/breakpoint.dart';
 import 'package:amplify_authenticator/src/utils/dial_code.dart';
 import 'package:amplify_authenticator/src/widgets/authenticator_input_config.dart';
 import 'package:amplify_authenticator/src/widgets/form_field.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
@@ -23,7 +22,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
 
   @override
   late final List<InputSelection<DialCodeResolverKey, DialCode>> selections =
-      dialCodes
+      DialCode.values
           .map(
             (DialCode country) => InputSelection(
               label: country.key,
@@ -32,17 +31,19 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
           )
           .toList();
 
-  List<DialCode> get filteredCountries => dialCodes
+  List<DialCode> get filteredCountries => DialCode.values
       .where(
         (country) => _dialCodeResolver
             .resolve(context, country.key)
             .toLowerCase()
             .contains(_searchVal.toLowerCase()),
       )
-      .sortedBy(
-        (country) => _dialCodeResolver.resolve(context, country.key),
-      )
-      .toList();
+      .toList()
+    ..sort(
+      (a, b) => _dialCodeResolver.resolve(context, a.key).compareTo(
+            _dialCodeResolver.resolve(context, b.key),
+          ),
+    );
 
   String? formatPhoneNumber(String? phoneNumber) {
     return phoneNumber?.ensureStartsWith('+${state.dialCode.value}');
@@ -97,7 +98,7 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
         suggestionsBuilder: ((context, SearchController controller) {
           final textStyle = Theme.of(context).listTileTheme.titleTextStyle ??
               const TextStyle(fontSize: 15);
-          final filteredCountries = dialCodes
+          final filteredCountries = DialCode.values
               .where(
                 (country) =>
                     country.value
@@ -107,9 +108,12 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
                         .toLowerCase()
                         .contains(controller.text.toLowerCase()),
               )
-              .sortedBy(
-                (country) => _dialCodeResolver.resolve(context, country.key),
-              );
+              .toList()
+            ..sort(
+              (a, b) => _dialCodeResolver.resolve(context, a.key).compareTo(
+                    _dialCodeResolver.resolve(context, b.key),
+                  ),
+            );
           return filteredCountries.map(
             (country) => InkWell(
               onTap: () {
