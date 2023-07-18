@@ -170,13 +170,13 @@ class AuthenticatorState extends ChangeNotifier {
   DialCode get dialCode => _country;
 
   set dialCode(DialCode newCountry) {
-    final oldCountry = _country;
+    final oldDialCode = _country;
     final currentPhoneNumber =
         authAttributes[CognitoUserAttributeKey.phoneNumber];
     if (currentPhoneNumber != null) {
       authAttributes[CognitoUserAttributeKey.phoneNumber] =
           currentPhoneNumber.replaceFirst(
-        oldCountry.value,
+        oldDialCode.value,
         newCountry.value,
       );
     }
