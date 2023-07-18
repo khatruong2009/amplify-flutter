@@ -167,24 +167,24 @@ class AuthenticatorState extends ChangeNotifier {
   String _newPassword = '';
 
   /// The value for the country code portion of the phone number field
-  DialCode get dialCode => _country;
+  DialCode get dialCode => _dialCode;
 
-  set dialCode(DialCode newCountry) {
-    final oldDialCode = _country;
+  set dialCode(DialCode newDialCode) {
+    final oldDialCode = _dialCode;
     final currentPhoneNumber =
         authAttributes[CognitoUserAttributeKey.phoneNumber];
     if (currentPhoneNumber != null) {
       authAttributes[CognitoUserAttributeKey.phoneNumber] =
           currentPhoneNumber.replaceFirst(
         oldDialCode.value,
-        newCountry.value,
+        newDialCode.value,
       );
     }
-    _country = newCountry;
+    _dialCode = newDialCode;
     notifyListeners();
   }
 
-  late DialCode _country = defaultDialCode;
+  late DialCode _dialCode = defaultDialCode;
   DialCode defaultDialCode;
 
   final Map<CognitoUserAttributeKey, String> authAttributes = {};
