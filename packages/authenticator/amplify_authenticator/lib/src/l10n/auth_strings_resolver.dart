@@ -28,7 +28,7 @@ class AuthStringResolver {
     MessageResolver? messages,
     TitleResolver? titles,
   })  : buttons = buttons ?? const ButtonResolver(),
-        areas = areas ?? countries ?? const DialCodeResolver(),
+        dialCodes = areas ?? countries ?? const DialCodeResolver(),
         inputs = inputs ?? const InputResolver(),
         titles = titles ?? const TitleResolver(),
         messages = messages ?? const MessageResolver();
@@ -37,11 +37,11 @@ class AuthStringResolver {
   final ButtonResolver buttons;
 
   /// The resolver class for area codes
-  final DialCodeResolver areas;
+  final DialCodeResolver dialCodes;
 
   /// The resolver class for area codes
   @Deprecated('Use areas instead')
-  DialCodeResolver get countries => areas;
+  DialCodeResolver get countries => dialCodes;
 
   /// The resolver class for shared input Widgets
   final InputResolver inputs;
@@ -56,7 +56,7 @@ class AuthStringResolver {
   bool operator ==(Object other) =>
       other is AuthStringResolver &&
       buttons == other.buttons &&
-      areas == other.areas &&
+      dialCodes == other.dialCodes &&
       inputs == other.inputs &&
       titles == other.titles;
 
