@@ -3,19 +3,18 @@
 
 import 'package:amplify_authenticator/src/l10n/dial_code_resolver.dart';
 
-  /// A list of [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) dial codes.
-  ///
-  /// The enum name will be equal to the [alpha 2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
-  /// except in cases where this results in a conflict with Dart reserved
-  /// keywords. In those cases, a "1" is added as a suffix.
-  enum DialCode {
-
+/// A list of [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) dial codes.
+///
+/// The enum name will be equal to the [alpha 2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+/// except in cases where this results in a conflict with Dart reserved
+/// keywords. In those cases, a "1" is added as a suffix.
+enum DialCode {
   us._('US', '1', DialCodeResolverKey.us$),
   af._('AF', '93', DialCodeResolverKey.af$),
   ax._('AX', '358', DialCodeResolverKey.ax$),
   al._('AL', '355', DialCodeResolverKey.al$),
   dz._('DZ', '213', DialCodeResolverKey.dz$),
-  as._('AS1', '1684', DialCodeResolverKey.as1$),
+  as1._('AS1', '1684', DialCodeResolverKey.as1$),
   ad._('AD', '376', DialCodeResolverKey.ad$),
   ao._('AO', '244', DialCodeResolverKey.ao$),
   ai._('AI', '1264', DialCodeResolverKey.ai$),
