@@ -3,14 +3,12 @@
 
 import 'package:amplify_authenticator/src/l10n/dial_code_resolver.dart';
 
-enum DialCode {
-  /// List of country information.
+  /// A list of [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) dial codes.
   ///
-  /// Countries are listed in alphabetical order according to the default
-  /// translations, not the dial code. However, DialCodes will be ordered
-  /// according to the i18n content at runtime to account for custom translations.
-  /// Note: India, Iceland, and the Dominican Republic dial codes are slightly modified
-  /// due to their codes containing conflicts in the dart language
+  /// The enum name will be equal to the [alpha 2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+  /// except in cases where this results in a conflict with Dart reserved
+  /// keywords. In those cases, a "1" is added as a suffix.
+  enum DialCode {
 
   us._('US', '1', DialCodeResolverKey.us$),
   af._('AF', '93', DialCodeResolverKey.af$),
