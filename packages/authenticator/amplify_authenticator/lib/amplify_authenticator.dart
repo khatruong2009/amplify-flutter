@@ -308,7 +308,7 @@ class Authenticator extends StatefulWidget {
     this.initialStep = AuthenticatorStep.signIn,
     this.authenticatorBuilder,
     this.padding = const EdgeInsets.all(32),
-    this.dialCodeOptions = const DialCodeOptions(defaultDialCode: DialCode.us),
+    this.dialCodeOptions = const DialCodeOptions(),
   }) :
         // ignore: prefer_asserts_with_message
         assert(() {
