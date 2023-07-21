@@ -185,7 +185,7 @@ class AuthenticatorState extends ChangeNotifier {
   }
 
   late DialCode _dialCode = defaultDialCode;
-  DialCode defaultDialCode;
+  final DialCode defaultDialCode;
 
   final Map<CognitoUserAttributeKey, String> authAttributes = {};
 
