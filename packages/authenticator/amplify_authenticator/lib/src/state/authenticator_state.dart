@@ -19,7 +19,7 @@ typedef BlocEventPredicate = bool Function(AuthState state);
 ///
 /// Intended to be used within custom UIs for the Amplify Authenticator.
 class AuthenticatorState extends ChangeNotifier {
-  AuthenticatorState(this._authBloc, {this.defaultDialCode = DialCode.us}) {
+  AuthenticatorState(this._authBloc, {required this.defaultDialCode}) {
     // Listen to step changes to know when to clear the form. Calling `clean`
     // from the forms' dispose method is unreliable since it may be called after
     // the transitioning form's first build is called.
