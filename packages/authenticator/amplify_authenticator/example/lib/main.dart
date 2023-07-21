@@ -83,7 +83,7 @@ class _MyAppState extends State<MyApp> {
     // automatically configures the default for the others.
     const stringResolver = AuthStringResolver(
       buttons: LocalizedButtonResolver(),
-      areas: LocalizedDialResolver(),
+      dialCodes: LocalizedDialResolver(),
       titles: LocalizedTitleResolver(),
       inputs: LocalizedInputResolver(),
     );
