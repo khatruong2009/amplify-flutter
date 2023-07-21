@@ -23,12 +23,12 @@ class AuthStringResolver {
     ButtonResolver? buttons,
     // ignore: deprecated_member_use_from_same_package
     @Deprecated('Use areas instead') CountryResolver? countries,
-    DialCodeResolver? areas,
+    DialCodeResolver? dialCodes,
     InputResolver? inputs,
     MessageResolver? messages,
     TitleResolver? titles,
   })  : buttons = buttons ?? const ButtonResolver(),
-        dialCodes = areas ?? countries ?? const DialCodeResolver(),
+        dialCodes = dialCodes ?? countries ?? const DialCodeResolver(),
         inputs = inputs ?? const InputResolver(),
         titles = titles ?? const TitleResolver(),
         messages = messages ?? const MessageResolver();
@@ -40,7 +40,7 @@ class AuthStringResolver {
   final DialCodeResolver dialCodes;
 
   /// The resolver class for area codes
-  @Deprecated('Use areas instead')
+  @Deprecated('Use dialCodes instead')
   DialCodeResolver get countries => dialCodes;
 
   /// The resolver class for shared input Widgets

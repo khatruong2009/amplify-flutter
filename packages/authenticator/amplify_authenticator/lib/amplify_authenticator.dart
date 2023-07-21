@@ -469,13 +469,13 @@ class Authenticator extends StatefulWidget {
           'defaultDialCode',
           dialCodeOptions.defaultDialCode,
         ),
+      )
+      ..add(
+        DiagnosticsProperty<DialCodeOptions>(
+          'dialCodeOptions',
+          dialCodeOptions,
+        ),
       );
-    properties.add(
-      DiagnosticsProperty<DialCodeOptions>(
-        'dialCodeOptions',
-        dialCodeOptions,
-      ),
-    );
   }
 }
 
