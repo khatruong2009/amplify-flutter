@@ -7,6 +7,7 @@ import 'package:amplify_authenticator/src/utils/breakpoint.dart';
 import 'package:amplify_authenticator/src/utils/dial_code.dart';
 import 'package:amplify_authenticator/src/widgets/authenticator_input_config.dart';
 import 'package:amplify_authenticator/src/widgets/form_field.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
@@ -39,10 +40,8 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
             .contains(_searchVal.toLowerCase()),
       )
       .toList()
-    ..sort(
-      (a, b) => _dialCodeResolver.resolve(context, a.key).compareTo(
-            _dialCodeResolver.resolve(context, b.key),
-          ),
+    ..sortedBy(
+      (dialCode) => _dialCodeResolver.resolve(context, dialCode.key),
     );
 
   String? formatPhoneNumber(String? phoneNumber) {
@@ -100,19 +99,17 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
               const TextStyle(fontSize: 15);
           final filteredCountries = DialCode.values
               .where(
-                (country) =>
-                    country.value
+                (dialCode) =>
+                    dialCode.value
                         .contains(controller.text.replaceFirst('+', '')) ||
                     _dialCodeResolver
-                        .resolve(context, country.key)
+                        .resolve(context, dialCode.key)
                         .toLowerCase()
                         .contains(controller.text.toLowerCase()),
               )
               .toList()
-            ..sort(
-              (a, b) => _dialCodeResolver.resolve(context, a.key).compareTo(
-                    _dialCodeResolver.resolve(context, b.key),
-                  ),
+            ..sortedBy(
+              (dialCode) => _dialCodeResolver.resolve(context, dialCode.key),
             );
           return filteredCountries.map(
             (country) => InkWell(
