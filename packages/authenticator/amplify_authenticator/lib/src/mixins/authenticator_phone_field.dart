@@ -39,10 +39,9 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
             .toLowerCase()
             .contains(_searchVal.toLowerCase()),
       )
-      .toList()
-    ..sortedBy(
-      (dialCode) => _dialCodeResolver.resolve(context, dialCode.key),
-    );
+      .sortedBy(
+        (dialCode) => _dialCodeResolver.resolve(context, dialCode.key),
+      );
 
   String? formatPhoneNumber(String? phoneNumber) {
     return phoneNumber?.ensureStartsWith('+${state.dialCode.value}');
@@ -107,10 +106,9 @@ mixin AuthenticatorPhoneFieldMixin<FieldType extends Enum,
                         .toLowerCase()
                         .contains(controller.text.toLowerCase()),
               )
-              .toList()
-            ..sortedBy(
-              (dialCode) => _dialCodeResolver.resolve(context, dialCode.key),
-            );
+              .sortedBy(
+                (dialCode) => _dialCodeResolver.resolve(context, dialCode.key),
+              );
           return filteredCountries.map(
             (country) => InkWell(
               onTap: () {
