@@ -22,7 +22,7 @@ class AuthStringResolver {
   const AuthStringResolver({
     ButtonResolver? buttons,
     // ignore: deprecated_member_use_from_same_package
-    @Deprecated('Use areas instead') CountryResolver? countries,
+    @Deprecated('Use dialCodes instead') CountryResolver? countries,
     DialCodeResolver? dialCodes,
     InputResolver? inputs,
     MessageResolver? messages,
